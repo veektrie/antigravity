@@ -37,7 +37,7 @@ export default function HomePage() {
       
       {/* 1. Hero Section */}
       <section
-        className="relative w-full flex items-center overflow-hidden"
+        className="relative w-full flex items-center justify-center overflow-hidden"
         style={{
           minHeight: "100vh",
           backgroundImage: "url('/hero-truck.jpg')",
@@ -46,94 +46,115 @@ export default function HomePage() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        {/* Multi-layered dark overlay for readability */}
-        <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(105deg, rgba(13,27,62,0.92) 0%, rgba(13,27,62,0.75) 45%, rgba(0,0,0,0.45) 100%)" }} />
-        <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%)" }} />
+        {/* Dark overlays */}
+        <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(to bottom, rgba(5,12,35,0.85) 0%, rgba(5,12,35,0.70) 50%, rgba(5,12,35,0.90) 100%)" }} />
 
-        <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-10 w-full text-white py-32 md:py-48">
-          <div className="max-w-3xl space-y-10">
-            <div className="space-y-6">
-              <motion.div 
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="inline-flex items-center space-x-2 px-3 py-1.5 border border-white/20 rounded-full bg-white/10 backdrop-blur-md w-fit"
-              >
-                <div className="h-2 w-2 rounded-full bg-accent animate-pulse" />
-                <span className="text-[10px] font-bold uppercase tracking-widest text-white/90">Available for same-day delivery</span>
-              </motion.div>
+        <div className="relative z-20 w-full max-w-5xl mx-auto px-6 text-white text-center flex flex-col items-center py-36 md:py-48 space-y-8">
 
-              <motion.h1 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="text-6xl md:text-8xl font-extrabold tracking-tighter leading-[0.95] italic uppercase"
-              >
-                Reliable <br />
-                <span className="not-italic text-accent">Logistics.</span> <br /> 
-                <span className="text-white/80 not-italic">Local Speed.</span>
-              </motion.h1>
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center space-x-2 px-4 py-1.5 border border-white/20 rounded-full bg-white/10 backdrop-blur-md"
+          >
+            <div className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+            <span className="text-[10px] font-bold uppercase tracking-widest text-white/90">Same-day slots available across the UK</span>
+          </motion.div>
 
-              <motion.p 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-white/65 text-sm md:text-base font-medium uppercase tracking-[0.2em] leading-relaxed max-w-lg"
-              >
-                High-priority shipments handled with precision. Professional courier infrastructure across the United Kingdom.
-              </motion.p>
-            </div>
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-7xl md:text-[9rem] font-extrabold tracking-tighter leading-[0.88] italic uppercase"
+          >
+            Reliable <br />
+            <span className="text-accent not-italic">Logistics.</span>
+          </motion.h1>
 
-            {/* Inline Mini Quote Form */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-2xl max-w-2xl overflow-visible"
+          {/* Subtext */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-white/60 text-sm md:text-base font-medium leading-relaxed max-w-xl"
+          >
+            Professional courier infrastructure built for speed, reliability, and scale.
+            Eben Logistics delivers across every region of the United Kingdom.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-center gap-4"
+          >
+            <Link
+              href="#quote-form"
+              className="px-10 py-4 bg-accent text-white font-bold uppercase tracking-widest text-xs rounded-xl hover:bg-orange-600 active:scale-95 transition-all shadow-xl shadow-orange-500/20"
             >
-              <div className="grid grid-cols-1 md:grid-cols-4">
-                {/* FROM — Searchable City Dropdown */}
-                <div className="px-5 py-4 border-b md:border-b-0 md:border-r border-white/10">
-                  <CitySelect
-                    label="From"
-                    value={fromCity}
-                    onChange={setFromCity}
-                    placeholder="Pick city"
-                  />
-                </div>
-                {/* TO — Searchable City Dropdown */}
-                <div className="px-5 py-4 border-b md:border-b-0 md:border-r border-white/10">
-                  <CitySelect
-                    label="To"
-                    value={toCity}
-                    onChange={setToCity}
-                    placeholder="Pick city"
-                  />
-                </div>
-                {/* SERVICE */}
-                <div className="flex flex-col px-5 py-4 space-y-1.5 border-b md:border-b-0 md:border-r border-white/10">
-                  <span className="text-[8px] font-bold uppercase tracking-widest text-white/40">Service</span>
-                  <select className="text-sm font-bold outline-none bg-transparent appearance-none text-white/90">
-                    <option className="text-black bg-white">Same Day</option>
-                    <option className="text-black bg-white">Next Day</option>
-                    <option className="text-black bg-white">Pallet / Freight</option>
-                    <option className="text-black bg-white">Contract</option>
-                  </select>
-                </div>
-                <button className="bg-accent text-white font-bold py-5 hover:bg-orange-600 active:scale-95 transition-all text-xs uppercase tracking-widest shadow-xl shadow-orange-800/30 rounded-b-2xl md:rounded-b-none md:rounded-r-2xl">
-                  Get Quote
-                </button>
+              Get a Quote
+            </Link>
+            <Link
+              href="/services"
+              className="px-10 py-4 bg-white/10 border border-white/20 backdrop-blur-sm text-white font-bold uppercase tracking-widest text-xs rounded-xl hover:bg-white/20 active:scale-95 transition-all"
+            >
+              Our Services
+            </Link>
+          </motion.div>
+
+          {/* Centered Quote Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45 }}
+            className="w-full max-w-3xl bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-2xl overflow-visible mt-4"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-4">
+              {/* FROM */}
+              <div className="px-5 py-4 border-b md:border-b-0 md:border-r border-white/10">
+                <CitySelect
+                  label="From"
+                  value={fromCity}
+                  onChange={setFromCity}
+                  placeholder="Pick city"
+                />
               </div>
-            </motion.div>
-            
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/40 italic"
-            >
-              Same-day slots available · We respond within 47 minutes
-            </motion.p>
-          </div>
+              {/* TO */}
+              <div className="px-5 py-4 border-b md:border-b-0 md:border-r border-white/10">
+                <CitySelect
+                  label="To"
+                  value={toCity}
+                  onChange={setToCity}
+                  placeholder="Pick city"
+                />
+              </div>
+              {/* SERVICE */}
+              <div className="flex flex-col px-5 py-4 space-y-1.5 border-b md:border-b-0 md:border-r border-white/10">
+                <span className="text-[8px] font-bold uppercase tracking-widest text-white/40">Service</span>
+                <select className="text-sm font-bold outline-none bg-transparent appearance-none text-white/90">
+                  <option className="text-black bg-white">Same Day</option>
+                  <option className="text-black bg-white">Next Day</option>
+                  <option className="text-black bg-white">Pallet / Freight</option>
+                  <option className="text-black bg-white">Contract</option>
+                </select>
+              </div>
+              <button className="bg-accent text-white font-bold py-5 hover:bg-orange-600 active:scale-95 transition-all text-xs uppercase tracking-widest shadow-xl shadow-orange-800/30 rounded-b-2xl md:rounded-b-none md:rounded-r-2xl">
+                Get Quote
+              </button>
+            </div>
+          </motion.div>
+
+          {/* Urgency line */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30 italic"
+          >
+            We respond within 47 minutes · 24/7 support available
+          </motion.p>
         </div>
       </section>
 
