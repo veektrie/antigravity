@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import CitySelect from "@/components/CitySelect";
 import { 
   ArrowRight, 
   Check, 
@@ -28,6 +29,9 @@ import QuoteForm from "@/components/QuoteForm";
 import { BRAND, SERVICES } from "@/lib/constants";
 
 export default function HomePage() {
+  const [fromCity, setFromCity] = useState("");
+  const [toCity, setToCity] = useState("");
+
   return (
     <div className="flex flex-col min-h-screen">
       
@@ -84,18 +88,29 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-2xl max-w-2xl overflow-hidden"
+              className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-2xl max-w-2xl overflow-visible"
             >
               <div className="grid grid-cols-1 md:grid-cols-4">
-                <div className="flex flex-col px-5 py-4 space-y-1.5">
-                  <span className="text-[8px] font-bold uppercase tracking-widest text-white/40">From</span>
-                  <input type="text" placeholder="City" className="text-sm font-bold outline-none bg-transparent placeholder:text-white/25 text-white" />
+                {/* FROM — Searchable City Dropdown */}
+                <div className="px-5 py-4 border-b md:border-b-0 md:border-r border-white/10">
+                  <CitySelect
+                    label="From"
+                    value={fromCity}
+                    onChange={setFromCity}
+                    placeholder="Pick city"
+                  />
                 </div>
-                <div className="flex flex-col px-5 py-4 space-y-1.5 border-t md:border-t-0 md:border-l border-white/10">
-                  <span className="text-[8px] font-bold uppercase tracking-widest text-white/40">To</span>
-                  <input type="text" placeholder="City" className="text-sm font-bold outline-none bg-transparent placeholder:text-white/25 text-white" />
+                {/* TO — Searchable City Dropdown */}
+                <div className="px-5 py-4 border-b md:border-b-0 md:border-r border-white/10">
+                  <CitySelect
+                    label="To"
+                    value={toCity}
+                    onChange={setToCity}
+                    placeholder="Pick city"
+                  />
                 </div>
-                <div className="flex flex-col px-5 py-4 space-y-1.5 border-t md:border-t-0 md:border-l border-white/10">
+                {/* SERVICE */}
+                <div className="flex flex-col px-5 py-4 space-y-1.5 border-b md:border-b-0 md:border-r border-white/10">
                   <span className="text-[8px] font-bold uppercase tracking-widest text-white/40">Service</span>
                   <select className="text-sm font-bold outline-none bg-transparent appearance-none text-white/90">
                     <option className="text-black bg-white">Same Day</option>
@@ -104,7 +119,7 @@ export default function HomePage() {
                     <option className="text-black bg-white">Contract</option>
                   </select>
                 </div>
-                <button className="bg-accent text-white font-bold py-5 hover:bg-orange-600 active:scale-95 transition-all text-xs uppercase tracking-widest shadow-xl shadow-orange-800/30">
+                <button className="bg-accent text-white font-bold py-5 hover:bg-orange-600 active:scale-95 transition-all text-xs uppercase tracking-widest shadow-xl shadow-orange-800/30 rounded-b-2xl md:rounded-b-none md:rounded-r-2xl">
                   Get Quote
                 </button>
               </div>
