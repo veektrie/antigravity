@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import CitySelect from "@/components/CitySelect";
+import ServiceSelect from "@/components/ServiceSelect";
 import { 
   ArrowRight, 
   Check, 
@@ -31,6 +32,7 @@ import { BRAND, SERVICES } from "@/lib/constants";
 export default function HomePage() {
   const [fromCity, setFromCity] = useState("");
   const [toCity, setToCity] = useState("");
+  const [serviceType, setServiceType] = useState("Same Day");
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -131,14 +133,8 @@ export default function HomePage() {
                 />
               </div>
               {/* SERVICE */}
-              <div className="flex flex-col px-5 py-4 space-y-1.5 border-b md:border-b-0 md:border-r border-white/10">
-                <span className="text-[8px] font-bold uppercase tracking-widest text-white/40">Service</span>
-                <select className="text-sm font-bold outline-none bg-transparent appearance-none text-white/90">
-                  <option className="text-black bg-white">Same Day</option>
-                  <option className="text-black bg-white">Next Day</option>
-                  <option className="text-black bg-white">Pallet / Freight</option>
-                  <option className="text-black bg-white">Contract</option>
-                </select>
+              <div className="px-5 py-4 border-b md:border-b-0 md:border-r border-white/10">
+                <ServiceSelect value={serviceType} onChange={setServiceType} />
               </div>
               <button className="bg-accent text-white font-bold py-5 hover:bg-orange-600 active:scale-95 transition-all text-xs uppercase tracking-widest shadow-xl shadow-orange-800/30 rounded-b-2xl md:rounded-b-none md:rounded-r-2xl">
                 Get Quote
