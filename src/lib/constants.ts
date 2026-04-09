@@ -12,37 +12,37 @@ export const SERVICES = [
     title: "Same-Day Courier",
     desc: "Urgent pickup and local/national delivery within the same day.",
     link: "/services#same-day",
-    image: "https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?auto=format&fit=crop&q=80&w=800",
+    image: "/svc-same-day.jpg",
   },
   {
     title: "Next Day Delivery",
     desc: "Reliable overnight shipping across all UK mainland addresses.",
     link: "/services#next-day",
-    image: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaad5b?auto=format&fit=crop&q=80&w=800",
+    image: "/svc-next-day.jpg",
   },
   {
     title: "Pallet Delivery",
     desc: "Secure palletized transport for large, heavy, or bulk goods.",
     link: "/services#pallet",
-    image: "https://images.unsplash.com/photo-1590602846985-6101416e792c?auto=format&fit=crop&q=80&w=800",
+    image: "/svc-pallet.jpg",
   },
   {
     title: "Warehousing & Storage",
     desc: "Safe short and long-term storage solutions at our secure hubs.",
     link: "/services#warehousing",
-    image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=800",
+    image: "/svc-warehouse.jpg",
   },
   {
     title: "Contract Logistics",
     desc: "Tailored recurring service models for your constant business needs.",
     link: "/services#contract",
-    image: "https://images.unsplash.com/photo-1494412574743-019485b782df?auto=format&fit=crop&q=80&w=800",
+    image: "/svc-contract.jpg",
   },
   {
     title: "Specialist Transport",
     desc: "Fragile, medical, or high-value items handled with extreme care.",
     link: "/services#specialist",
-    image: "https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&q=80&w=800",
+    image: "/svc-specialist.jpg",
   },
 ];
 
