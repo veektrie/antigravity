@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ChevronDown, Search, MapPin } from "lucide-react";
 
-export const UK_CITIES = [
+export const UK_CITIES = [...new Set([
   // England — Major Cities
   "London", "Birmingham", "Manchester", "Leeds", "Sheffield", "Bradford",
   "Liverpool", "Bristol", "Leicester", "Coventry", "Nottingham", "Newcastle upon Tyne",
@@ -18,11 +18,11 @@ export const UK_CITIES = [
   "Preston", "Blackburn", "Bolton", "Wigan", "Oldham", "Rochdale", "Salford",
   "Stockport", "Warrington", "Crewe", "Chester", "Shrewsbury", "Worcester",
   "Hereford", "Telford", "Stafford", "Walsall", "Dudley", "Solihull",
-  "Redditch", "Rugby", "Nuneaton", "Coventry", "Warwick", "Leamington Spa",
+  "Redditch", "Rugby", "Nuneaton", "Warwick", "Leamington Spa",
   "Stratford-upon-Avon", "Lichfield", "Tamworth", "Burton upon Trent",
   "Mansfield", "Chesterfield", "Lincoln", "Grimsby", "Scunthorpe", "Grantham",
   "Boston", "Skegness", "Loughborough", "Hinckley", "Kettering", "Corby",
-  "Wellingborough", "Daventry", "Banbury", "Kidlington", "Swindon",
+  "Wellingborough", "Daventry", "Banbury", "Kidlington",
   // Scotland
   "Glasgow", "Edinburgh", "Aberdeen", "Dundee", "Inverness", "Stirling",
   "Perth", "Falkirk", "Dunfermline", "Kirkcaldy", "Livingston", "Paisley",
@@ -33,7 +33,7 @@ export const UK_CITIES = [
   // Northern Ireland
   "Belfast", "Londonderry", "Lisburn", "Newry", "Armagh", "Enniskillen",
   "Omagh", "Ballymena", "Coleraine",
-].sort();
+])].sort();
 
 interface CitySelectProps {
   label: string;
