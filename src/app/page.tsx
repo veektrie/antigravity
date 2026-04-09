@@ -32,83 +32,92 @@ export default function HomePage() {
     <div className="flex flex-col min-h-screen">
       
       {/* 1. Hero Section */}
-      <section className="relative h-screen min-h-[700px] w-full flex items-center justify-center overflow-hidden">
-        {/* Background Image - Edge-to-edge */}
-        <div className="absolute inset-0 z-0">
-          <Image 
-            src="https://images.unsplash.com/photo-1600880212319-450f37083654?auto=format&fit=crop&q=80&w=2000" 
-            alt="Eben Logistics Mercedes-Benz Truck" 
-            fill 
-            className="object-cover"
-            priority
-          />
-          {/* Multi-layered Premium Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B3E]/90 via-[#0D1B3E]/60 to-transparent z-10" />
-          <div className="absolute inset-0 bg-black/30 z-10" />
-        </div>
+      <section
+        className="relative w-full flex items-center overflow-hidden"
+        style={{
+          minHeight: "100vh",
+          backgroundImage: "url('/hero-truck.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        {/* Multi-layered dark overlay for readability */}
+        <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(105deg, rgba(13,27,62,0.92) 0%, rgba(13,27,62,0.75) 45%, rgba(0,0,0,0.45) 100%)" }} />
+        <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%)" }} />
 
-        <div className="relative z-20 max-w-7xl mx-auto px-6 w-full text-white">
+        <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-10 w-full text-white py-32 md:py-48">
           <div className="max-w-3xl space-y-10">
             <div className="space-y-6">
               <motion.div 
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="inline-flex items-center space-x-2 px-3 py-1 border border-white/20 rounded-full bg-white/10 backdrop-blur-md"
+                className="inline-flex items-center space-x-2 px-3 py-1.5 border border-white/20 rounded-full bg-white/10 backdrop-blur-md w-fit"
               >
                 <div className="h-2 w-2 rounded-full bg-accent animate-pulse" />
                 <span className="text-[10px] font-bold uppercase tracking-widest text-white/90">Available for same-day delivery</span>
               </motion.div>
+
               <motion.h1 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-6xl md:text-8xl font-extrabold tracking-tighter leading-none italic uppercase"
+                className="text-6xl md:text-8xl font-extrabold tracking-tighter leading-[0.95] italic uppercase"
               >
-                Reliable <br /> <span className="not-italic text-accent">Logistics.</span> <br /> 
-                <span className="text-white/80">Local Speed.</span>
+                Reliable <br />
+                <span className="not-italic text-accent">Logistics.</span> <br /> 
+                <span className="text-white/80 not-italic">Local Speed.</span>
               </motion.h1>
+
               <motion.p 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-white/70 text-base md:text-lg font-medium uppercase tracking-[0.2em] leading-relaxed max-w-xl"
+                className="text-white/65 text-sm md:text-base font-medium uppercase tracking-[0.2em] leading-relaxed max-w-lg"
               >
-                We handle your high-priority shipments with ultimate precision. Professional courier infrastructure across the United Kingdom.
+                High-priority shipments handled with precision. Professional courier infrastructure across the United Kingdom.
               </motion.p>
             </div>
 
-            {/* Inline Mini Quote Form - Refined for transparent dark background */}
+            {/* Inline Mini Quote Form */}
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="p-3 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-2xl max-w-2xl group focus-within:bg-white focus-within:text-black transition-all"
+              className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-2xl shadow-2xl max-w-2xl overflow-hidden"
             >
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div className="flex flex-col px-4 py-2 space-y-1">
-                  <span className="text-[8px] font-bold uppercase tracking-widest text-white/50 group-focus-within:text-muted transition-colors">From</span>
-                  <input type="text" placeholder="City" className="text-sm font-bold outline-none bg-transparent placeholder:text-white/30 group-focus-within:placeholder:text-zinc-300" />
+              <div className="grid grid-cols-1 md:grid-cols-4">
+                <div className="flex flex-col px-5 py-4 space-y-1.5">
+                  <span className="text-[8px] font-bold uppercase tracking-widest text-white/40">From</span>
+                  <input type="text" placeholder="City" className="text-sm font-bold outline-none bg-transparent placeholder:text-white/25 text-white" />
                 </div>
-                <div className="flex flex-col px-4 py-2 space-y-1 border-t md:border-t-0 md:border-l border-white/10 group-focus-within:border-zinc-200">
-                  <span className="text-[8px] font-bold uppercase tracking-widest text-white/50 group-focus-within:text-muted transition-colors">To</span>
-                  <input type="text" placeholder="City" className="text-sm font-bold outline-none bg-transparent placeholder:text-white/30 group-focus-within:placeholder:text-zinc-300" />
+                <div className="flex flex-col px-5 py-4 space-y-1.5 border-t md:border-t-0 md:border-l border-white/10">
+                  <span className="text-[8px] font-bold uppercase tracking-widest text-white/40">To</span>
+                  <input type="text" placeholder="City" className="text-sm font-bold outline-none bg-transparent placeholder:text-white/25 text-white" />
                 </div>
-                <div className="flex flex-col px-4 py-2 space-y-1 border-t md:border-t-0 md:border-l border-white/10 group-focus-within:border-zinc-200">
-                  <span className="text-[8px] font-bold uppercase tracking-widest text-white/50 group-focus-within:text-muted transition-colors">Service</span>
-                  <select className="text-sm font-bold outline-none bg-transparent appearance-none text-white group-focus-within:text-black">
-                    <option className="text-black">Same Day</option>
-                    <option className="text-black">Next Day</option>
+                <div className="flex flex-col px-5 py-4 space-y-1.5 border-t md:border-t-0 md:border-l border-white/10">
+                  <span className="text-[8px] font-bold uppercase tracking-widest text-white/40">Service</span>
+                  <select className="text-sm font-bold outline-none bg-transparent appearance-none text-white/90">
+                    <option className="text-black bg-white">Same Day</option>
+                    <option className="text-black bg-white">Next Day</option>
+                    <option className="text-black bg-white">Pallet / Freight</option>
+                    <option className="text-black bg-white">Contract</option>
                   </select>
                 </div>
-                <button className="bg-accent text-white font-bold py-4 rounded-xl hover:bg-orange-600 transition-all text-xs uppercase tracking-widest shadow-xl shadow-orange-500/20">
+                <button className="bg-accent text-white font-bold py-5 hover:bg-orange-600 active:scale-95 transition-all text-xs uppercase tracking-widest shadow-xl shadow-orange-800/30">
                   Get Quote
                 </button>
               </div>
             </motion.div>
             
-            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/50 italic">
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/40 italic"
+            >
               Same-day slots available · We respond within 47 minutes
-            </p>
+            </motion.p>
           </div>
         </div>
       </section>
