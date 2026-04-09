@@ -36,7 +36,7 @@ export default function HomePage() {
         {/* Background Image - Edge-to-edge */}
         <div className="absolute inset-0 z-0">
           <Image 
-            src="https://images.unsplash.com/photo-1586191552066-d52dd1e3d30b?auto=format&fit=crop&q=80&w=2000" 
+            src="https://images.unsplash.com/photo-1600880212319-450f37083654?auto=format&fit=crop&q=80&w=2000" 
             alt="Eben Logistics Mercedes-Benz Truck" 
             fill 
             className="object-cover"
