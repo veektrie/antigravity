@@ -38,47 +38,68 @@ const FAQ = () => {
       <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-[#1a56ff]/10 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute -bottom-40 -left-20 w-[500px] h-[500px] bg-[#1a56ff]/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 space-y-16">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 space-y-16 relative z-10">
         
-            <div className="w-full lg:w-1/2 flex flex-col justify-center">
-              <div className="space-y-0 w-full border-t border-white/10">
-                {faqs.map((faq, i) => (
-                  <div key={i} className="border-b border-white/10 overflow-hidden">
-                    <button
-                      onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                      className="w-full flex items-center justify-between py-8 text-left group"
-                    >
-                      <div className="flex items-start space-x-6 text-white font-bold max-w-[90%]">
-                        <span className="text-base tracking-widest text-[#1a56ff] mt-1 lg:mt-0">0{i+1}.</span>
-                        <span className="text-lg md:text-xl tracking-tight leading-snug group-hover:text-[#1a56ff] transition-colors">{faq.question}</span>
-                      </div>
-                      <div className={`shrink-0 h-8 w-8 rounded-full flex items-center justify-center transition-colors ${openIndex === i ? "bg-[#1a56ff]" : "bg-white/5 group-hover:bg-white/10"}`}>
-                        <ChevronDown size={14} className={`text-white transition-transform duration-300 ${openIndex === i ? "rotate-180" : ""}`} />
-                      </div>
-                    </button>
-                    <AnimatePresence>
-                      {openIndex === i && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3, ease: "easeInOut" }}
-                        >
-                          <div className="pb-10 pl-14 text-[15px] text-zinc-400 font-medium leading-[1.8] max-w-lg">
-                            {faq.answer}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                ))}
-              </div>
+        {/* Extracted Header to give it room to breathe */}
+        <div className="w-full space-y-6">
+          <div className="inline-flex items-center space-x-2 px-4 py-2 border border-white/10 rounded-full bg-white/5 backdrop-blur-md">
+            <div className="h-6 w-6 rounded-full bg-white/10 flex items-center justify-center">
+              <Package size={12} className="text-[#1a56ff]" />
             </div>
-
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[#f9f9fb]">Questions & answers</span>
           </div>
-        </section>
+          
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
+            We <span className="text-[#1a56ff]">Work Nationwide</span> for you since 1980
+          </h2>
+        </div>
+
+        <div className="bg-white/5 border border-white/10 p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-16 lg:gap-24" style={{ borderRadius: '60px', clipPath: 'polygon(0 0, calc(100% - 60px) 0, 100% 60px, 100% 100%, 0 100%)' }}>
+          
+          {/* Left Column: Interactive Map Space */}
+          <div className="w-full lg:w-1/2 flex flex-col">
+            {/* Visually Appealing Interactive TopoJSON Map */}
+            <InteractiveMap />
+          </div>
+
+          {/* Right Column: FAQ Accordion */}
+          <div className="w-full lg:w-1/2 flex flex-col justify-center">
+            <div className="space-y-0 w-full border-t border-white/10">
+              {faqs.map((faq, i) => (
+                <div key={i} className="border-b border-white/10 overflow-hidden">
+                  <button
+                    onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                    className="w-full flex items-center justify-between py-8 text-left group"
+                  >
+                    <div className="flex items-start space-x-6 text-white font-bold max-w-[90%]">
+                      <span className="text-base tracking-widest text-[#1a56ff] mt-1 lg:mt-0">0{i+1}.</span>
+                      <span className="text-lg md:text-xl tracking-tight leading-snug group-hover:text-[#1a56ff] transition-colors">{faq.question}</span>
+                    </div>
+                    <div className={`shrink-0 h-8 w-8 rounded-full flex items-center justify-center transition-colors ${openIndex === i ? "bg-[#1a56ff]" : "bg-white/5 group-hover:bg-white/10"}`}>
+                      <ChevronDown size={14} className={`text-white transition-transform duration-300 ${openIndex === i ? "rotate-180" : ""}`} />
+                    </div>
+                  </button>
+                  <AnimatePresence>
+                    {openIndex === i && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                      >
+                        <div className="pb-10 pl-14 text-[15px] text-zinc-400 font-medium leading-[1.8] max-w-lg">
+                          {faq.answer}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
