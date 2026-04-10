@@ -9,7 +9,6 @@ const nextConfig = {
       },
     ],
   },
-  transpilePackages: ["react-simple-maps", "d3-geo", "d3-array"],
 };
 
 export default nextConfig;

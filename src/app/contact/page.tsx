@@ -1,7 +1,7 @@
 import React from "react";
 import PageHeader from "@/components/PageHeader";
 import QuoteForm from "@/components/QuoteForm";
-import InteractiveMap from "@/components/InteractiveMap";
+import NetworkVisual from "@/components/NetworkVisual";
 
 export default function ContactPage() {
   return (
@@ -33,7 +33,7 @@ export default function ContactPage() {
            </div>
            
            <div className="w-full lg:w-1/2 relative z-10">
-              <InteractiveMap />
+              <NetworkVisual />
            </div>
         </div>
       </section>

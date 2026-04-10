@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { ChevronDown, ChevronUp, ArrowUp, Package } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import InteractiveMap from './InteractiveMap';
+import NetworkVisual from './NetworkVisual';
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -58,8 +58,8 @@ const FAQ = () => {
           
           {/* Left Column: Interactive Map Space */}
           <div className="w-full lg:w-1/2 flex flex-col">
-            {/* Visually Appealing Interactive TopoJSON Map */}
-            <InteractiveMap />
+            {/* High-Fidelity Network Dashboard Visual */}
+            <NetworkVisual />
           </div>
 
           {/* Right Column: FAQ Accordion */}
