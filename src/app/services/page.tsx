@@ -50,51 +50,64 @@ const serviceList = [
 
 export default function ServicesPage() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-[#f9f9fb]">
       <PageHeader 
         title="Our Services" 
         subtitle="Comprehensive logistics infrastructure engineered for professional scale."
       />
       
-      <section className="section-padding max-w-7xl mx-auto space-y-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {serviceList.map((service, index) => (
-            <div 
-              key={index}
-              className="card-border p-8 space-y-8 flex flex-col justify-between group hover:border-accent transition-all"
-            >
-              <div className="space-y-6">
-                <div className="flex justify-between items-start">
-                  <div className="h-10 w-10 bg-zinc-50 border border-border rounded-lg flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-colors">
-                    <service.icon className="h-5 w-5" />
+      <section className="py-24 md:py-32 w-full max-w-[1920px] mx-auto overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {serviceList.map((service, index) => (
+              <div 
+                key={index}
+                className="group relative p-8 lg:p-10 flex flex-col justify-between bg-[#0b0c10] shadow-[0_10px_40px_rgba(0,0,0,0.05)] transition-all duration-500 hover:-translate-y-2 h-[380px]"
+                style={{
+                  borderRadius: '40px',
+                  clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%)'
+                }}
+              >
+                <div className="space-y-8 relative z-10">
+                  <div className="flex justify-between items-start">
+                    <div className="h-14 w-14 rounded-full bg-[#1a56ff]/10 flex items-center justify-center group-hover:bg-[#1a56ff] group-hover:text-white text-[#1a56ff] transition-colors duration-500">
+                      <service.icon className="h-6 w-6" />
+                    </div>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-white/50 border border-white/10 px-3 py-1 rounded-full">{service.label}</span>
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted italic">{service.label}</span>
+                  
+                  <div className="space-y-4">
+                    <h3 className="text-2xl font-bold tracking-tight text-white">{service.title}</h3>
+                    <p className="text-[#9ca3af] text-sm leading-relaxed font-medium">{service.desc}</p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold tracking-tight uppercase italic text-[#0D1B3E]">{service.title}</h3>
-                <p className="text-xs text-muted leading-relaxed font-medium capitalize italic">{service.desc}</p>
+                
+                <div className="relative z-10 mt-auto pt-8 flex items-center justify-between border-t border-white/5 transition-opacity opacity-70 group-hover:opacity-100">
+                  <span className="text-[10px] uppercase tracking-widest text-[#1a56ff] font-bold">Discover More</span>
+                  <div className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#1a56ff] group-hover:bg-[#1a56ff] transition-all duration-300 -rotate-45 group-hover:rotate-0">
+                    <ArrowRight size={16} className="text-white" />
+                  </div>
+                </div>
               </div>
-              
-              <div className="pt-6 border-t border-border flex justify-end">
-                <Link 
-                  href="/contact" 
-                  className="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-accent hover:translate-x-1 transition-transform"
-                >
-                  <span>Book Now</span>
-                  <ArrowRight className="h-3 w-3" />
-                </Link>
-              </div>
+            ))}
+            
+            {/* CTA Unique Custom Tile matching styling */}
+            <div 
+              className="group relative p-8 lg:p-10 flex flex-col justify-center items-center text-center bg-[#1a56ff] shadow-lg transition-all duration-500 hover:-translate-y-2 h-[380px]"
+              style={{
+                borderRadius: '40px',
+                clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 0 100%)'
+              }}
+            >
+               <h3 className="text-3xl lg:text-4xl font-bold tracking-tighter text-white leading-tight mb-4">Bespoke <br/>Solutions.</h3>
+               <p className="text-xs text-white/80 leading-relaxed font-medium uppercase tracking-widest px-4 mb-8">Custom logistics map integration available.</p>
+               <Link 
+                 href="/contact" 
+                 className="px-8 py-4 bg-white text-[#0b0c10] font-bold text-xs uppercase tracking-widest rounded-full hover:bg-black hover:text-white transition-all shadow-xl"
+               >
+                 Enquire Now
+               </Link>
             </div>
-          ))}
-          
-          <div className="p-8 bg-zinc-950 text-white rounded-2xl flex flex-col items-center justify-center text-center space-y-8 border border-white/10">
-             <h3 className="text-2xl font-bold tracking-tighter uppercase italic italic">Bespoke Solutions.</h3>
-             <p className="text-[10px] text-white/60 leading-relaxed font-bold uppercase px-4 truncate">Custom logistics map integration available.</p>
-             <Link 
-               href="/contact" 
-               className="px-8 py-3 bg-accent text-white font-bold text-[10px] uppercase tracking-widest rounded-lg shadow-lg shadow-orange-500/10 hover:bg-orange-600 transition-all"
-             >
-               Enquire Now
-             </Link>
           </div>
         </div>
       </section>
