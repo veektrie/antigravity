@@ -1,114 +1,160 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import { ArrowRight, MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { BRAND } from "@/lib/constants";
 
 const QuoteForm = () => {
   return (
-    <section className="bg-white py-24 md:py-32 relative overflow-hidden w-full max-w-[1920px] mx-auto">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+    <section className="section-padding bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           
-          {/* Left Column: Contact Typography & Details */}
-          <div className="space-y-16">
+          {/* Left Column: Contact Info */}
+          <div className="lg:col-span-5 space-y-12">
             <div className="space-y-6">
-              <div className="inline-flex items-center space-x-2">
-                <span className="h-2 w-2 bg-[#1a56ff] rounded-full"></span>
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#0b0c10]/50">Contact Us</span>
+              <div className="flex items-center space-x-2">
+                <div className="h-px w-8 bg-accent" />
+                <span className="text-[10px] font-bold uppercase tracking-widest text-accent">Contact Us</span>
               </div>
-              <h2 className="text-5xl md:text-6xl lg:text-[5rem] font-bold tracking-tight leading-[1.05] text-[#0b0c10]">
-                Get In Touch With <br />
-                <span className="text-[#1a56ff]">Our Experts</span>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tighter leading-none text-[#0D1B3E] uppercase italic">
+                GET IN TOUCH WITH <br className="hidden md:block" />
+                <span className="not-italic text-[#0D1B3E]">OUR EXPERTS</span>
               </h2>
-              <p className="text-[#64748b] text-base md:text-lg leading-relaxed max-w-lg font-medium">
+              <p className="text-muted text-sm leading-relaxed max-w-md">
                 Ready to streamline your logistics? Reach out to our team for a personalized quote or to discuss how we can help your business grow.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-              <div className="space-y-3">
-                <div className="w-12 h-12 rounded-full border border-[#e2e8f0] flex items-center justify-center text-[#1a56ff] mb-6">
-                   <Phone size={20} />
+            <div className="space-y-8">
+              <div className="flex items-start space-x-6 group">
+                <div className="h-10 w-10 border border-border rounded-full flex items-center justify-center shrink-0 bg-white group-hover:border-accent transition-colors">
+                  <MapPin size={18} className="text-accent" />
                 </div>
-                <h4 className="text-xl font-bold text-[#0b0c10]">Call Us</h4>
-                <Link href={`tel:${BRAND.phone}`} className="text-[#64748b] font-medium hover:text-[#1a56ff] transition-colors block">
-                  {BRAND.phone}
-                </Link>
-                <p className="text-[10px] uppercase font-bold tracking-widest text-[#1a56ff]">24/7 Support</p>
+                <div>
+                   <h4 className="text-sm font-bold text-[#0D1B3E]">Our Location</h4>
+                   <p className="text-xs text-muted leading-relaxed uppercase">
+                     {BRAND.address}
+                   </p>
+                </div>
               </div>
 
-              <div className="space-y-3">
-                <div className="w-12 h-12 rounded-full border border-[#e2e8f0] flex items-center justify-center text-[#1a56ff] mb-6">
-                   <Mail size={20} />
+              <div className="flex items-start space-x-6 group">
+                <div className="h-10 w-10 border border-border rounded-full flex items-center justify-center shrink-0 bg-white group-hover:border-accent transition-colors">
+                  <Phone size={18} className="text-accent" />
                 </div>
-                <h4 className="text-xl font-bold text-[#0b0c10]">Email Us</h4>
-                <Link href={`mailto:${BRAND.email}`} className="text-[#64748b] font-medium hover:text-[#1a56ff] transition-colors block">
-                  {BRAND.email}
-                </Link>
-                <p className="text-[10px] uppercase font-bold tracking-widest text-[#1a56ff]">Reply in 1hr</p>
+                <div>
+                   <h4 className="text-sm font-bold text-[#0D1B3E]">Call Us Anytime</h4>
+                   <p className="text-xs text-muted font-bold tracking-tight px-1 uppercase leading-relaxed">
+                     {BRAND.phone}<br />
+                     <span className="font-normal normal-case italic">24/7 dedicated support</span>
+                   </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-6 group">
+                <div className="h-10 w-10 border border-border rounded-full flex items-center justify-center shrink-0 bg-white group-hover:border-accent transition-colors">
+                  <Mail size={18} className="text-accent" />
+                </div>
+                <div>
+                   <h4 className="text-sm font-bold text-[#0D1B3E]">Email Address</h4>
+                   <p className="text-xs text-muted leading-relaxed lowercase font-medium">
+                     {BRAND.email}<br />
+                     <span className="font-normal normal-case italic">We typically reply within 1 hour</span>
+                   </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-6 group">
+                <div className="h-10 w-10 border border-border rounded-full flex items-center justify-center shrink-0 bg-white group-hover:border-accent transition-colors">
+                  <Clock size={18} className="text-accent" />
+                </div>
+                <div>
+                   <h4 className="text-sm font-bold text-[#0D1B3E]">Working Hours</h4>
+                   <p className="text-xs text-muted leading-relaxed uppercase font-bold">
+                     Mon - Fri: 8:00 AM - 6:00 PM<br />
+                     Sat & Sun: On-call operations
+                   </p>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Delivar Beveled Quote Form */}
-          <div 
-            className="bg-[#0b0c10] p-10 md:p-14 lg:p-16 relative w-full"
-            style={{
-              borderRadius: '40px',
-              clipPath: 'polygon(0 0, calc(100% - 60px) 0, 100% 60px, 100% 100%, 0 100%)'
-            }}
-          >
-             <h3 className="text-3xl font-bold text-white mb-10 tracking-tight">Request a Quote</h3>
+          {/* Right Column: Quote Form Card */}
+          <div className="lg:col-span-7 bg-[#F7F9FC] rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-border relative overflow-hidden">
+             {/* Simple decorative circle from screenshot */}
+             <div className="absolute top-0 right-0 w-32 h-32 bg-[#FEE4D6]/50 rounded-full -mr-12 -mt-12" />
              
-             <form className="space-y-6 relative z-10 w-full">
+             <h3 className="text-2xl font-bold text-[#0D1B3E] mb-10 uppercase tracking-tighter italic">REQUEST A FREE QUOTE</h3>
+             
+             <form className="space-y-8 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#0D1B3E]">Full Name *</label>
                     <input 
                       type="text" 
-                      placeholder="Full Name" 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 px-6 text-white placeholder-white/40 focus:outline-none focus:border-[#1a56ff] transition-all font-medium" 
+                      placeholder="John Doe" 
+                      className="w-full bg-white border border-border rounded-xl py-4 px-6 focus:outline-none focus:border-orange-500 transition-all text-xs" 
                     />
                   </div>
-                  <div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#0D1B3E]">Email Address *</label>
                     <input 
                       type="email" 
-                      placeholder="Email Address" 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 px-6 text-white placeholder-white/40 focus:outline-none focus:border-[#1a56ff] transition-all font-medium" 
+                      placeholder="john@example.com" 
+                      className="w-full bg-white border border-border rounded-xl py-4 px-6 focus:outline-none focus:border-orange-500 transition-all text-xs" 
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#0D1B3E]">Phone Number</label>
                     <input 
                       type="tel" 
-                      placeholder="Phone Number" 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 px-6 text-white placeholder-white/40 focus:outline-none focus:border-[#1a56ff] transition-all font-medium" 
+                      placeholder="+44 161 123 4567" 
+                      className="w-full bg-white border border-border rounded-xl py-4 px-6 focus:outline-none focus:border-orange-500 transition-all text-xs" 
                     />
                   </div>
-                  <div>
-                    <select className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 px-6 text-white/40 focus:text-white focus:outline-none focus:border-[#1a56ff] transition-all font-medium appearance-none">
-                       <option value="" disabled selected>Service Required</option>
-                       <option value="urgent" className="text-black">Urgent Delivery</option>
-                       <option value="business" className="text-black">Business Account</option>
-                       <option value="freight" className="text-black">Freight Forwarding</option>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#0D1B3E]">Service Required *</label>
+                    <select className="w-full bg-white border border-border rounded-xl py-4 px-6 focus:outline-none focus:border-orange-500 transition-all text-xs appearance-none">
+                       <option>Select a service...</option>
+                       <option>Urgent Delivery</option>
+                       <option>Business Account</option>
+                       <option>Large Removals</option>
                     </select>
                   </div>
                 </div>
                 
-                <div>
+                <div className="space-y-2">
+                   <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#0D1B3E]">Additional Details</label>
                    <textarea 
-                     rows={4} 
-                     placeholder="Tell us about the shipment size, destination, and timeline..." 
-                     className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 px-6 text-white placeholder-white/40 focus:outline-none focus:border-[#1a56ff] transition-all font-medium resize-none" 
+                     rows={5} 
+                     placeholder="Tell us about the shipment size, destination, timeline, etc." 
+                     className="w-full bg-white border border-border rounded-xl py-4 px-6 focus:outline-none focus:border-orange-500 transition-all text-xs" 
                    />
                 </div>
+
+                {/* Security Check Mockup */}
+                <div className="p-4 bg-white border border-border rounded-xl flex items-center justify-between">
+                   <div className="flex items-center space-x-3">
+                      <div className="h-5 w-5 border-2 border-border rounded flex items-center justify-center">
+                        <div className="h-2 w-2 bg-green-500 rounded-full" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold">Standard reCAPTCHA protection</p>
+                        <button type="button" className="text-[10px] text-blue-600 underline">Privacy Path</button>
+                      </div>
+                   </div>
+                   <div className="text-right">
+                      <p className="text-[8px] font-bold tracking-tighter uppercase italic">GOOGLE</p>
+                      <p className="text-[6px] text-muted uppercase">Terms • Privacy</p>
+                   </div>
+                </div>
                 
-                <button type="submit" className="w-full bg-white text-[#0b0c10] font-bold py-5 rounded-full hover:bg-[#1a56ff] hover:text-white transition-all active:scale-95 flex items-center justify-center gap-3 mt-4">
-                   <span className="uppercase text-[11px] tracking-widest">Submit Request</span>
-                   <ArrowRight size={16} />
+                <button type="submit" className="w-full bg-[#FFA07A] text-white font-bold py-5 rounded-xl hover:bg-orange-500 transition-all active:scale-95 text-sm uppercase tracking-widest shadow-lg shadow-orange-500/20">
+                   Submit Request
                 </button>
              </form>
           </div>

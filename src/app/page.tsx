@@ -92,20 +92,7 @@ export default function HomePage() {
               Eben Logistics delivers across every region of the United Kingdom.
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="flex items-center justify-center gap-4 mt-4"
-            >
-              <Link
-                href="#quote-form"
-                className="px-10 py-5 bg-accent text-white font-bold flex items-center justify-center gap-3 rounded-xl hover:bg-blue-700 transition-all shadow-lg active:scale-95 shadow-blue-500/20"
-              >
-                <span className="uppercase text-xs tracking-widest text-[11px]">Get a Quote</span>
-                <span className="text-xl leading-none -mt-0.5 font-normal">↗</span>
-              </Link>
-            </motion.div>
+
           </div>
 
           {/* Quote Form visually disconnected directly below the top layout to preserve content flow */}
@@ -272,8 +259,7 @@ export default function HomePage() {
       {/* Combined FAQ & UKMap moved right under Our Process, replacing separate modules */}
       <FAQ />
 
-      {/* 4. Trust Bar */}
-      <TrustBar />
+
 
       {/* Stats Section Moved to FAQ component overlay */}
 
@@ -411,26 +397,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 12. CTA Banner */}
-      <section className="section-padding py-32 bg-accent text-white text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/10" />
-        <div className="max-w-4xl mx-auto relative z-10 space-y-12">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-none uppercase">
-            Ready to move your <br /> <span className="text-indigo-950">Business Forward?</span>
-          </h2>
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-medium">
-            Collection available as early as today. Experience the Eben Logistics difference.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <Link href="/contact" className="px-12 py-5 bg-indigo-950 text-white font-bold rounded-lg hover:bg-[#0D1B3E] transition-all active:scale-95 text-xs uppercase tracking-widest shadow-2xl">
-              Book a Delivery
-            </Link>
-            <Link href={`tel:${BRAND.phone}`} className="px-12 py-5 border-2 border-indigo-950 text-indigo-950 font-bold rounded-lg hover:bg-indigo-950 hover:text-white transition-all active:scale-95 text-xs uppercase tracking-widest">
-              Call Us Now
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* 13. Contact / Quote Form Section */}
       <section id="quote-form" className="bg-white">
