@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, MapPin, Phone, Mail, Instagram, Twitter, Linkedin, Facebook } from "lucide-react";
+import { ArrowRight, MapPin, Phone, Mail, Globe, Share2, MessageSquare } from "lucide-react";
 import { BRAND } from "@/lib/constants";
 
 const Footer = () => {
@@ -54,7 +54,7 @@ const Footer = () => {
               We empower UK businesses with high-priority courier infrastructure. Reliable, responsive, and truly professional logistics.
             </p>
             <div className="flex space-x-3">
-              {[Instagram, Twitter, Linkedin, Facebook].map((Icon, i) => (
+              {[Globe, Share2, MessageSquare].map((Icon, i) => (
                 <Link key={i} href="#" className="h-10 w-10 border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#1a56ff] hover:border-[#1a56ff] transition-all">
                   <Icon size={16} />
                 </Link>
