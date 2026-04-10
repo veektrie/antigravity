@@ -3,7 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #000000;
-  --accent: #f59e0b; /* amber-500 */
+  --accent: #2563eb; /* blue-600 */
   --accent-foreground: #ffffff;
   --secondary: #f4f4f5; /* zinc-100 */
   --muted: #71717a; /* zinc-500 */
@@ -48,11 +48,11 @@
   }
 
   .btn-primary {
-    @apply bg-accent text-white font-bold px-8 py-4 rounded-lg hover:bg-orange-600 transition-all active:scale-95 text-sm uppercase tracking-wider shadow-lg shadow-orange-500/20;
+    @apply bg-accent text-white font-bold px-8 py-4 rounded-lg hover:bg-blue-700 transition-all active:scale-95 text-sm tracking-wider shadow-[0_4px_14px_0_rgba(37,99,235,0.39)];
   }
 
   .btn-secondary {
-    @apply bg-white text-foreground font-bold px-8 py-4 rounded-lg border-2 border-accent hover:bg-orange-50 transition-all active:scale-95 text-sm uppercase tracking-wider;
+    @apply bg-white text-foreground font-bold px-8 py-4 rounded-lg border-2 border-accent hover:bg-blue-50 transition-all active:scale-95 text-sm tracking-wider;
   }
   
   .metric-card {
@@ -75,5 +75,15 @@
 
   .glass-container {
     @apply bg-white/40 backdrop-blur-xl border border-white/50 shadow-2xl;
+  }
+
+  /* Marquee animation */
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
   }
 }
