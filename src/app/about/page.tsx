@@ -52,6 +52,16 @@ export default function AboutPage() {
                 <p className="text-white text-xl font-bold tracking-tight">
                   We deliver more than just logistics; <span className="text-[#1a56ff]">we deliver peace of mind.</span>
                 </p>
+
+                <div className="pt-6">
+                  <Link 
+                    href="/contact" 
+                    className="inline-flex items-center gap-3 px-8 py-4 bg-[#1a56ff] text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-[#0b0c10] transition-all shadow-xl shadow-blue-500/20"
+                  >
+                    <span>Enquire Now</span>
+                    <span className="text-lg leading-none -mt-0.5">↗</span>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
