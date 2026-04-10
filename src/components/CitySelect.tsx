@@ -123,7 +123,7 @@ const CitySelect: React.FC<CitySelectProps> = ({ label, value, onChange, placeho
           </div>
 
           {/* City list */}
-          <div className="overflow-y-auto" style={{ maxHeight: "220px" }}>
+          <div className="overflow-y-auto" style={{ maxHeight: "350px" }}>
             {filtered.length === 0 ? (
               <p className="text-center text-white/30 text-xs py-6 font-medium">No city found</p>
             ) : (
