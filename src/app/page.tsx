@@ -62,66 +62,50 @@ export default function HomePage() {
 
           <div className="relative z-20 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 text-white text-left flex flex-col pt-32 min-h-full justify-end pb-16 md:pb-24 lg:pb-32 mt-auto">
 
-          <div className="flex flex-col lg:flex-row justify-between items-end w-full gap-12 lg:gap-24 relative">
+          {/* Main Hero Elements Centered */}
+          <div className="relative z-20 flex flex-col items-center justify-center text-center gap-8 mt-12 w-full max-w-5xl mx-auto px-6">
             
-            {/* Left Box: Pill and Headline */}
-            <div className="flex flex-col space-y-6 lg:w-7/12">
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center px-6 py-2 border border-white/50 rounded-full bg-transparent w-fit"
-              >
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white">Same-day slots available across the UK</span>
-              </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center px-6 py-2 border border-white/50 rounded-full bg-white/10 backdrop-blur-md shadow-xl w-fit mx-auto"
+            >
+              <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-white">Same-day slots available across the UK</span>
+            </motion.div>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight leading-[1.05] max-w-4xl"
-              >
-                Reliable <br /> Logistics
-              </motion.h1>
-            </div>
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-6xl md:text-[5.5rem] lg:text-[7rem] font-bold tracking-tight leading-[1] max-w-4xl text-white drop-shadow-2xl"
+            >
+              Reliable <br /> Logistics
+            </motion.h1>
 
-            {/* Right Box: Subtext and Button */}
-            <div className="flex flex-col space-y-8 lg:w-4/12 relative pb-4">
-              {/* Subtle line decoration from reference */}
-              <div className="absolute left-0 top-2 h-full w-[1px] bg-white/20 hidden lg:block -ml-6" />
-              
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-white/90 text-sm md:text-base font-medium leading-loose pl-0 lg:pl-2"
-              >
-                Professional courier infrastructure built for speed, reliability, and scale.
-                Eben Logistics delivers across every region of the United Kingdom.
-              </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-white/90 text-base md:text-lg font-medium leading-relaxed max-w-xl mx-auto drop-shadow-md"
+            >
+              Professional courier infrastructure built for speed, reliability, and scale.
+              Eben Logistics delivers across every region of the United Kingdom.
+            </motion.p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="flex items-center gap-4 pl-0 lg:pl-2"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="flex items-center justify-center gap-4 mt-4"
+            >
+              <Link
+                href="#quote-form"
+                className="px-10 py-5 bg-accent text-white font-bold flex items-center justify-center gap-3 rounded-xl hover:bg-blue-700 transition-all shadow-lg active:scale-95 shadow-blue-500/20"
               >
-                <Link
-                  href="#quote-form"
-                  className="px-8 py-4 bg-accent text-white font-bold flex items-center gap-3 rounded-lg hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20"
-                >
-                  <span className="uppercase text-xs tracking-widest text-[11px]">Get a Quote</span>
-                  <span className="text-xl leading-none -mt-0.5 font-normal">↗</span>
-                </Link>
-              </motion.div>
-            </div>
-            
-            {/* Vertical Pagination Dots on Far Right Edge */}
-            <div className="hidden lg:flex flex-col space-y-3 absolute right-[-4rem] top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-md px-3 py-6 rounded-full border border-white/20">
-              <div className="w-2 h-2 rounded-full bg-white transition-all shadow-[0_0_10px_2px_rgba(255,255,255,0.4)]" />
-              <div className="w-2 h-2 rounded-full bg-white/30 hover:bg-white/50 transition-all cursor-pointer" />
-              <div className="w-2 h-2 rounded-full bg-white/30 hover:bg-white/50 transition-all cursor-pointer" />
-            </div>
-
+                <span className="uppercase text-xs tracking-widest text-[11px]">Get a Quote</span>
+                <span className="text-xl leading-none -mt-0.5 font-normal">↗</span>
+              </Link>
+            </motion.div>
           </div>
 
           {/* Quote Form visually disconnected directly below the top layout to preserve content flow */}
@@ -351,8 +335,6 @@ export default function HomePage() {
 
       {/* Old Experience Block Location - Relocated to position 2 */}
 
-      {/* 8. Pricing Transparency */}
-      <Pricing />
 
       {/* 9. Testimonials */}
       {/* 9. Testimonials */}
