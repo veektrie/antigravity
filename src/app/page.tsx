@@ -366,13 +366,13 @@ export default function HomePage() {
       
       {/* Testimonials already exists above */}
 
+      {/* 12. FAQ Section */}
+      <FAQ />
+
       {/* 13. Contact / Quote Form Section */}
       <section id="quote-form" className="bg-white">
         <QuoteForm />
       </section>
-
-      {/* FAQ moved to bottom, just above footer */}
-      <FAQ />
 
     </div>
   );

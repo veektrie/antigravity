@@ -49,38 +49,38 @@ const QuoteForm = () => {
           <div className="lg:col-span-1" /> {/* Spacer */}
 
           <div className="lg:col-span-6">
-             <form className="space-y-12">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+             <form className="space-y-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
                   <div className="group relative">
-                    <label className="absolute -top-6 left-0 text-[10px] font-bold uppercase tracking-widest text-zinc-400 trasition-all group-focus-within:text-[#1a56ff]">Full Name</label>
+                    <label className="absolute -top-7 left-0 text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-400 transition-all duration-500 group-focus-within:text-[#1a56ff] group-focus-within:-top-8">Full Name</label>
                     <input 
                       type="text" 
                       placeholder="Enter full name" 
-                      className="w-full bg-transparent border-b border-zinc-200 py-4 focus:outline-none focus:border-[#1a56ff] transition-all duration-500 text-sm font-bold placeholder:text-zinc-300 placeholder:font-normal" 
+                      className="w-full bg-transparent border-b border-zinc-100 py-5 focus:outline-none focus:border-[#1a56ff] transition-all duration-700 text-sm font-bold placeholder:text-zinc-200 placeholder:font-normal" 
                     />
                   </div>
                   <div className="group relative">
-                    <label className="absolute -top-6 left-0 text-[10px] font-bold uppercase tracking-widest text-zinc-400 transition-all group-focus-within:text-[#1a56ff]">Email Address</label>
+                    <label className="absolute -top-7 left-0 text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-400 transition-all duration-500 group-focus-within:text-[#1a56ff] group-focus-within:-top-8">Email Address</label>
                     <input 
                       type="email" 
                       placeholder="corporate@email.com" 
-                      className="w-full bg-transparent border-b border-zinc-200 py-4 focus:outline-none focus:border-[#1a56ff] transition-all duration-500 text-sm font-bold placeholder:text-zinc-300 placeholder:font-normal" 
+                      className="w-full bg-transparent border-b border-zinc-100 py-5 focus:outline-none focus:border-[#1a56ff] transition-all duration-700 text-sm font-bold placeholder:text-zinc-200 placeholder:font-normal" 
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
                   <div className="group relative">
-                    <label className="absolute -top-6 left-0 text-[10px] font-bold uppercase tracking-widest text-zinc-400 transition-all group-focus-within:text-[#1a56ff]">Mobile Number</label>
+                    <label className="absolute -top-7 left-0 text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-400 transition-all duration-500 group-focus-within:text-[#1a56ff] group-focus-within:-top-8">Mobile Number</label>
                     <input 
                       type="tel" 
                       placeholder="+44 000 000 0000" 
-                      className="w-full bg-transparent border-b border-zinc-200 py-4 focus:outline-none focus:border-[#1a56ff] transition-all duration-500 text-sm font-bold placeholder:text-zinc-300 placeholder:font-normal" 
+                      className="w-full bg-transparent border-b border-zinc-100 py-5 focus:outline-none focus:border-[#1a56ff] transition-all duration-700 text-sm font-bold placeholder:text-zinc-200 placeholder:font-normal" 
                     />
                   </div>
                   <div className="group relative">
-                    <label className="absolute -top-6 left-0 text-[10px] font-bold uppercase tracking-widest text-zinc-400 transition-all group-focus-within:text-[#1a56ff]">Infrastructure Need</label>
-                    <select className="w-full bg-transparent border-b border-zinc-200 py-4 focus:outline-none focus:border-[#1a56ff] transition-all duration-500 text-sm font-bold appearance-none cursor-pointer">
+                    <label className="absolute -top-7 left-0 text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-400 transition-all duration-500 group-focus-within:text-[#1a56ff] group-focus-within:-top-8">Infrastructure Need</label>
+                    <select className="w-full bg-transparent border-b border-zinc-100 py-5 focus:outline-none focus:border-[#1a56ff] transition-all duration-700 text-sm font-bold appearance-none cursor-pointer">
                        <option>Select required service...</option>
                        <option>Urgent Priority</option>
                        <option>Business Accounts</option>
@@ -89,30 +89,39 @@ const QuoteForm = () => {
                        <option>Collection Only</option>
                        <option>Out-of-Hours Delivery</option>
                     </select>
+                    <div className="absolute right-0 bottom-6 pointer-events-none opacity-20">
+                      <Clock size={14} />
+                    </div>
                   </div>
                 </div>
                 
                 <div className="group relative">
-                   <label className="absolute -top-6 left-0 text-[10px] font-bold uppercase tracking-widest text-zinc-400 transition-all group-focus-within:text-[#1a56ff]">Project Particulars</label>
+                   <label className="absolute -top-7 left-0 text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-400 transition-all duration-500 group-focus-within:text-[#1a56ff] group-focus-within:-top-8">Project Particulars</label>
                    <textarea 
-                     rows={4} 
+                     rows={3} 
                      placeholder="Describe your logistical requirements..." 
-                     className="w-full bg-transparent border-b border-zinc-200 py-4 focus:outline-none focus:border-[#1a56ff] transition-all duration-500 text-sm font-bold resize-none placeholder:text-zinc-300 placeholder:font-normal" 
+                     className="w-full bg-transparent border-b border-zinc-100 py-5 focus:outline-none focus:border-[#1a56ff] transition-all duration-700 text-sm font-bold resize-none placeholder:text-zinc-200 placeholder:font-normal" 
                    />
                 </div>
 
-                <div className="pt-4">
-                  <button type="submit" className="group relative w-full lg:w-auto min-w-[280px] bg-[#0b0c10] text-white font-bold py-6 px-12 overflow-hidden transition-all duration-500 rounded-sm hover:-translate-y-1 hover:shadow-2xl">
-                    <div className="absolute inset-0 w-0 bg-[#1a56ff] transition-all duration-500 group-hover:w-full" />
-                    <span className="relative z-10 text-[11px] uppercase tracking-[0.4em] flex items-center justify-center gap-4">
-                      Deploy Mission
-                      <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform duration-500" />
+                <div className="pt-8">
+                  <button type="submit" className="group relative w-full lg:w-auto min-w-[320px] bg-[#0b0c10] text-white font-bold py-7 px-14 overflow-hidden transition-all duration-700 rounded-sm hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
+                    <div className="absolute inset-0 w-0 bg-[#1a56ff] transition-all duration-700 ease-in-out group-hover:w-full" />
+                    <span className="relative z-10 text-[10px] uppercase tracking-[0.5em] flex items-center justify-center gap-6">
+                      DEPLOY MISSION
+                      <ArrowRight size={18} className="group-hover:translate-x-3 transition-transform duration-700" />
                     </span>
                   </button>
-                  <p className="text-[9px] text-zinc-400 font-bold uppercase tracking-widest mt-6 flex items-center gap-2">
-                    <ShieldCheck size={12} className="text-[#1a56ff]" />
-                    Encrypted SSL secure portal · Priority response enabled
-                  </p>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-6 mt-10">
+                    <p className="text-[8px] text-zinc-300 font-bold uppercase tracking-[0.25em] flex items-center gap-2">
+                      <ShieldCheck size={12} className="text-[#1a56ff]" />
+                      ENCRYPTED SSL SECURE PORTAL
+                    </p>
+                    <div className="hidden sm:block h-px w-8 bg-zinc-100" />
+                    <p className="text-[8px] text-zinc-300 font-bold uppercase tracking-[0.25em]">
+                      PRIORITY RESPONSE ENABLED
+                    </p>
+                  </div>
                 </div>
              </form>
           </div>
