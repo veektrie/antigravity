@@ -12,31 +12,6 @@ const Footer = () => {
     <footer className="bg-[#0b0c10] pt-24 pb-12 w-full max-w-[1920px] mx-auto overflow-hidden relative">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         
-        {/* Newsletter Row */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10 pb-20 border-b border-white/10">
-          <div className="max-w-xl">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
-              Subscribe to Our <br />
-              <span className="text-[#1a56ff]">Newsletter</span>
-            </h2>
-          </div>
-          <div className="w-full md:w-auto flex-grow max-w-lg md:ml-auto">
-            <form className="relative flex items-center">
-              <input 
-                type="email" 
-                placeholder="Enter your email address" 
-                className="w-full bg-white/5 border border-white/10 rounded-full py-5 pl-8 pr-40 text-white placeholder-white/40 focus:outline-none focus:border-[#1a56ff] transition-all text-sm font-medium"
-              />
-              <button 
-                type="submit" 
-                className="absolute right-2 top-2 bottom-2 bg-[#1a56ff] hover:bg-blue-700 text-white px-8 rounded-full font-bold text-[10px] uppercase tracking-widest transition-colors flex items-center gap-2"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
-
         {/* Main Footer Links Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 py-20 border-b border-white/10">
           

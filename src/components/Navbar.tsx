@@ -66,13 +66,13 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <Link
               href="/contact"
-              className={`px-5 py-2.5 font-bold text-[10.5px] uppercase flex items-center gap-2 rounded-lg transition-all ${
+              className={`px-5 py-2.5 font-bold text-[10.5px] uppercase flex items-center gap-2 rounded-full transition-all ${
                 scrolled 
                   ? "bg-accent text-white hover:bg-blue-700 shadow-lg shadow-blue-500/20" 
                   : "bg-white text-zinc-900 hover:bg-zinc-100"
               }`}
             >
-              <span>Get in Touch</span>
+              <span>Get quote</span>
               <span className="text-lg leading-none -mt-0.5">↗</span>
             </Link>
           </div>
@@ -108,9 +108,9 @@ const Navbar = () => {
             <Link
               href="/contact"
               onClick={() => setIsOpen(false)}
-              className="block flex items-center justify-center gap-2 w-full py-4 bg-accent text-white font-bold text-[11px] uppercase tracking-wider rounded-lg shadow-lg shadow-blue-500/20"
+              className="block flex items-center justify-center gap-2 w-full py-4 bg-accent text-white font-bold text-[11px] uppercase tracking-wider rounded-full shadow-lg shadow-blue-500/20"
             >
-              <span>Get in Touch</span>
+              <span>Get quote</span>
               <span className="text-lg leading-none -mt-0.5">↗</span>
             </Link>
           </div>

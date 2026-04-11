@@ -94,7 +94,7 @@ const QuoteForm = () => {
                     <input 
                       type="text" 
                       placeholder="John Doe" 
-                      className="w-full bg-white border border-border rounded-xl py-4 px-6 focus:outline-none focus:border-orange-500 transition-all text-xs" 
+                      className="w-full bg-white border border-border rounded-full py-4 px-6 focus:outline-none focus:border-orange-500 transition-all text-xs" 
                     />
                   </div>
                   <div className="space-y-2">
@@ -102,7 +102,7 @@ const QuoteForm = () => {
                     <input 
                       type="email" 
                       placeholder="john@example.com" 
-                      className="w-full bg-white border border-border rounded-xl py-4 px-6 focus:outline-none focus:border-orange-500 transition-all text-xs" 
+                      className="w-full bg-white border border-border rounded-full py-4 px-6 focus:outline-none focus:border-orange-500 transition-all text-xs" 
                     />
                   </div>
                 </div>
@@ -113,16 +113,19 @@ const QuoteForm = () => {
                     <input 
                       type="tel" 
                       placeholder="+44 161 123 4567" 
-                      className="w-full bg-white border border-border rounded-xl py-4 px-6 focus:outline-none focus:border-orange-500 transition-all text-xs" 
+                      className="w-full bg-white border border-border rounded-full py-4 px-6 focus:outline-none focus:border-orange-500 transition-all text-xs" 
                     />
                   </div>
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#0D1B3E]">Service Required *</label>
-                    <select className="w-full bg-white border border-border rounded-xl py-4 px-6 focus:outline-none focus:border-orange-500 transition-all text-xs appearance-none">
+                    <select className="w-full bg-white border border-border rounded-full py-4 px-6 focus:outline-none focus:border-orange-500 transition-all text-xs appearance-none">
                        <option>Select a service...</option>
-                       <option>Urgent Delivery</option>
-                       <option>Business Account</option>
-                       <option>Large Removals</option>
+                       <option>Urgent and priority delivery</option>
+                       <option>Business courier accounts</option>
+                       <option>Document and legal delivery</option>
+                       <option>Man with a van/removals multi-drop delivery</option>
+                       <option>Collection-only service</option>
+                       <option>Weekend and evening delivery</option>
                     </select>
                   </div>
                 </div>
@@ -132,12 +135,12 @@ const QuoteForm = () => {
                    <textarea 
                      rows={5} 
                      placeholder="Tell us about the shipment size, destination, timeline, etc." 
-                     className="w-full bg-white border border-border rounded-xl py-4 px-6 focus:outline-none focus:border-orange-500 transition-all text-xs" 
+                     className="w-full bg-white border border-border rounded-3xl py-4 px-6 focus:outline-none focus:border-orange-500 transition-all text-xs" 
                    />
                 </div>
 
                 {/* Security Check Mockup */}
-                <div className="p-4 bg-white border border-border rounded-xl flex items-center justify-between">
+                <div className="p-4 bg-white border border-border rounded-full flex items-center justify-between">
                    <div className="flex items-center space-x-3">
                       <div className="h-5 w-5 border-2 border-border rounded flex items-center justify-center">
                         <div className="h-2 w-2 bg-green-500 rounded-full" />
@@ -153,8 +156,8 @@ const QuoteForm = () => {
                    </div>
                 </div>
                 
-                <button type="submit" className="w-full bg-[#FFA07A] text-white font-bold py-5 rounded-xl hover:bg-orange-500 transition-all active:scale-95 text-sm uppercase tracking-widest shadow-lg shadow-orange-500/20">
-                   Submit Request
+                <button type="submit" className="w-full bg-accent text-white font-bold py-5 rounded-full hover:bg-blue-700 transition-all active:scale-95 text-sm uppercase tracking-widest shadow-lg shadow-blue-500/20">
+                   Book now
                 </button>
              </form>
           </div>

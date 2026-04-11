@@ -43,11 +43,11 @@ export default function AboutPage() {
               {/* Refined textual context */}
               <div className="w-full lg:w-2/5 flex flex-col justify-end space-y-8 border-l border-white/10 pl-8 lg:pl-12 py-4">
                 <p className="text-[#9ca3af] text-lg lg:text-xl leading-relaxed font-medium">
-                  Eben Logistics Ltd has spent years mastering the movement of goods across the UK. We focus on absolute punctuality and safety, ensuring your high-priority shipments are handled with the care they deserve.
+                  Built on reliability, responsiveness, and trust. We treat every delivery like it matters, because it does. No delays, no excuses, just getting the job done properly.
                 </p>
                 
                 <p className="text-[#9ca3af] text-lg lg:text-xl leading-relaxed font-medium">
-                  Based in Derby, our network operates 24/7, providing the backbone for businesses that require speed and reliability.
+                  Operating out of Regent Street, London, our network operates 24/7, providing the backbone for businesses across the UK that require scale and speed.
                 </p>
 
                 <p className="text-white text-xl font-bold tracking-tight">
@@ -59,7 +59,7 @@ export default function AboutPage() {
                     href="/contact" 
                     className="inline-flex items-center gap-3 px-8 py-4 bg-[#1a56ff] text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-[#0b0c10] transition-all shadow-xl shadow-blue-500/20"
                   >
-                    <span>Enquire Now</span>
+                    <span>Get quote</span>
                     <span className="text-lg leading-none -mt-0.5">↗</span>
                   </Link>
                 </div>
