@@ -176,33 +176,53 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
-            {/* Stat 1 */}
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-10 rounded-[2.5rem] flex flex-col items-center text-center group hover:bg-[#1a56ff]/10 transition-all duration-500">
-              <div className="h-16 w-16 bg-[#1a56ff]/20 rounded-2xl flex items-center justify-center mb-6 text-[#1a56ff] group-hover:scale-110 transition-transform">
-                <ShieldCheck size={32} />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24">
+            {/* Stat 1: Fully Insured */}
+            <div className="relative group rounded-[3rem] overflow-hidden h-[500px] shadow-2xl">
+              <Image src="/svc-specialist.jpg" alt="Insurance" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0b0c10] via-[#0b0c10]/40 to-transparent" />
+              <div className="absolute inset-0 p-12 flex flex-col justify-end space-y-6">
+                <div className="h-16 w-16 bg-[#1a56ff] rounded-2xl flex items-center justify-center text-white shadow-xl">
+                  <ShieldCheck size={32} />
+                </div>
+                <h3 className="text-3xl font-bold text-white leading-tight">Fully <br/>Assured</h3>
+                <p className="text-white/70 text-base leading-relaxed">
+                  Your assets are protected by our comprehensive transit and liability insurance. We provide absolute security for high-value consignments, legal documents, and mission-critical inventory with zero-gap coverage.
+                </p>
               </div>
-              <h3 className="text-white text-2xl font-bold mb-4">Fully Insured</h3>
-              <p className="text-white/60 text-sm leading-relaxed">Comprehensive transit and liability cover for absolute peace of mind.</p>
             </div>
-            {/* Stat 2 */}
-            <div className="bg-[#1a56ff] p-10 rounded-[2.5rem] flex flex-col items-center text-center shadow-2xl shadow-blue-500/20 transform hover:-translate-y-2 transition-all">
-              <div 
-                className="text-7xl font-bold leading-none tracking-tighter text-white mb-4"
-                style={{ WebkitTextStroke: "1px rgba(255,255,255,0.3)" }}
-              >
-                100%
+
+            {/* Stat 2: Reliability */}
+            <div className="relative group rounded-[3rem] overflow-hidden h-[500px] shadow-2xl">
+              <Image src="/svc-same-day.jpg" alt="Reliability" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1a56ff] via-[#1a56ff]/60 to-transparent" />
+              <div className="absolute inset-0 p-12 flex flex-col justify-end space-y-6">
+                <div 
+                  className="text-7xl font-bold leading-none tracking-tighter text-white mb-2"
+                  style={{ WebkitTextStroke: "1px rgba(255,255,255,0.4)" }}
+                >
+                  100%
+                </div>
+                <h3 className="text-3xl font-bold text-white leading-tight">Precision <br/>Execution</h3>
+                <p className="text-white/90 text-base leading-relaxed">
+                  Reliability is our baseline. We operate with a "no excuses" protocol, ensuring your deliveries arrive precisely as scheduled. Our infrastructure is engineered to absorb delays and maintain perfect punctuality.
+                </p>
               </div>
-              <h3 className="text-white text-2xl font-bold mb-2">Reliability</h3>
-              <p className="text-white/80 text-sm leading-relaxed">No excuses, no delays. We deliver on our promise Every. Single. Time.</p>
             </div>
-            {/* Stat 3 */}
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-10 rounded-[2.5rem] flex flex-col items-center text-center group hover:bg-[#1a56ff]/10 transition-all duration-500">
-              <div className="h-16 w-16 bg-[#1a56ff]/20 rounded-2xl flex items-center justify-center mb-6 text-[#1a56ff] group-hover:scale-110 transition-transform">
-                <Clock size={32} />
+
+            {/* Stat 3: 24/7 Operations */}
+            <div className="relative group rounded-[3rem] overflow-hidden h-[500px] shadow-2xl">
+              <Image src="/svc-contract.jpg" alt="Operations" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0b0c10] via-[#0b0c10]/40 to-transparent" />
+              <div className="absolute inset-0 p-12 flex flex-col justify-end space-y-6">
+                <div className="h-16 w-16 bg-[#1a56ff] rounded-2xl flex items-center justify-center text-white shadow-xl">
+                  <Clock size={32} />
+                </div>
+                <h3 className="text-3xl font-bold text-white leading-tight">Always <br/>Live</h3>
+                <p className="text-white/70 text-base leading-relaxed">
+                  Our logistics network never sleeps. From mid-day urgent dispatches to out-of-hours weekend support, we provide continuous operational live-tracking and response times that set the industry standard.
+                </p>
               </div>
-              <h3 className="text-white text-2xl font-bold mb-4">24/7 Operations</h3>
-              <p className="text-white/60 text-sm leading-relaxed">Our infrastructure never sleeps, ensuring your goods move around the clock.</p>
             </div>
           </div>
         </div>
@@ -223,49 +243,77 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* 5. Services Ecosystem (Symmetrical Grid) */}
+      {/* 5. Services Architecture (Split Screen) */}
       <section className="py-24 md:py-32 bg-[#0b0c10] overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-          <div className="flex flex-col items-center text-center space-y-6 mb-20">
-            <div className="inline-flex items-center space-x-2 px-4 py-1.5 bg-white/10 border border-white/10 shadow-sm rounded-full">
-              <Package size={14} className="text-[#1a56ff]" />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-white">The Services Ecosystem</span>
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row gap-16 lg:gap-32 items-center">
+          
+          {/* Left: Services List */}
+          <div className="w-full lg:w-1/2 flex flex-col space-y-12">
+            <div className="space-y-6">
+              <div className="inline-flex items-center space-x-2 px-4 py-1.5 bg-white/10 border border-white/10 shadow-sm rounded-full">
+                <Package size={14} className="text-[#1a56ff]" />
+                <span className="text-[10px] font-bold uppercase tracking-widest text-white">Our Architecture</span>
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
+                Premium Logistics <br className="hidden md:block" />
+                <span className="text-[#1a56ff]">Built for Scale</span>
+              </h2>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white max-w-4xl">
-              Professional Logistics <br />
-              <span className="text-[#1a56ff]">Powering Your Growth</span>
-            </h2>
+
+            <div className="flex flex-col w-full border-t border-white/10">
+              {SERVICES.map((service, i) => (
+                <button 
+                  key={i} 
+                  onMouseEnter={() => setHoveredService(i)}
+                  className={`flex items-center justify-between py-10 border-b border-white/10 group transition-all duration-500 text-left w-full ${hoveredService === i ? 'pl-8' : 'pl-0'}`}
+                >
+                  <div className="flex flex-col gap-4">
+                    <span className={`text-[10px] font-bold uppercase tracking-[0.2em] transition-colors ${hoveredService === i ? 'text-[#1a56ff]' : 'text-white/30'}`}>
+                      0{i+1} Priority Category
+                    </span>
+                    <h3 className={`text-2xl lg:text-4xl font-bold transition-colors ${hoveredService === i ? 'text-white' : 'text-white/40 group-hover:text-white/60'}`}>
+                      {service.title}
+                    </h3>
+                  </div>
+                  <div className={`h-16 w-16 rounded-full border flex items-center justify-center transition-all duration-500 ${hoveredService === i ? 'bg-[#1a56ff] border-[#1a56ff] text-white rotate-0' : 'border-white/10 text-white/20 -rotate-45'}`}>
+                    <ArrowRight size={24} />
+                  </div>
+                </button>
+              ))}
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SERVICES.map((service, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ y: -10 }}
-                className="group relative bg-[#1c1d22] rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-[#1a56ff]/30 transition-all duration-300"
-              >
-                <div className="relative h-64 w-full overflow-hidden">
+          {/* Right: Dynamic Image Container */}
+          <div className="w-full lg:w-1/2 flex justify-center items-center">
+            <div className="relative aspect-square w-full max-w-[650px] overflow-hidden rounded-full shadow-[0_0_100px_rgba(26,86,255,0.15)] border border-white/5">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={hoveredService}
+                  initial={{ opacity: 0, scale: 1.15 }}
+                  animate={{ opacity: 1, scale: 1.05 }}
+                  exit={{ opacity: 0, scale: 1.2 }}
+                  transition={{ 
+                    duration: 0.8, 
+                    ease: "circOut",
+                    opacity: { duration: 0.6 }
+                  }}
+                  className="absolute inset-0"
+                >
                   <Image 
-                    src={service.image} 
-                    alt={service.title} 
+                    src={SERVICES[hoveredService]?.image || SERVICES[0].image} 
+                    alt={SERVICES[hoveredService]?.title} 
                     fill 
-                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" 
+                    className="object-cover transition-all duration-1000"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1c1d22] to-transparent opacity-60" />
-                </div>
-                <div className="p-10 space-y-4">
-                  <div className="flex justify-between items-start">
-                    <span className="text-[10px] font-bold text-[#1a56ff] uppercase tracking-[0.2em] bg-[#1a56ff]/10 px-3 py-1 rounded-full">0{i+1} Priority</span>
-                    <div className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center text-white/30 group-hover:bg-[#1a56ff] group-hover:text-white transition-all transform group-hover:rotate-45">
-                      <ArrowRight size={20} />
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-bold text-white group-hover:text-[#1a56ff] transition-colors">{service.title}</h3>
-                  <p className="text-[#9ca3af] text-sm leading-relaxed">{service.desc}</p>
-                </div>
-                <Link href={service.link} className="absolute inset-0 z-10" />
-              </motion.div>
-            ))}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-[#0b0c10]/40 to-transparent" />
+                </motion.div>
+              </AnimatePresence>
+              
+              {/* Decorative Ring */}
+              <div className="absolute inset-4 rounded-full border border-white/10 pointer-events-none" />
+              <div className="absolute inset-12 rounded-full border border-white/5 pointer-events-none" />
+            </div>
           </div>
         </div>
       </section>

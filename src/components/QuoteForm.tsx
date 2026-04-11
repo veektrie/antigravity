@@ -6,159 +6,114 @@ import { BRAND } from "@/lib/constants";
 
 const QuoteForm = () => {
   return (
-    <section className="section-padding bg-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+    <section className="py-24 md:py-32 bg-white relative overflow-hidden" id="quote-form">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
           
-          {/* Left Column: Contact Info */}
-          <div className="lg:col-span-5 space-y-12">
-            <div className="space-y-6">
-              <div className="flex items-center space-x-2">
-                <div className="h-px w-8 bg-accent" />
-                <span className="text-[10px] font-bold uppercase tracking-widest text-accent">Contact Us</span>
+          {/* Left Column: Contact & Information */}
+          <div className="lg:col-span-5 space-y-16">
+            <div className="space-y-8">
+              <div className="inline-flex items-center space-x-3">
+                <div className="h-1 w-12 bg-[#1a56ff]" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#1a56ff]">Engagement Portal</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tighter leading-none text-[#0D1B3E] uppercase italic">
-                GET IN TOUCH WITH <br className="hidden md:block" />
-                <span className="not-italic text-[#0D1B3E]">OUR EXPERTS</span>
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[0.9] text-[#0b0c10]">
+                CONNECT <br/>
+                WITH OUR <br/>
+                <span className="text-[#1a56ff]">LOGISTICS</span> <br/>
+                EXPERTS.
               </h2>
-              <p className="text-muted text-sm leading-relaxed max-w-md">
-                Ready to streamline your logistics? Reach out to our team for a personalized quote or to discuss how we can help your business grow.
+              <p className="text-zinc-500 text-lg leading-relaxed max-w-md font-medium">
+                Our team is standing by to architect your mission-critical delivery strategy. Experience the next generation of logistics infrastructure.
               </p>
             </div>
 
-            <div className="space-y-8">
-              <div className="flex items-start space-x-6 group">
-                <div className="h-10 w-10 border border-border rounded-full flex items-center justify-center shrink-0 bg-white group-hover:border-accent transition-colors">
-                  <MapPin size={18} className="text-accent" />
-                </div>
-                <div>
-                   <h4 className="text-sm font-bold text-[#0D1B3E]">Our Location</h4>
-                   <p className="text-xs text-muted leading-relaxed uppercase">
-                     {BRAND.address}
-                   </p>
-                </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
+              <div className="space-y-3">
+                <h4 className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Global HQ</h4>
+                <p className="text-sm font-bold text-[#0b0c10] leading-relaxed uppercase tracking-tight">
+                  {BRAND.address}
+                </p>
               </div>
-
-              <div className="flex items-start space-x-6 group">
-                <div className="h-10 w-10 border border-border rounded-full flex items-center justify-center shrink-0 bg-white group-hover:border-accent transition-colors">
-                  <Phone size={18} className="text-accent" />
-                </div>
-                <div>
-                   <h4 className="text-sm font-bold text-[#0D1B3E]">Call Us Anytime</h4>
-                   <p className="text-xs text-muted font-bold tracking-tight px-1 uppercase leading-relaxed">
-                     {BRAND.phone}<br />
-                     <span className="font-normal normal-case italic">24/7 dedicated support</span>
-                   </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-6 group">
-                <div className="h-10 w-10 border border-border rounded-full flex items-center justify-center shrink-0 bg-white group-hover:border-accent transition-colors">
-                  <Mail size={18} className="text-accent" />
-                </div>
-                <div>
-                   <h4 className="text-sm font-bold text-[#0D1B3E]">Email Address</h4>
-                   <p className="text-xs text-muted leading-relaxed lowercase font-medium">
-                     {BRAND.email}<br />
-                     <span className="font-normal normal-case italic">We typically reply within 1 hour</span>
-                   </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-6 group">
-                <div className="h-10 w-10 border border-border rounded-full flex items-center justify-center shrink-0 bg-white group-hover:border-accent transition-colors">
-                  <Clock size={18} className="text-accent" />
-                </div>
-                <div>
-                   <h4 className="text-sm font-bold text-[#0D1B3E]">Working Hours</h4>
-                   <p className="text-xs text-muted leading-relaxed uppercase font-bold">
-                     Mon - Fri: 8:00 AM - 6:00 PM<br />
-                     Sat & Sun: On-call operations
-                   </p>
-                </div>
+              <div className="space-y-3">
+                <h4 className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Direct Line</h4>
+                <p className="text-sm font-bold text-[#0b0c10] tracking-tight truncate">
+                  {BRAND.phone}
+                </p>
+                <p className="text-[10px] text-[#1a56ff] font-bold uppercase tracking-widest">24/7 Priority Support</p>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Quote Form Card */}
-          <div className="lg:col-span-7 bg-[#F7F9FC] rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-border relative overflow-hidden">
-             {/* Simple decorative circle from screenshot */}
-             <div className="absolute top-0 right-0 w-32 h-32 bg-[#FEE4D6]/50 rounded-full -mr-12 -mt-12" />
-             
-             <h3 className="text-2xl font-bold text-[#0D1B3E] mb-10 uppercase tracking-tighter italic">REQUEST A FREE QUOTE</h3>
-             
-             <form className="space-y-8 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#0D1B3E]">Full Name *</label>
+          {/* Right Column: Minimalist Refined Form */}
+          <div className="lg:col-span-1" /> {/* Spacer */}
+
+          <div className="lg:col-span-6">
+             <form className="space-y-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                  <div className="group relative">
+                    <label className="absolute -top-6 left-0 text-[10px] font-bold uppercase tracking-widest text-zinc-400 trasition-all group-focus-within:text-[#1a56ff]">Full Name</label>
                     <input 
                       type="text" 
-                      placeholder="John Doe" 
-                      className="w-full bg-white border border-border rounded-full py-4 px-6 focus:outline-none focus:border-orange-500 transition-all text-xs" 
+                      placeholder="Enter full name" 
+                      className="w-full bg-transparent border-b border-zinc-200 py-4 focus:outline-none focus:border-[#1a56ff] transition-all duration-500 text-sm font-bold placeholder:text-zinc-300 placeholder:font-normal" 
                     />
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#0D1B3E]">Email Address *</label>
+                  <div className="group relative">
+                    <label className="absolute -top-6 left-0 text-[10px] font-bold uppercase tracking-widest text-zinc-400 transition-all group-focus-within:text-[#1a56ff]">Email Address</label>
                     <input 
                       type="email" 
-                      placeholder="john@example.com" 
-                      className="w-full bg-white border border-border rounded-full py-4 px-6 focus:outline-none focus:border-orange-500 transition-all text-xs" 
+                      placeholder="corporate@email.com" 
+                      className="w-full bg-transparent border-b border-zinc-200 py-4 focus:outline-none focus:border-[#1a56ff] transition-all duration-500 text-sm font-bold placeholder:text-zinc-300 placeholder:font-normal" 
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#0D1B3E]">Phone Number</label>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                  <div className="group relative">
+                    <label className="absolute -top-6 left-0 text-[10px] font-bold uppercase tracking-widest text-zinc-400 transition-all group-focus-within:text-[#1a56ff]">Mobile Number</label>
                     <input 
                       type="tel" 
-                      placeholder="+44 161 123 4567" 
-                      className="w-full bg-white border border-border rounded-full py-4 px-6 focus:outline-none focus:border-orange-500 transition-all text-xs" 
+                      placeholder="+44 000 000 0000" 
+                      className="w-full bg-transparent border-b border-zinc-200 py-4 focus:outline-none focus:border-[#1a56ff] transition-all duration-500 text-sm font-bold placeholder:text-zinc-300 placeholder:font-normal" 
                     />
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#0D1B3E]">Service Required *</label>
-                    <select className="w-full bg-white border border-border rounded-full py-4 px-6 focus:outline-none focus:border-orange-500 transition-all text-xs appearance-none">
-                       <option>Select a service...</option>
-                       <option>Urgent and priority delivery</option>
-                       <option>Business courier accounts</option>
-                       <option>Document and legal delivery</option>
-                       <option>Man with a van / Removals</option>
-                       <option>Collection-only service</option>
-                       <option>Weekend and evening delivery</option>
+                  <div className="group relative">
+                    <label className="absolute -top-6 left-0 text-[10px] font-bold uppercase tracking-widest text-zinc-400 transition-all group-focus-within:text-[#1a56ff]">Infrastructure Need</label>
+                    <select className="w-full bg-transparent border-b border-zinc-200 py-4 focus:outline-none focus:border-[#1a56ff] transition-all duration-500 text-sm font-bold appearance-none cursor-pointer">
+                       <option>Select required service...</option>
+                       <option>Urgent Priority</option>
+                       <option>Business Accounts</option>
+                       <option>Document & Legal</option>
+                       <option>Van & Removals</option>
+                       <option>Collection Only</option>
+                       <option>Out-of-Hours Delivery</option>
                     </select>
                   </div>
                 </div>
                 
-                <div className="space-y-2">
-                   <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#0D1B3E]">Additional Details</label>
+                <div className="group relative">
+                   <label className="absolute -top-6 left-0 text-[10px] font-bold uppercase tracking-widest text-zinc-400 transition-all group-focus-within:text-[#1a56ff]">Project Particulars</label>
                    <textarea 
-                     rows={5} 
-                     placeholder="Tell us about the shipment size, destination, timeline, etc." 
-                     className="w-full bg-white border border-border rounded-3xl py-4 px-6 focus:outline-none focus:border-orange-500 transition-all text-xs" 
+                     rows={4} 
+                     placeholder="Describe your logistical requirements..." 
+                     className="w-full bg-transparent border-b border-zinc-200 py-4 focus:outline-none focus:border-[#1a56ff] transition-all duration-500 text-sm font-bold resize-none placeholder:text-zinc-300 placeholder:font-normal" 
                    />
                 </div>
 
-                {/* Security Check Mockup */}
-                <div className="p-4 bg-white border border-border rounded-full flex items-center justify-between">
-                   <div className="flex items-center space-x-3">
-                      <div className="h-5 w-5 border-2 border-border rounded flex items-center justify-center">
-                        <div className="h-2 w-2 bg-green-500 rounded-full" />
-                      </div>
-                      <div>
-                        <p className="text-[10px] font-bold">Standard reCAPTCHA protection</p>
-                        <button type="button" className="text-[10px] text-blue-600 underline">Privacy Path</button>
-                      </div>
-                   </div>
-                   <div className="text-right">
-                      <p className="text-[8px] font-bold tracking-tighter uppercase italic">GOOGLE</p>
-                      <p className="text-[6px] text-muted uppercase">Terms • Privacy</p>
-                   </div>
+                <div className="pt-4">
+                  <button type="submit" className="group relative w-full lg:w-auto min-w-[280px] bg-[#0b0c10] text-white font-bold py-6 px-12 overflow-hidden transition-all duration-500 rounded-sm hover:-translate-y-1 hover:shadow-2xl">
+                    <div className="absolute inset-0 w-0 bg-[#1a56ff] transition-all duration-500 group-hover:w-full" />
+                    <span className="relative z-10 text-[11px] uppercase tracking-[0.4em] flex items-center justify-center gap-4">
+                      Deploy Mission
+                      <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform duration-500" />
+                    </span>
+                  </button>
+                  <p className="text-[9px] text-zinc-400 font-bold uppercase tracking-widest mt-6 flex items-center gap-2">
+                    <ShieldCheck size={12} className="text-[#1a56ff]" />
+                    Encrypted SSL secure portal · Priority response enabled
+                  </p>
                 </div>
-                
-                <button type="submit" className="w-full bg-accent text-white font-bold py-5 rounded-full hover:bg-blue-700 transition-all active:scale-95 text-sm uppercase tracking-widest shadow-lg shadow-blue-500/20">
-                   Book now
-                </button>
              </form>
           </div>
         </div>
