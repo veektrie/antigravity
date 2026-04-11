@@ -17,7 +17,7 @@ import {
   Truck, 
   Star
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 // Components
 import TrustBar from "@/components/TrustBar";
@@ -89,9 +89,6 @@ export default function HomePage() {
               className="flex flex-wrap justify-center gap-4 mt-4"
             >
               <Link href="#quote-form" className="px-8 py-4 bg-[#1a56ff] text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-[#0b0c10] transition-all shadow-xl shadow-blue-500/20">
-                Book now
-              </Link>
-              <Link href="#quote-form" className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-[#0b0c10] transition-all">
                 Get quote
               </Link>
               <Link href="/contact" className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-[#0b0c10] transition-all">
@@ -243,77 +240,49 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* 5. Services Architecture (Split Screen) */}
+      {/* 5. Services Ecosystem (Symmetrical Grid) */}
       <section className="py-24 md:py-32 bg-[#0b0c10] overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row gap-16 lg:gap-32 items-center">
-          
-          {/* Left: Services List */}
-          <div className="w-full lg:w-1/2 flex flex-col space-y-12">
-            <div className="space-y-6">
-              <div className="inline-flex items-center space-x-2 px-4 py-1.5 bg-white/10 border border-white/10 shadow-sm rounded-full">
-                <Package size={14} className="text-[#1a56ff]" />
-                <span className="text-[10px] font-bold uppercase tracking-widest text-white">Our Architecture</span>
-              </div>
-              
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
-                Premium Logistics <br className="hidden md:block" />
-                <span className="text-[#1a56ff]">Built for Scale</span>
-              </h2>
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+          <div className="flex flex-col items-center text-center space-y-6 mb-20">
+            <div className="inline-flex items-center space-x-2 px-4 py-1.5 bg-white/10 border border-white/10 shadow-sm rounded-full">
+              <Package size={14} className="text-[#1a56ff]" />
+              <span className="text-[10px] font-bold uppercase tracking-widest text-white">The Services Ecosystem</span>
             </div>
-
-            <div className="flex flex-col w-full border-t border-white/10">
-              {SERVICES.map((service, i) => (
-                <button 
-                  key={i} 
-                  onMouseEnter={() => setHoveredService(i)}
-                  className={`flex items-center justify-between py-10 border-b border-white/10 group transition-all duration-500 text-left w-full ${hoveredService === i ? 'pl-8' : 'pl-0'}`}
-                >
-                  <div className="flex flex-col gap-4">
-                    <span className={`text-[10px] font-bold uppercase tracking-[0.2em] transition-colors ${hoveredService === i ? 'text-[#1a56ff]' : 'text-white/30'}`}>
-                      0{i+1} Priority Category
-                    </span>
-                    <h3 className={`text-2xl lg:text-4xl font-bold transition-colors ${hoveredService === i ? 'text-white' : 'text-white/40 group-hover:text-white/60'}`}>
-                      {service.title}
-                    </h3>
-                  </div>
-                  <div className={`h-16 w-16 rounded-full border flex items-center justify-center transition-all duration-500 ${hoveredService === i ? 'bg-[#1a56ff] border-[#1a56ff] text-white rotate-0' : 'border-white/10 text-white/20 -rotate-45'}`}>
-                    <ArrowRight size={24} />
-                  </div>
-                </button>
-              ))}
-            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white max-w-4xl">
+              Professional Logistics <br />
+              <span className="text-[#1a56ff]">Powering Your Growth</span>
+            </h2>
           </div>
 
-          {/* Right: Dynamic Image Container */}
-          <div className="w-full lg:w-1/2 flex justify-center items-center">
-            <div className="relative aspect-square w-full max-w-[650px] overflow-hidden rounded-full shadow-[0_0_100px_rgba(26,86,255,0.15)] border border-white/5">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={hoveredService}
-                  initial={{ opacity: 0, scale: 1.15 }}
-                  animate={{ opacity: 1, scale: 1.05 }}
-                  exit={{ opacity: 0, scale: 1.2 }}
-                  transition={{ 
-                    duration: 0.8, 
-                    ease: "circOut",
-                    opacity: { duration: 0.6 }
-                  }}
-                  className="absolute inset-0"
-                >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {SERVICES.map((service, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ y: -10 }}
+                className="group relative bg-[#1c1d22] rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-[#1a56ff]/30 transition-all duration-300"
+              >
+                <div className="relative h-64 w-full overflow-hidden">
                   <Image 
-                    src={SERVICES[hoveredService]?.image || SERVICES[0].image} 
-                    alt={SERVICES[hoveredService]?.title} 
+                    src={service.image} 
+                    alt={service.title} 
                     fill 
-                    className="object-cover transition-all duration-1000"
+                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-[#0b0c10]/40 to-transparent" />
-                </motion.div>
-              </AnimatePresence>
-              
-              {/* Decorative Ring */}
-              <div className="absolute inset-4 rounded-full border border-white/10 pointer-events-none" />
-              <div className="absolute inset-12 rounded-full border border-white/5 pointer-events-none" />
-            </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1c1d22] to-transparent opacity-60" />
+                </div>
+                <div className="p-10 space-y-4">
+                  <div className="flex justify-between items-start">
+                    <span className="text-[10px] font-bold text-[#1a56ff] uppercase tracking-[0.2em] bg-[#1a56ff]/10 px-3 py-1 rounded-full">0{i+1} Priority</span>
+                    <div className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center text-white/30 group-hover:bg-[#1a56ff] group-hover:text-white transition-all transform group-hover:rotate-45">
+                      <ArrowRight size={20} />
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white group-hover:text-[#1a56ff] transition-colors">{service.title}</h3>
+                  <p className="text-[#9ca3af] text-sm leading-relaxed">{service.desc}</p>
+                </div>
+                <Link href={service.link} className="absolute inset-0 z-10" />
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

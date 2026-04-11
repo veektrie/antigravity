@@ -15,7 +15,7 @@ const QuoteForm = () => {
             <div className="space-y-8">
               <div className="inline-flex items-center space-x-3">
                 <div className="h-1 w-12 bg-[#1a56ff]" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#1a56ff]">Engagement Portal</span>
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#1a56ff]">Contact Us</span>
               </div>
               <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[0.9] text-[#0b0c10]">
                 CONNECT <br/>
@@ -108,7 +108,7 @@ const QuoteForm = () => {
                   <button type="submit" className="group relative w-full lg:w-auto min-w-[320px] bg-[#0b0c10] text-white font-bold py-7 px-14 overflow-hidden transition-all duration-700 rounded-sm hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
                     <div className="absolute inset-0 w-0 bg-[#1a56ff] transition-all duration-700 ease-in-out group-hover:w-full" />
                     <span className="relative z-10 text-[10px] uppercase tracking-[0.5em] flex items-center justify-center gap-6">
-                      DEPLOY MISSION
+                      Get quote
                       <ArrowRight size={18} className="group-hover:translate-x-3 transition-transform duration-700" />
                     </span>
                   </button>
