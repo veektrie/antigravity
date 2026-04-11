@@ -31,7 +31,7 @@ export const SERVICES = [
     title: "Man with a van / Removals",
     desc: "Professional loading, transit, and multi-point distribution for larger items and structured relocation needs.",
     link: "/services#removals",
-    image: "/svc-removals.png",
+    image: "/svc-removals.png.png",
   },
   {
     title: "Collection-only service",
