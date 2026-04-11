@@ -17,7 +17,7 @@ import {
   Truck, 
   Star
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Components
 import TrustBar from "@/components/TrustBar";

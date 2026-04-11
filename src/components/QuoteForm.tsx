@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ArrowRight, ShieldCheck } from "lucide-react";
 import { BRAND } from "@/lib/constants";
 
 const QuoteForm = () => {
