@@ -4,10 +4,12 @@ import React, { useState, useRef, useEffect } from "react";
 import { ChevronDown, Truck } from "lucide-react";
 
 const SERVICES = [
-  { label: "Same Day", description: "Pickup & delivery today" },
-  { label: "Next Day", description: "Overnight UK mainland" },
-  { label: "Pallet / Freight", description: "Large or bulk shipments" },
-  { label: "Contract", description: "Recurring business model" },
+  { label: "Urgent Priority", description: "Pickup within 60 minutes" },
+  { label: "Business Accounts", description: "Corporate logistics partner" },
+  { label: "Legal/Docs", description: "Secure document transport" },
+  { label: "Van / Removals", description: "Structured relocation needs" },
+  { label: "Collection Only", description: "Pickup and drop-off only" },
+  { label: "Weekend/Evening", description: "Out-of-hours delivery" },
 ];
 
 interface ServiceSelectProps {

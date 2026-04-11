@@ -123,7 +123,7 @@ const QuoteForm = () => {
                        <option>Urgent and priority delivery</option>
                        <option>Business courier accounts</option>
                        <option>Document and legal delivery</option>
-                       <option>Man with a van/removals multi-drop delivery</option>
+                       <option>Man with a van / Removals</option>
                        <option>Collection-only service</option>
                        <option>Weekend and evening delivery</option>
                     </select>

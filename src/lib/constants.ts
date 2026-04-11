@@ -5,6 +5,7 @@ export const BRAND = {
   address: "4TH FLOOR OFFICE, 205 REGENT STREET, LONDON, ENGLAND, W1B 4HB",
   whatsapp: "https://wa.me/447344916194",
   googleRating: "4.9",
+  philosophy: "Built on reliability, responsiveness, and trust. We treat every delivery like it matters, because it does. No delays, no excuses, just getting the job done properly.",
 };
 
 export const SERVICES = [
@@ -27,7 +28,7 @@ export const SERVICES = [
     image: "/svc-specialist.jpg",
   },
   {
-    title: "Man with a van/removals multi-drop",
+    title: "Man with a van / Removals",
     desc: "Professional loading, transit, and multi-point distribution for larger items and structured relocation needs.",
     link: "/services#removals",
     image: "/svc-pallet.jpg",
@@ -54,3 +55,4 @@ export const INDUSTRIES = [
   { name: "Construction", icon: "HardHat", desc: "Reliable material and equipment site deliveries." },
   { name: "Retail", icon: "Store", desc: "Store replenishment and inventory restock solutions." },
 ];
+

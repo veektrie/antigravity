@@ -67,7 +67,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-6xl md:text-[5.5rem] lg:text-[7rem] font-bold tracking-tight leading-[1] max-w-4xl text-white drop-shadow-2xl"
+              className="text-6xl md:text-[5.5rem] lg:text-[7.5rem] font-bold tracking-tight leading-[1] max-w-4xl text-white drop-shadow-2xl"
             >
               Reliable <br /> Logistics
             </motion.h1>
@@ -76,52 +76,53 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-white/90 text-base md:text-lg font-medium leading-relaxed max-w-xl mx-auto drop-shadow-md"
+              className="text-white/90 text-base md:text-xl font-medium leading-relaxed max-w-2xl mx-auto drop-shadow-md"
             >
-              Professional courier infrastructure built for speed, reliability, and scale.
-              Eben Logistics delivers across every region of the United Kingdom.
+              Professional courier infrastructure built for speed, reliability, and scale. 
+              Eben Logistics delivers across every region of the United Kingdom with absolute precision.
             </motion.p>
 
-
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-wrap justify-center gap-4 mt-4"
+            >
+              <Link href="#quote-form" className="px-8 py-4 bg-[#1a56ff] text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-[#0b0c10] transition-all shadow-xl shadow-blue-500/20">
+                Book now
+              </Link>
+              <Link href="#quote-form" className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-[#0b0c10] transition-all">
+                Get quote
+              </Link>
+              <Link href="/contact" className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-[#0b0c10] transition-all">
+                Track delivery
+              </Link>
+            </motion.div>
           </div>
 
-          {/* Quote Form visually disconnected directly below the top layout to preserve content flow */}
+          {/* Quote Form */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.45 }}
-            className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-xl mt-16 max-w-5xl mx-auto"
+            className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl mt-16 max-w-5xl mx-auto overflow-hidden shadow-2xl"
           >
             <div className="grid grid-cols-1 md:grid-cols-4">
-              {/* FROM */}
-              <div className="px-5 py-4 border-b md:border-b-0 md:border-r border-white/10">
-                <CitySelect
-                  label="From"
-                  value={fromCity}
-                  onChange={setFromCity}
-                  placeholder="Pick city"
-                />
+              <div className="px-5 py-6 border-b md:border-b-0 md:border-r border-white/10">
+                <CitySelect label="From" value={fromCity} onChange={setFromCity} placeholder="Pick city" />
               </div>
-              {/* TO */}
-              <div className="px-5 py-4 border-b md:border-b-0 md:border-r border-white/10">
-                <CitySelect
-                  label="To"
-                  value={toCity}
-                  onChange={setToCity}
-                  placeholder="Pick city"
-                />
+              <div className="px-5 py-6 border-b md:border-b-0 md:border-r border-white/10">
+                <CitySelect label="To" value={toCity} onChange={setToCity} placeholder="Pick city" />
               </div>
-              {/* SERVICE */}
-              <div className="px-5 py-4 border-b md:border-b-0 md:border-r border-white/10">
+              <div className="px-5 py-6 border-b md:border-b-0 md:border-r border-white/10">
                 <ServiceSelect value={serviceType} onChange={setServiceType} />
               </div>
-              <button className="bg-accent text-white font-bold py-6 hover:bg-blue-700 active:scale-95 transition-all text-[11px] uppercase tracking-widest shadow-xl shadow-blue-800/30 rounded-b-xl md:rounded-r-xl md:rounded-bl-none">
-                Get quote
+              <button className="bg-[#1a56ff] text-white font-bold py-6 hover:bg-blue-700 active:scale-95 transition-all text-xs uppercase tracking-widest">
+                Calculate Quote
               </button>
             </div>
           </motion.div>
 
-          {/* Urgency line */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -134,142 +135,137 @@ export default function HomePage() {
       </section>
 
       {/* 2. Trust Module */}
-      <section className="bg-[#f7f7f7] py-24 md:py-32 overflow-hidden w-full mt-8 border-y border-black/5">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 space-y-16">
-          
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
-            <div className="space-y-6">
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#0D1B3E] max-w-3xl leading-[1.1]">
+      <section className="relative w-full py-24 md:py-32 overflow-hidden">
+        {/* Full-width Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image 
+            src="/twilight-logistics.png" 
+            alt="Logistics Network" 
+            fill 
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-[#0b0c10]/80 backdrop-blur-[2px]" />
+        </div>
+
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-12 text-center lg:text-left">
+            <div className="space-y-8 max-w-3xl">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
                 Why Businesses <br className="hidden md:block" />
-                <span className="text-accent">Trust Us</span>
+                <span className="text-[#1a56ff]">Trust Us</span>
               </h2>
+              <p className="text-white/80 text-lg md:text-xl font-medium leading-relaxed italic border-l-4 border-[#1a56ff] pl-6 py-2">
+                "{BRAND.philosophy}"
+              </p>
             </div>
             
-            <div className="flex items-center gap-6">
-              <div className="flex items-center gap-4">
-                <div className="h-14 w-14 rounded-full bg-accent text-white flex items-center justify-center shadow-lg shadow-blue-500/20">
+            <div className="flex flex-col items-center lg:items-end gap-6">
+              <div className="flex items-center gap-4 bg-white/10 backdrop-blur-md p-4 rounded-3xl border border-white/10">
+                <div className="h-14 w-14 rounded-full bg-[#1a56ff] text-white flex items-center justify-center shadow-lg shadow-blue-500/20">
                   <Phone size={24} />
                 </div>
-                <div>
-                  <p className="text-[10px] font-bold text-muted uppercase tracking-widest mb-1">Call Us Anytime</p>
-                  <p className="text-lg font-bold text-[#0D1B3E]">{BRAND.phone}</p>
+                <div className="text-left">
+                  <p className="text-[10px] font-bold text-white/50 uppercase tracking-widest mb-1">Call Us Anytime</p>
+                  <p className="text-lg font-bold text-white">{BRAND.phone}</p>
                 </div>
               </div>
-              <Link href="/about" className="hidden md:flex flex-row px-8 py-4 bg-[#0D1B3E] text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-black transition-all items-center gap-2">
-                <span>Know More</span>
+              <Link href="/about" className="px-10 py-5 bg-[#1a56ff] text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-[#0b0c10] transition-all flex items-center gap-2 shadow-xl shadow-blue-500/20">
+                <span>Our Story</span>
                 <span className="text-lg leading-none -mt-0.5">↗</span>
               </Link>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-auto lg:h-[450px]">
-            {/* Tile 1: Visual Anchor */}
-            <div className="relative rounded-[3rem] overflow-hidden group h-[380px] lg:h-full shadow-lg">
-              <Image src="/hero-truck.jpg" alt="Tracking" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
-              <div className="absolute top-6 left-6 inline-flex items-center space-x-2 px-5 py-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-full">
-                <Package size={14} className="text-white" />
-                <span className="text-[10px] font-bold text-white uppercase tracking-widest">Real-Time Tracking</span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
+            {/* Stat 1 */}
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-10 rounded-[2.5rem] flex flex-col items-center text-center group hover:bg-[#1a56ff]/10 transition-all duration-500">
+              <div className="h-16 w-16 bg-[#1a56ff]/20 rounded-2xl flex items-center justify-center mb-6 text-[#1a56ff] group-hover:scale-110 transition-transform">
+                <ShieldCheck size={32} />
               </div>
-              <div className="absolute inset-x-0 bottom-0 p-8 pt-24 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
-                <p className="text-white/90 text-sm md:text-base font-medium leading-relaxed max-w-xs">
-                  Know exactly where your shipment is at any moment with live GPS updates.
-                </p>
-              </div>
+              <h3 className="text-white text-2xl font-bold mb-4">Fully Insured</h3>
+              <p className="text-white/60 text-sm leading-relaxed">Comprehensive transit and liability cover for absolute peace of mind.</p>
             </div>
-
-            {/* Tile 2: Statistics Card */}
-            <div className="bg-[#1a56ff] rounded-[3rem] p-10 flex flex-col justify-center items-center text-white shadow-xl h-[380px] lg:h-full relative overflow-hidden group text-center">
-              <ShieldCheck size={120} className="absolute -right-4 -top-4 opacity-5" />
+            {/* Stat 2 */}
+            <div className="bg-[#1a56ff] p-10 rounded-[2.5rem] flex flex-col items-center text-center shadow-2xl shadow-blue-500/20 transform hover:-translate-y-2 transition-all">
               <div 
-                className="text-[6rem] md:text-[8.5rem] font-bold leading-none tracking-tighter"
-                style={{ WebkitTextStroke: "2px rgba(255,255,255,0.7)", color: "transparent" }}
+                className="text-7xl font-bold leading-none tracking-tighter text-white mb-4"
+                style={{ WebkitTextStroke: "1px rgba(255,255,255,0.3)" }}
               >
                 100%
               </div>
-              <h3 className="text-2xl font-bold mt-4 mb-2">Fully Assured</h3>
-              <p className="text-white/90 text-[13px] font-medium leading-relaxed max-w-[220px]">
-                Your goods are protected. We carry comprehensive transit and liability cover.
-              </p>
+              <h3 className="text-white text-2xl font-bold mb-2">Reliability</h3>
+              <p className="text-white/80 text-sm leading-relaxed">No excuses, no delays. We deliver on our promise Every. Single. Time.</p>
             </div>
-
+            {/* Stat 3 */}
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-10 rounded-[2.5rem] flex flex-col items-center text-center group hover:bg-[#1a56ff]/10 transition-all duration-500">
+              <div className="h-16 w-16 bg-[#1a56ff]/20 rounded-2xl flex items-center justify-center mb-6 text-[#1a56ff] group-hover:scale-110 transition-transform">
+                <Clock size={32} />
+              </div>
+              <h3 className="text-white text-2xl font-bold mb-4">24/7 Operations</h3>
+              <p className="text-white/60 text-sm leading-relaxed">Our infrastructure never sleeps, ensuring your goods move around the clock.</p>
+            </div>
           </div>
         </div>
 
-        {/* Dynamic Slanted Ticker (Marquee) */}
-        <div className="w-full bg-[#1a56ff] mt-24 py-5 -rotate-[2deg] scale-105 shadow-xl flex whitespace-nowrap overflow-hidden relative z-10">
+        {/* Full-width Blue Navigation Ribbon */}
+        <div className="w-full bg-[#1a56ff] mt-24 py-6 flex whitespace-nowrap overflow-hidden relative z-10">
           <div className="animate-marquee flex items-center shrink-0">
-             {[...Array(6)].map((_, i) => (
+             {[...Array(8)].map((_, i) => (
                 <React.Fragment key={i}>
-                  <span className="text-white font-bold uppercase tracking-[0.2em] text-sm md:text-base mx-8">Same-Day Courier</span>
-                  <span className="text-white/40 text-sm">↗</span>
-                  <span className="text-white font-bold uppercase tracking-[0.2em] text-sm md:text-base mx-8">Freight Forwarding</span>
-                  <span className="text-white/40 text-sm">↗</span>
-                  <span className="text-white font-bold uppercase tracking-[0.2em] text-sm md:text-base mx-8">Medical Logistics</span>
-                  <span className="text-white/40 text-sm">↗</span>
-                  <span className="text-white font-bold uppercase tracking-[0.2em] text-sm md:text-base mx-8">Warehouse Solutions</span>
-                  <span className="text-white/40 text-sm">↗</span>
+                  <span className="text-white font-bold uppercase tracking-[0.25em] text-sm mx-10">Regent Street, London</span>
+                  <span className="text-white/30 text-xl font-light">•</span>
+                  <span className="text-white font-bold uppercase tracking-[0.25em] text-sm mx-10">Nationwide Coverage</span>
+                  <span className="text-white/30 text-xl font-light">•</span>
+                  <span className="text-white font-bold uppercase tracking-[0.25em] text-sm mx-10">Same-Day Priority</span>
+                  <span className="text-white/30 text-xl font-light">•</span>
                 </React.Fragment>
              ))}
           </div>
         </div>
       </section>
-      {/* 5. Services Section (Dark Hybrid) */}
+      {/* 5. Services Ecosystem (Symmetrical Grid) */}
       <section className="py-24 md:py-32 bg-[#0b0c10] overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
-          
-          {/* Left Large Image */}
-          <div className="w-full lg:w-5/12 sticky top-32">
-            <div className="inline-flex items-center space-x-2 px-4 py-1.5 bg-white/10 border border-white/10 shadow-sm rounded-full mb-6">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+          <div className="flex flex-col items-center text-center space-y-6 mb-20">
+            <div className="inline-flex items-center space-x-2 px-4 py-1.5 bg-white/10 border border-white/10 shadow-sm rounded-full">
               <Package size={14} className="text-[#1a56ff]" />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-white">Our Services</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-white">The Services Ecosystem</span>
             </div>
-            
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-8">
-              Premium Logistics <br className="hidden md:block" />
-              <span className="text-[#1a56ff]">Built for Scale</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white max-w-4xl">
+              Professional Logistics <br />
+              <span className="text-[#1a56ff]">Powering Your Growth</span>
             </h2>
-
-            <div 
-              className="relative h-[400px] md:h-[500px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10 transition-all duration-700"
-            >
-              {SERVICES.length > 0 && (
-                <Image 
-                  src={SERVICES[hoveredService]?.image || SERVICES[0].image} 
-                  alt="Logistics Service" 
-                  fill 
-                  className="object-cover transition-all duration-500" 
-                />
-              )}
-            </div>
           </div>
 
-          {/* Right Accordion / List */}
-          <div className="w-full lg:w-7/12 flex flex-col pt-4 lg:pt-8 w-full">
-            <p className="text-[#9ca3af] text-sm font-medium uppercase tracking-widest leading-loose max-w-lg mb-12">
-              Comprehensive courier infrastructure engineered for efficiency and security. We combine modern technology with traditional reliability to provide an elite delivery experience.
-            </p>
-
-            <div className="flex flex-col w-full">
-              {SERVICES.map((service, i) => (
-                <div 
-                  key={i} 
-                  onMouseEnter={() => setHoveredService(i)}
-                  className="block w-full text-left"
-                >
-                  <Link href={service.link} className="flex items-center justify-between py-8 border-b border-white/10 group hover:pl-6 transition-all duration-300">
-                    <div className="flex flex-col gap-3">
-                      <span className="text-[10px] font-bold text-[#1a56ff] uppercase tracking-[0.2em] opacity-80 decoration-transparent">0{i+1} Category</span>
-                      <h3 className="text-2xl lg:text-3xl font-bold text-white group-hover:text-[#1a56ff] transition-colors decoration-transparent">{service.title}</h3>
-                      <p className="text-[#9ca3af] text-sm mt-2 max-w-md decoration-transparent font-normal">{service.desc}</p>
-                    </div>
-                    <div className="h-16 w-16 min-w-[64px] rounded-full border border-white/20 flex items-center justify-center text-white/50 group-hover:border-[#1a56ff] group-hover:bg-[#1a56ff] group-hover:text-white transition-all ml-4">
-                      <ArrowRight size={24} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300" />
-                    </div>
-                  </Link>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {SERVICES.map((service, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ y: -10 }}
+                className="group relative bg-[#1c1d22] rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-[#1a56ff]/30 transition-all duration-300"
+              >
+                <div className="relative h-64 w-full overflow-hidden">
+                  <Image 
+                    src={service.image} 
+                    alt={service.title} 
+                    fill 
+                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1c1d22] to-transparent opacity-60" />
                 </div>
-              ))}
-            </div>
+                <div className="p-10 space-y-4">
+                  <div className="flex justify-between items-start">
+                    <span className="text-[10px] font-bold text-[#1a56ff] uppercase tracking-[0.2em] bg-[#1a56ff]/10 px-3 py-1 rounded-full">0{i+1} Priority</span>
+                    <div className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center text-white/30 group-hover:bg-[#1a56ff] group-hover:text-white transition-all transform group-hover:rotate-45">
+                      <ArrowRight size={20} />
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white group-hover:text-[#1a56ff] transition-colors">{service.title}</h3>
+                  <p className="text-[#9ca3af] text-sm leading-relaxed">{service.desc}</p>
+                </div>
+                <Link href={service.link} className="absolute inset-0 z-10" />
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -318,13 +314,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Move FAQ to bottom */}
-      <FAQ />
+      {/* Testimonials section was here, moving FAQ below it */}
+      
+      {/* Testimonials already exists above */}
 
       {/* 13. Contact / Quote Form Section */}
       <section id="quote-form" className="bg-white">
         <QuoteForm />
       </section>
+
+      {/* FAQ moved to bottom, just above footer */}
+      <FAQ />
+
     </div>
   );
 }
