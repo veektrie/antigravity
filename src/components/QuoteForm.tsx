@@ -1,124 +1,134 @@
 "use client";
 
 import React from "react";
-import { MapPin, Phone, Mail, Clock, ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck, ChevronDown, MessageSquare } from "lucide-react";
 import { BRAND } from "@/lib/constants";
 
 const QuoteForm = () => {
   return (
     <section className="py-24 md:py-32 bg-white relative overflow-hidden" id="quote-form">
+      {/* Subtle decorative glow */}
+      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[#ea580c]/5 rounded-full blur-[100px] pointer-events-none" />
+      
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
           
           {/* Left Column: Contact & Information */}
-          <div className="lg:col-span-5 space-y-16">
+          <div className="lg:col-span-5 space-y-12">
             <div className="space-y-8">
-              <div className="inline-flex items-center space-x-3">
-                <div className="h-1 w-12 bg-[#1a56ff]" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#1a56ff]">Contact Us</span>
+              <div className="inline-flex items-center space-x-2 px-4 py-2 border border-[#1e2b4d]/10 rounded-full bg-[#f8fafc]">
+                <div className="h-6 w-6 rounded-full bg-white shadow-sm flex items-center justify-center">
+                  <MessageSquare size={12} className="text-[#ea580c]" />
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[#1e2b4d]">Request a Quote</span>
               </div>
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[0.9] text-[#0b0c10]">
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[0.9] text-[#1e2b4d]">
                 CONNECT <br/>
                 WITH OUR <br/>
-                <span className="text-[#1a56ff]">LOGISTICS</span> <br/>
+                <span className="text-[#ea580c]">LOGISTICS</span> <br/>
                 EXPERTS.
               </h2>
-              <p className="text-zinc-500 text-lg leading-relaxed max-w-md font-medium">
+              <p className="text-[#1e2b4d]/60 text-lg leading-relaxed max-w-md font-medium">
                 Our team is standing by to architect your mission-critical delivery strategy. Experience the next generation of logistics infrastructure.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 pt-4">
               <div className="space-y-3">
-                <h4 className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Global HQ</h4>
-                <p className="text-sm font-bold text-[#0b0c10] leading-relaxed uppercase tracking-tight">
+                <h4 className="text-[10px] font-bold text-[#1e2b4d]/40 uppercase tracking-widest">Global HQ</h4>
+                <p className="text-sm font-bold text-[#1e2b4d] leading-relaxed uppercase tracking-tight">
                   {BRAND.address}
                 </p>
               </div>
               <div className="space-y-3">
-                <h4 className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Direct Line</h4>
-                <p className="text-sm font-bold text-[#0b0c10] tracking-tight truncate">
+                <h4 className="text-[10px] font-bold text-[#1e2b4d]/40 uppercase tracking-widest">Direct Line</h4>
+                <p className="text-sm font-bold text-[#1e2b4d] tracking-tight">
                   {BRAND.phone}
                 </p>
-                <p className="text-[10px] text-[#1a56ff] font-bold uppercase tracking-widest">24/7 Priority Support</p>
+                <div className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#ea580c] animate-pulse" />
+                  <p className="text-[10px] text-[#ea580c] font-bold uppercase tracking-widest">24/7 Priority Support</p>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Minimalist Refined Form */}
-          <div className="lg:col-span-1" /> {/* Spacer */}
+          {/* Spacer */}
+          <div className="hidden lg:block lg:col-span-1" />
 
-          <div className="lg:col-span-6">
-             <form className="space-y-16">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+          {/* Right Column: Minimalist Refined Form */}
+          <div className="lg:col-span-6 bg-[#f8fafc] border border-[#1e2b4d]/5 rounded-[2.5rem] p-8 md:p-12 lg:p-16 shadow-xl shadow-black/[0.02]">
+             <form className="space-y-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
                   <div className="group relative">
-                    <label className="absolute -top-7 left-0 text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-400 transition-all duration-500 group-focus-within:text-[#1a56ff] group-focus-within:-top-8">Full Name</label>
+                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#1e2b4d]/40 mb-2 block transition-colors group-focus-within:text-[#ea580c]">Full Name</label>
                     <input 
                       type="text" 
                       placeholder="Enter full name" 
-                      className="w-full bg-transparent border-b border-zinc-100 py-5 focus:outline-none focus:border-[#1a56ff] transition-all duration-700 text-sm font-bold placeholder:text-zinc-200 placeholder:font-normal" 
+                      className="w-full bg-white border border-[#1e2b4d]/5 rounded-xl px-5 py-4 focus:outline-none focus:border-[#ea580c] focus:ring-4 focus:ring-[#ea580c]/5 transition-all text-base font-bold text-[#1e2b4d] shadow-sm" 
                     />
                   </div>
                   <div className="group relative">
-                    <label className="absolute -top-7 left-0 text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-400 transition-all duration-500 group-focus-within:text-[#1a56ff] group-focus-within:-top-8">Email Address</label>
+                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#1e2b4d]/40 mb-2 block transition-colors group-focus-within:text-[#ea580c]">Email Address</label>
                     <input 
                       type="email" 
                       placeholder="corporate@email.com" 
-                      className="w-full bg-transparent border-b border-zinc-100 py-5 focus:outline-none focus:border-[#1a56ff] transition-all duration-700 text-sm font-bold placeholder:text-zinc-200 placeholder:font-normal" 
+                      className="w-full bg-white border border-[#1e2b4d]/5 rounded-xl px-5 py-4 focus:outline-none focus:border-[#ea580c] focus:ring-4 focus:ring-[#ea580c]/5 transition-all text-base font-bold text-[#1e2b4d] shadow-sm" 
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
                   <div className="group relative">
-                    <label className="absolute -top-7 left-0 text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-400 transition-all duration-500 group-focus-within:text-[#1a56ff] group-focus-within:-top-8">Mobile Number</label>
+                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#1e2b4d]/40 mb-2 block transition-colors group-focus-within:text-[#ea580c]">Mobile Number</label>
                     <input 
                       type="tel" 
                       placeholder="+44 000 000 0000" 
-                      className="w-full bg-transparent border-b border-zinc-100 py-5 focus:outline-none focus:border-[#1a56ff] transition-all duration-700 text-sm font-bold placeholder:text-zinc-200 placeholder:font-normal" 
+                      className="w-full bg-white border border-[#1e2b4d]/5 rounded-xl px-5 py-4 focus:outline-none focus:border-[#ea580c] focus:ring-4 focus:ring-[#ea580c]/5 transition-all text-base font-bold text-[#1e2b4d] shadow-sm" 
                     />
                   </div>
                   <div className="group relative">
-                    <label className="absolute -top-7 left-0 text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-400 transition-all duration-500 group-focus-within:text-[#1a56ff] group-focus-within:-top-8">Infrastructure Need</label>
-                    <select className="w-full bg-transparent border-b border-zinc-100 py-5 focus:outline-none focus:border-[#1a56ff] transition-all duration-700 text-sm font-bold appearance-none cursor-pointer">
-                       <option>Select required service...</option>
-                       <option>Urgent Priority</option>
-                       <option>Business Accounts</option>
-                       <option>Document & Legal</option>
-                       <option>Van & Removals</option>
-                       <option>Collection Only</option>
-                       <option>Out-of-Hours Delivery</option>
-                    </select>
-                    <div className="absolute right-0 bottom-6 pointer-events-none opacity-20">
-                      <Clock size={14} />
+                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#1e2b4d]/40 mb-2 block transition-colors group-focus-within:text-[#ea580c]">Infrastructure Need</label>
+                    <div className="relative">
+                      <select className="w-full bg-white border border-[#1e2b4d]/5 rounded-xl pl-5 pr-12 py-4 focus:outline-none focus:border-[#ea580c] transition-all text-base font-bold text-[#1e2b4d] appearance-none cursor-pointer shadow-sm">
+                        <option>Select required service...</option>
+                        <option>Urgent Priority</option>
+                        <option>Business Accounts</option>
+                        <option>Document & Legal</option>
+                        <option>Van & Removals</option>
+                        <option>Collection Only</option>
+                        <option>Out-of-Hours Delivery</option>
+                      </select>
+                      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-[#ea580c]">
+                        <ChevronDown size={18} />
+                      </div>
                     </div>
                   </div>
                 </div>
                 
                 <div className="group relative">
-                   <label className="absolute -top-7 left-0 text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-400 transition-all duration-500 group-focus-within:text-[#1a56ff] group-focus-within:-top-8">Project Particulars</label>
+                   <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#1e2b4d]/40 mb-2 block transition-colors group-focus-within:text-[#ea580c]">Project Particulars</label>
                    <textarea 
                      rows={3} 
                      placeholder="Describe your logistical requirements..." 
-                     className="w-full bg-transparent border-b border-zinc-100 py-5 focus:outline-none focus:border-[#1a56ff] transition-all duration-700 text-sm font-bold resize-none placeholder:text-zinc-200 placeholder:font-normal" 
+                     className="w-full bg-white border border-[#1e2b4d]/5 rounded-xl px-5 py-4 focus:outline-none focus:border-[#ea580c] focus:ring-4 focus:ring-[#ea580c]/5 transition-all text-base font-bold text-[#1e2b4d] resize-none shadow-sm" 
                    />
                 </div>
 
-                <div className="pt-8">
-                  <button type="submit" className="group relative w-full lg:w-auto min-w-[320px] bg-[#0b0c10] text-white font-bold py-7 px-14 overflow-hidden transition-all duration-700 rounded-sm hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
-                    <div className="absolute inset-0 w-0 bg-[#1a56ff] transition-all duration-700 ease-in-out group-hover:w-full" />
-                    <span className="relative z-10 text-[10px] uppercase tracking-[0.5em] flex items-center justify-center gap-6">
-                      Get quote
-                      <ArrowRight size={18} className="group-hover:translate-x-3 transition-transform duration-700" />
+                <div className="pt-4">
+                  <button type="submit" className="group relative w-full bg-[#1e2b4d] text-white font-bold py-6 rounded-xl overflow-hidden transition-all hover:shadow-2xl hover:shadow-[#1e2b4d]/20 active:scale-[0.98]">
+                    <div className="absolute inset-0 w-0 bg-[#ea580c] transition-all duration-500 ease-in-out group-hover:w-full" />
+                    <span className="relative z-10 text-xs uppercase tracking-[0.3em] flex items-center justify-center gap-4">
+                      Get instant quote
+                      <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform duration-500" />
                     </span>
                   </button>
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-6 mt-10">
-                    <p className="text-[8px] text-zinc-300 font-bold uppercase tracking-[0.25em] flex items-center gap-2">
-                      <ShieldCheck size={12} className="text-[#1a56ff]" />
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mt-10 opacity-40">
+                    <p className="text-[8px] font-bold uppercase tracking-[0.25em] flex items-center gap-2 text-[#1e2b4d]">
+                      <ShieldCheck size={12} className="text-[#ea580c]" />
                       ENCRYPTED SSL SECURE PORTAL
                     </p>
-                    <div className="hidden sm:block h-px w-8 bg-zinc-100" />
-                    <p className="text-[8px] text-zinc-300 font-bold uppercase tracking-[0.25em]">
+                    <p className="text-[8px] font-bold uppercase tracking-[0.25em] text-[#1e2b4d]">
                       PRIORITY RESPONSE ENABLED
                     </p>
                   </div>

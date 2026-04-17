@@ -16,7 +16,7 @@ export default function ContactPage() {
         <div className="bg-white rounded-[3rem] shadow-[0_20px_60px_rgba(0,0,0,0.03)] border border-black/5 overflow-hidden flex flex-col lg:flex-row">
           
           {/* Left Visual Info Section */}
-          <div className="w-full lg:w-5/12 bg-[#1e2b4d] p-12 lg:p-16 flex flex-col justify-between gap-12 relative overflow-hidden text-white">
+          <div className="w-full lg:w-5/12 bg-[#1e2b4d] p-12 lg:p-20 flex flex-col justify-center gap-12 relative overflow-hidden text-white">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#ea580c]/15 rounded-full blur-[80px] pointer-events-none" />
             <div className="relative z-10 space-y-12">
               <div>
@@ -25,7 +25,7 @@ export default function ContactPage() {
                   <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#ea580c]">24/7 Dispatch Ready</span>
                 </div>
                 <h3 className="text-3xl font-bold tracking-tight text-white mb-4 leading-tight">Let's coordinate<br/>your next move.</h3>
-                <p className="text-white/60 leading-relaxed">Reach out directly to our central dispatch unit. Priority handling for all corporate logistics inquiries.</p>
+                <p className="text-white/60 leading-relaxed max-w-sm">Reach out directly to our central dispatch unit. Priority handling for all corporate logistics inquiries.</p>
               </div>
 
               <div className="space-y-6">
@@ -49,39 +49,39 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-            </div>
-            
-            <div className="relative z-10 w-full overflow-hidden rounded-2xl h-36 mt-auto">
-               <div className="absolute inset-0 bg-[#ea580c]/10 z-10"></div>
-               <img src="/hero-truck.jpg" alt="London Operations" className="w-full h-full object-cover opacity-40" />
-               <div className="absolute inset-0 bg-gradient-to-t from-[#1e2b4d]/80 to-transparent z-20" />
-               <p className="absolute bottom-4 left-4 text-white/70 text-xs font-bold uppercase tracking-widest z-30">Regent Street — London HQ</p>
+
+              <div className="relative z-10 w-full overflow-hidden rounded-2xl h-36">
+                <div className="absolute inset-0 bg-[#ea580c]/10 z-10"></div>
+                <img src="/hero-truck.jpg" alt="London Operations" className="w-full h-full object-cover opacity-40" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1e2b4d]/80 to-transparent z-20" />
+                <p className="absolute bottom-4 left-4 text-white/70 text-xs font-bold uppercase tracking-widest z-30">Regent Street — London HQ</p>
+              </div>
             </div>
           </div>
 
           {/* Right Bespoke Form Section */}
           <div className="w-full lg:w-7/12 p-12 lg:p-20 bg-white flex flex-col justify-center">
-            <h4 className="text-2xl font-bold text-[#0D1B3E] mb-8">Send a Message</h4>
-            <form className="space-y-8">
+            <h4 className="text-2xl font-bold text-[#1e2b4d] mb-8">Send a Message</h4>
+            <form className="space-y-10">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-3">
-                  <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">Your Name</label>
-                  <input type="text" className="w-full border-b border-zinc-200 py-3 bg-transparent focus:outline-none focus:border-[#ea580c] transition-colors text-[#1e2b4d] font-medium" placeholder="Jane Doe" />
+                  <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#1e2b4d]/40">Your Name</label>
+                  <input type="text" className="w-full border-b border-[#1e2b4d]/10 py-4 bg-transparent focus:outline-none focus:border-[#ea580c] transition-colors text-[#1e2b4d] font-bold text-base placeholder:text-[#1e2b4d]/20" placeholder="Jane Doe" />
                 </div>
                 <div className="space-y-3">
-                  <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">Email Address</label>
-                  <input type="email" className="w-full border-b border-zinc-200 py-3 bg-transparent focus:outline-none focus:border-[#ea580c] transition-colors text-[#1e2b4d] font-medium" placeholder="jane@company.com" />
+                  <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#1e2b4d]/40">Email Address</label>
+                  <input type="email" className="w-full border-b border-[#1e2b4d]/10 py-4 bg-transparent focus:outline-none focus:border-[#ea580c] transition-colors text-[#1e2b4d] font-bold text-base placeholder:text-[#1e2b4d]/20" placeholder="jane@company.com" />
                 </div>
               </div>
               <div className="space-y-3">
-                <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">Subject / Service Needed</label>
-                <input type="text" className="w-full border-b border-zinc-200 py-3 bg-transparent focus:outline-none focus:border-[#ea580c] transition-colors text-[#1e2b4d] font-medium" placeholder="e.g. Urgent Priority Delivery" />
+                <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#1e2b4d]/40">Subject / Service Needed</label>
+                <input type="text" className="w-full border-b border-[#1e2b4d]/10 py-4 bg-transparent focus:outline-none focus:border-[#ea580c] transition-colors text-[#1e2b4d] font-bold text-base placeholder:text-[#1e2b4d]/20" placeholder="e.g. Urgent Priority Delivery" />
               </div>
               <div className="space-y-3">
-                <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">Message</label>
-                <textarea rows={4} className="w-full border-b border-zinc-200 py-3 bg-transparent focus:outline-none focus:border-[#ea580c] transition-colors text-[#1e2b4d] font-medium resize-none" placeholder="Provide tracking numbers or dispatch details..."></textarea>
+                <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#1e2b4d]/40">Message</label>
+                <textarea rows={4} className="w-full border-b border-[#1e2b4d]/10 py-4 bg-transparent focus:outline-none focus:border-[#ea580c] transition-colors text-[#1e2b4d] font-bold text-base placeholder:text-[#1e2b4d]/20 resize-none" placeholder="Provide tracking numbers or dispatch details..."></textarea>
               </div>
-              <button type="button" className="inline-flex items-center gap-3 px-10 py-5 bg-[#ea580c] text-white font-bold text-[11px] uppercase tracking-[0.1em] rounded-full hover:bg-[#1e2b4d] transition-all shadow-xl shadow-[#ea580c]/20 active:scale-95">
+              <button type="button" className="inline-flex items-center gap-3 px-10 py-5 bg-[#ea580c] text-white font-bold text-xs uppercase tracking-[0.1em] rounded-full hover:bg-[#1e2b4d] transition-all shadow-xl shadow-[#ea580c]/20">
                 <span>Submit Transmission</span>
                 <span className="text-lg leading-none -mt-0.5">↗</span>
               </button>
