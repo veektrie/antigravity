@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Rocket } from "lucide-react";
+import { BRAND } from "@/lib/constants";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -26,12 +27,13 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'top-2 md:top-4' : 'top-4 md:top-6 lg:top-8'} px-4 md:px-8 lg:px-12`}>
+    <>
+      <div className={`fixed w-full z-40 transition-all duration-500 ${scrolled ? 'top-0 md:top-4' : 'top-0 md:top-6 lg:top-8'} px-0 md:px-8 lg:px-12`}>
       <nav
-        className={`w-full max-w-[1400px] mx-auto rounded-full transition-all duration-500 px-6 lg:px-10 border ${
+        className={`w-full max-w-[1400px] mx-auto transition-all duration-500 px-6 lg:px-10 ${
           scrolled 
-            ? "bg-white/95 backdrop-blur-xl border-zinc-200 shadow-xl py-3" 
-            : "bg-white/80 backdrop-blur-md border-[#1e2b4d]/10 shadow-sm py-4 lg:py-5"
+            ? "bg-white/95 backdrop-blur-xl border-b border-[#1e2b4d]/10 md:border md:rounded-full shadow-md md:shadow-xl py-3" 
+            : "bg-white/90 md:bg-white/80 backdrop-blur-md border-b border-[#1e2b4d]/10 md:border md:rounded-full py-4 lg:py-5"
         }`}
       >
         <div className="flex justify-between items-center h-12">
@@ -84,36 +86,66 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="lg:hidden bg-white border-t border-border mt-4 animate-in slide-in-from-top-4 duration-200">
-          <div className="px-6 py-12 space-y-6 text-center">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className={`block text-xs font-bold uppercase tracking-[0.2em] ${
-                  pathname === link.href ? "text-accent" : "text-muted"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <Link
-              href="/contact"
-              onClick={() => setIsOpen(false)}
-              className="block flex items-center justify-center gap-2 w-full py-4 bg-accent text-white font-bold text-[11px] uppercase tracking-wider rounded-full shadow-lg shadow-blue-500/20"
-            >
-              <span>Get quote</span>
-              <span className="text-lg leading-none -mt-0.5">↗</span>
-            </Link>
-          </div>
-        </div>
-      )}
       </nav>
     </div>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`fixed inset-0 bg-[#1e2b4d] z-50 transition-transform duration-500 lg:hidden ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className="flex flex-col h-full p-8 md:p-12 relative overflow-y-auto">
+          <div className="flex justify-between items-center mb-16">
+            <span className="text-white font-bold tracking-tighter uppercase text-lg">
+              Menu.
+            </span>
+            <button 
+              onClick={() => setIsOpen(false)}
+              className="p-3 bg-white/5 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-all"
+            >
+              <X size={24} />
+            </button>
+          </div>
+
+          <div className="space-y-8 mt-4">
+             {navLinks.map((link, i) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center group"
+                  style={{ transitionDelay: `${i * 100}ms` }}
+                >
+                  <span className={`text-4xl md:text-5xl font-semibold tracking-tight transition-all duration-300 ${
+                    pathname === link.href ? "text-white translate-x-2" : "text-white/60 group-hover:text-white group-hover:translate-x-3"
+                  }`}>
+                    {link.name}
+                  </span>
+                </Link>
+              ))}
+          </div>
+
+          <div className="mt-auto pt-20 pb-8 space-y-10">
+            <div className="h-px w-full bg-white/10" />
+            
+            <div className="flex flex-col gap-6">
+              <div className="space-y-1">
+                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#ea580c]">24/7 Dispatch</p>
+                 <p className="text-2xl font-bold text-white tracking-tight">{BRAND.phone}</p>
+              </div>
+              
+              <Link
+                href="/contact"
+                onClick={() => setIsOpen(false)}
+                className="inline-flex items-center justify-between px-6 py-5 bg-white text-[#1e2b4d] font-bold text-xs uppercase tracking-widest rounded-2xl active:scale-95 transition-transform"
+              >
+                <span>Request Quote</span>
+                <div className="h-8 w-8 rounded-full bg-[#1e2b4d]/5 flex items-center justify-center">
+                  <span className="text-lg leading-none -mt-0.5">↗</span>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

@@ -78,7 +78,7 @@ const QuoteForm = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                <div className="grid grid-cols-1 gap-y-10">
                   <div className="group relative">
                     <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#1e2b4d]/40 mb-2 block transition-colors group-focus-within:text-[#ea580c]">Mobile Number</label>
                     <input 
