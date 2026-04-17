@@ -16,22 +16,26 @@ export default function ContactPage() {
         <div className="bg-white rounded-[3rem] shadow-[0_20px_60px_rgba(0,0,0,0.03)] border border-black/5 overflow-hidden flex flex-col lg:flex-row">
           
           {/* Left Visual Info Section */}
-          <div className="w-full lg:w-5/12 bg-[#1e2b4d] p-12 lg:p-16 flex flex-col justify-between relative overflow-hidden text-white">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#ea580c]/20 rounded-full blur-[80px] pointer-events-none" />
+          <div className="w-full lg:w-5/12 bg-[#1e2b4d] p-12 lg:p-16 flex flex-col justify-between gap-12 relative overflow-hidden text-white">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#ea580c]/15 rounded-full blur-[80px] pointer-events-none" />
             <div className="relative z-10 space-y-12">
               <div>
-                <h3 className="text-3xl font-bold tracking-tight text-white mb-4">Let's coordinate your next move.</h3>
-                <p className="text-[#9ca3af] leading-relaxed">Reach out directly to our central dispatch unit. We ensure priority handling for all corporate logistics inquiries.</p>
+                <div className="inline-flex items-center gap-2 bg-[#ea580c]/10 border border-[#ea580c]/20 px-3 py-1.5 rounded-full mb-6">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#ea580c] animate-pulse" />
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#ea580c]">24/7 Dispatch Ready</span>
+                </div>
+                <h3 className="text-3xl font-bold tracking-tight text-white mb-4 leading-tight">Let's coordinate<br/>your next move.</h3>
+                <p className="text-white/60 leading-relaxed">Reach out directly to our central dispatch unit. Priority handling for all corporate logistics inquiries.</p>
               </div>
 
-              <div className="space-y-8">
+              <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="h-10 w-10 shrink-0 bg-[#ea580c]/20 rounded-full flex items-center justify-center border border-[#ea580c]/30">
                     <span className="text-lg">📍</span>
                   </div>
                   <div>
                     <p className="text-xs font-bold text-[#ea580c] uppercase tracking-widest mb-1">Corporate HQ</p>
-                    <p className="font-medium text-white/90 leading-relaxed max-w-[200px]">4TH FLOOR OFFICE, 205 REGENT STREET, LONDON, ENGLAND, W1B 4HB</p>
+                    <p className="font-medium text-white/80 leading-relaxed max-w-[200px] text-sm">4TH FLOOR OFFICE, 205 REGENT STREET, LONDON, ENGLAND, W1B 4HB</p>
                   </div>
                 </div>
 
@@ -41,15 +45,17 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs font-bold text-[#ea580c] uppercase tracking-widest mb-1">24/7 Dispatch</p>
-                    <p className="font-bold text-xl tracking-tight text-white/90">07344916194</p>
+                    <p className="font-bold text-xl tracking-tight text-white">07344916194</p>
                   </div>
                 </div>
               </div>
             </div>
             
-            <div className="pt-20 relative z-10 w-full opacity-30 invert mix-blend-screen overflow-hidden mt-12 rounded-2xl h-40">
+            <div className="relative z-10 w-full overflow-hidden rounded-2xl h-36 mt-auto">
                <div className="absolute inset-0 bg-[#ea580c]/10 z-10"></div>
-               <img src="/hero-truck.jpg" alt="London Operations" className="w-full h-full object-cover" />
+               <img src="/hero-truck.jpg" alt="London Operations" className="w-full h-full object-cover opacity-40" />
+               <div className="absolute inset-0 bg-gradient-to-t from-[#1e2b4d]/80 to-transparent z-20" />
+               <p className="absolute bottom-4 left-4 text-white/70 text-xs font-bold uppercase tracking-widest z-30">Regent Street — London HQ</p>
             </div>
           </div>
 

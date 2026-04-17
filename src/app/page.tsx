@@ -46,23 +46,23 @@ export default function HomePage() {
     <div className="flex flex-col min-h-screen">
       
       <section
-        className="relative w-full min-h-screen flex items-center overflow-hidden bg-[#f8fafc]"
+        className="relative w-full min-h-screen flex items-center overflow-hidden"
       >
-          {/* Background Image — grayscale right side */}
+          {/* Background Image — full visibility, right-side dominant */}
           <div className="absolute inset-0 z-0">
              <Image 
                 src="/hero-truck.jpg"
                 fill
                 sizes="100vw"
-                className="object-cover opacity-15 grayscale"
+                className="object-cover object-center scale-105"
                 alt="Logistics background"
                 priority
              />
           </div>
-          {/* Left-dominant gradient */}
-          <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(115deg, rgba(248,250,252,1) 0%, rgba(248,250,252,0.97) 40%, rgba(248,250,252,0.6) 65%, rgba(248,250,252,0.1) 100%)" }} />
-          {/* Subtle bottom border */}
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1e2b4d]/15 to-transparent z-20" />
+          {/* Navy overlay — strong on the left for text, fades right */}
+          <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(100deg, rgba(30,43,77,0.97) 0%, rgba(30,43,77,0.90) 35%, rgba(30,43,77,0.70) 60%, rgba(30,43,77,0.30) 100%)" }} />
+          {/* Bottom fade to white */}
+          <div className="absolute bottom-0 left-0 right-0 h-40 z-10" style={{ background: "linear-gradient(to top, rgba(248,250,252,0.95), transparent)" }} />
 
           <div className="relative z-20 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 flex flex-col justify-center py-40 md:py-48">
 
@@ -74,7 +74,7 @@ export default function HomePage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.05 }}
             >
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#ea580c]/20 bg-[#ea580c]/5 text-[10px] font-bold text-[#ea580c] uppercase tracking-[0.2em]">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/10 text-[10px] font-bold text-white/90 uppercase tracking-[0.2em]">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#ea580c] animate-pulse" />
                 UK Logistics — Built on Trust
               </span>
@@ -84,7 +84,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-6xl md:text-[5.5rem] lg:text-[7rem] font-black tracking-tighter leading-[0.92] text-[#1e2b4d]"
+              className="text-6xl md:text-[5.5rem] lg:text-[7rem] font-black tracking-tighter leading-[0.92] text-white"
             >
               Every Delivery.
               <br />
@@ -95,9 +95,9 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-[#1e2b4d]/65 text-xl md:text-2xl font-normal leading-relaxed max-w-xl"
+              className="text-white/75 text-xl md:text-2xl font-normal leading-relaxed max-w-xl border-l-2 border-[#ea580c]/60 pl-5"
             >
-              Reliability, responsiveness, trust — built into everything we do. No delays. No excuses. <strong className="font-semibold text-[#1e2b4d]/90">Just getting the job done, properly.</strong>
+              Reliability, responsiveness, trust — built into everything we do. No delays. No excuses. <strong className="font-semibold text-white/95">Just getting the job done, properly.</strong>
             </motion.p>
 
             <motion.div 
@@ -106,46 +106,19 @@ export default function HomePage() {
               transition={{ delay: 0.3 }}
               className="flex flex-wrap justify-start gap-4 mt-4"
             >
-              <Link href="#quote-form" className="px-10 py-5 bg-[#ea580c] text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-[#1e2b4d] transition-all duration-300 shadow-xl shadow-[#ea580c]/25 flex items-center gap-3">
+              <Link href="#quote-form" className="px-10 py-5 bg-[#ea580c] text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-[#1e2b4d] transition-all duration-300 shadow-xl shadow-[#ea580c]/40 flex items-center gap-3">
                 Get a Quote <ArrowRight size={16} />
               </Link>
-              <Link href="/contact" className="px-10 py-5 bg-white border border-[#1e2b4d]/10 text-[#1e2b4d] font-bold text-xs uppercase tracking-widest rounded-full hover:bg-[#1e2b4d] hover:text-white hover:border-[#1e2b4d] transition-all duration-300 shadow-sm">
+              <Link href="/contact" className="px-10 py-5 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-[#1e2b4d] transition-all duration-300 shadow-sm">
                 Track Your Delivery
               </Link>
-            </motion.div>
-
-            {/* Metrics strip */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="flex items-center gap-10 pt-8 border-t border-[#1e2b4d]/10 mt-4 w-full"
-            >
-              {[
-                { value: "14k+", label: "Deliveries/mo" },
-                { value: "45min", label: "Avg. Pickup" },
-                { value: "99.9%", label: "On-Time Rate" },
-                { value: "24/7", label: "Live Support" },
-              ].map((m, i) => (
-                <div key={i} className="flex flex-col">
-                  <span className="text-2xl font-black tracking-tight text-[#1e2b4d]">{m.value}</span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#1e2b4d]/40 mt-0.5">{m.label}</span>
-                </div>
-              ))}
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* 2. Trust Module */}
-      {/* Section divider with accent */}
-      <div className="w-full flex items-center gap-4 px-6 md:px-12 lg:px-24 py-0">
-        <div className="h-px flex-1 bg-[#1e2b4d]/8" />
-        <div className="w-1.5 h-1.5 rounded-full bg-[#ea580c]" />
-        <div className="h-px w-12 bg-[#ea580c]/30" />
-      </div>
-
-      <section className="relative w-full py-24 md:py-32 bg-[#f8fafc] flex flex-col">
+      <section className="relative w-full py-16 md:py-24 bg-[#f8fafc] flex flex-col">
         {/* Full-width Background Image - Subtle Light Blend */}
         <div className="absolute inset-0 z-0">
           <Image 
@@ -186,7 +159,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-12 mt-24">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mt-12">
             {/* Stat 1: Fully Insured */}
             <div className="group flex flex-col md:border-l border-[#1e2b4d]/10 md:pl-8 hover:border-[#ea580c] transition-colors duration-500">
               <div className="text-[#ea580c] mb-6 group-hover:-translate-y-1 transition-transform duration-300">
@@ -225,7 +198,7 @@ export default function HomePage() {
         </div>
 
         {/* Full-width Navigation Ribbon */}
-        <div className="w-full bg-white border-y border-[#1e2b4d]/10 mt-24 py-6 flex whitespace-nowrap overflow-hidden relative z-10 shadow-sm">
+        <div className="w-full bg-white border-y border-[#1e2b4d]/10 mt-12 py-6 flex whitespace-nowrap overflow-hidden relative z-10 shadow-sm">
           <div className="animate-marquee flex items-center shrink-0">
              {[...Array(8)].map((_, i) => (
                 <React.Fragment key={i}>
@@ -241,21 +214,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section divider */}
-      <div className="w-full flex items-center gap-4 px-6 md:px-12 lg:px-24">
-        <div className="h-px flex-1 bg-[#1e2b4d]/8" />
-        <div className="w-1.5 h-1.5 rounded-full bg-[#ea580c]" />
-        <div className="h-px w-12 bg-[#ea580c]/30" />
-      </div>
-
       {/* 5. Services Ecosystem (Hover Image Split) */}
-      <section className="py-24 md:py-32 bg-white border-b border-[#1e2b4d]/5 relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-white border-b border-[#1e2b4d]/5 relative overflow-hidden">
         {/* Subtle decorative background element */}
         <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-[#ea580c]/[0.025] rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#1e2b4d]/[0.02] rounded-full blur-[100px] pointer-events-none" />
         
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-          <div className="flex flex-col md:flex-row justify-between md:items-end mb-20">
+          <div className="flex flex-col md:flex-row justify-between md:items-end mb-12">
             <div className="max-w-2xl">
               <div className="inline-flex items-center space-x-2 px-4 py-1.5 bg-[#f8fafc] border border-[#1e2b4d]/10 shadow-sm rounded-full mb-6">
                 <Package size={14} className="text-[#ea580c]" />
@@ -273,41 +239,44 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start border-t border-[#1e2b4d]/10 pt-16">
+          {/* Two-column layout: image fixed left, list scrolls right */}
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start border-t border-[#1e2b4d]/10 pt-16">
             
-            {/* Left: Dynamic Image (Desktop only) — refined frame */}
-            <div className="hidden lg:block lg:col-span-5 relative h-[640px] w-full sticky top-28">
-              {/* Outer frame border detail */}
-              <div className="absolute -top-3 -left-3 w-16 h-16 border-t-2 border-l-2 border-[#ea580c]/40 z-20 pointer-events-none" />
-              <div className="absolute -bottom-3 -right-3 w-16 h-16 border-b-2 border-r-2 border-[#ea580c]/40 z-20 pointer-events-none" />
-              <div className="overflow-hidden rounded-2xl h-full shadow-2xl shadow-[#1e2b4d]/10 relative">
-              {SERVICES.map((service, i) => (
-                <div
-                  key={i}
-                  className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${hoveredService === i ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"}`}
-                >
-                  <Image 
-                    src={service.image} 
-                    alt={service.title} 
-                    fill
-                    sizes="50vw"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1e2b4d]/95 via-[#1e2b4d]/30 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-10">
-                    <div className="inline-flex items-center gap-2 bg-[#ea580c] px-4 py-1.5 rounded-full text-white text-[10px] font-bold uppercase tracking-widest mb-4">
-                      0{i + 1} — Service
+            {/* Left: Dynamic Image (Desktop only) — fixed height, not sticky grid */}
+            <div className="hidden lg:flex lg:w-[45%] shrink-0">
+              <div className="relative w-full" style={{ height: '640px' }}>
+                {/* Outer frame border detail */}
+                <div className="absolute -top-3 -left-3 w-16 h-16 border-t-2 border-l-2 border-[#ea580c]/40 z-20 pointer-events-none" />
+                <div className="absolute -bottom-3 -right-3 w-16 h-16 border-b-2 border-r-2 border-[#ea580c]/40 z-20 pointer-events-none" />
+                <div className="overflow-hidden rounded-2xl h-full shadow-2xl shadow-[#1e2b4d]/10 relative">
+                  {SERVICES.map((service, i) => (
+                    <div
+                      key={i}
+                      className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${hoveredService === i ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"}`}
+                    >
+                      <Image 
+                        src={service.image} 
+                        alt={service.title} 
+                        fill
+                        sizes="45vw"
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#1e2b4d]/95 via-[#1e2b4d]/30 to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-10">
+                        <div className="inline-flex items-center gap-2 bg-[#ea580c] px-4 py-1.5 rounded-full text-white text-[10px] font-bold uppercase tracking-widest mb-4">
+                          0{i + 1} — Service
+                        </div>
+                        <h4 className="text-3xl font-bold text-white">{service.title}</h4>
+                        <p className="text-white/70 text-sm font-medium mt-2 leading-relaxed">{service.desc}</p>
+                      </div>
                     </div>
-                    <h4 className="text-3xl font-bold text-white">{service.title}</h4>
-                    <p className="text-white/70 text-sm font-medium mt-2 leading-relaxed">{service.desc}</p>
-                  </div>
+                  ))}
                 </div>
-              ))}
               </div>
             </div>
 
             {/* Right: Service List — elevated style */}
-            <div className="flex flex-col lg:col-span-7">
+            <div className="flex flex-col flex-1 min-w-0">
               {SERVICES.map((service, i) => (
                 <Link
                   key={i}
@@ -368,15 +337,9 @@ export default function HomePage() {
 
 
       {/* Section divider */}
-      <div className="w-full flex items-center gap-4 px-6 md:px-12 lg:px-24">
-        <div className="h-px flex-1 bg-[#1e2b4d]/8" />
-        <div className="w-1.5 h-1.5 rounded-full bg-[#ea580c]" />
-        <div className="h-px w-12 bg-[#ea580c]/30" />
-      </div>
-
       {/* 9. Testimonials (Minimalist) */}
-      <section className="py-24 md:py-32 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 mb-8 relative">
-        <div className="flex flex-col items-center text-center space-y-6 mb-20">
+      <section className="py-16 md:py-20 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 mb-4 relative">
+        <div className="flex flex-col items-center text-center space-y-4 mb-12">
           <div className="inline-flex items-center space-x-2 px-4 py-1.5 bg-[#f8fafc] border border-[#1e2b4d]/10 shadow-sm rounded-full">
             <Star size={14} className="text-[#ea580c]" />
             <span className="text-[10px] font-bold uppercase tracking-widest text-[#1e2b4d]">Client Testimonials</span>
@@ -393,7 +356,7 @@ export default function HomePage() {
             { name: "Jake Nicholson", role: "Chef, Green Table", text: "The same-day ingredient delivery is flawless. Never missed a dinner service because of them." },
           ].map((quote, i) => (
             <div key={i} className="flex flex-col space-y-8 group">
-              <div className="text-[#1a56ff] opacity-20 group-hover:opacity-100 transition-opacity duration-300" style={{ fontSize: "5rem", lineHeight: "0" }}>
+              <div className="text-[#ea580c] opacity-30 group-hover:opacity-100 transition-opacity duration-300" style={{ fontSize: "5rem", lineHeight: "0" }}>
                 "
               </div>
               <p className="text-xl md:text-2xl font-medium tracking-tight leading-relaxed text-[#111827] mt-8">

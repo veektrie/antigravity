@@ -39,12 +39,6 @@ export const SERVICES = [
     link: "/services#collection",
     image: "/svc-warehouse.jpg",
   },
-  {
-    title: "Weekend and evening delivery",
-    desc: "Out-of-hours logistical operations ensuring flexibility and continuous supply chain movement around the clock.",
-    link: "/services#weekend",
-    image: "/svc-next-day.jpg",
-  },
 ];
 
 export const INDUSTRIES = [

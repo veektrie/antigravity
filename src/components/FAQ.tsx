@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown, ChevronUp, ArrowUp, Package } from "lucide-react";
+import { ChevronDown, Package, Truck, Clock, ShieldCheck } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import NetworkVisual from './NetworkVisual';
+import Image from "next/image";
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -55,10 +55,36 @@ const FAQ = () => {
 
         <div className="bg-[#f8fafc] border border-[#1e2b4d]/5 p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-16 lg:gap-24 shadow-xl" style={{ borderRadius: '40px' }}>
           
-          {/* Left Column: Interactive Map Space */}
-          <div className="w-full lg:w-1/2 flex flex-col">
-            {/* High-Fidelity Network Dashboard Visual */}
-            <NetworkVisual />
+          {/* Left Column: Brand Stats + Image */}
+          <div className="w-full lg:w-1/2 flex flex-col gap-8">
+            {/* Stats grid */}
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { icon: Truck, value: "14k+", label: "Monthly Deliveries", color: "bg-[#ea580c]" },
+                { icon: Clock, value: "45min", label: "Avg. Collection Time", color: "bg-[#1e2b4d]" },
+                { icon: ShieldCheck, value: "99.9%", label: "On-Time Success Rate", color: "bg-[#ea580c]" },
+                { icon: Package, value: "24/7", label: "Live Operations", color: "bg-[#1e2b4d]" },
+              ].map((stat, i) => (
+                <div key={i} className="bg-white rounded-2xl border border-[#1e2b4d]/5 p-6 flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
+                  <div className={`w-10 h-10 ${stat.color} rounded-xl flex items-center justify-center`}>
+                    <stat.icon size={18} className="text-white" />
+                  </div>
+                  <div>
+                    <p className="text-3xl font-black tracking-tight text-[#1e2b4d]">{stat.value}</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#1e2b4d]/40 mt-1">{stat.label}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* Brand image */}
+            <div className="relative w-full h-52 rounded-2xl overflow-hidden shadow-lg">
+              <Image src="/svc-specialist.jpg" alt="Eben Logistics Operations" fill sizes="50vw" className="object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1e2b4d]/80 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 p-6">
+                <p className="text-white font-bold text-lg tracking-tight">Operating Nationwide</p>
+                <p className="text-white/60 text-xs font-medium mt-1">From Regent Street, London — and everywhere that matters.</p>
+              </div>
+            </div>
           </div>
 
           {/* Right Column: FAQ Accordion */}
