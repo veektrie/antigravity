@@ -9,7 +9,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0b0c10] pt-24 pb-12 w-full max-w-[1920px] mx-auto overflow-hidden relative">
+    <footer className="bg-[#1e2b4d] pt-24 pb-12 w-full max-w-[1920px] mx-auto overflow-hidden relative">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         
         {/* Main Footer Links Grid */}
@@ -18,19 +18,19 @@ const Footer = () => {
           {/* Col 1: Brand & Social */}
           <div className="space-y-8 pr-0 lg:pr-8">
             <Link href="/" className="flex items-center space-x-2 group">
-              <div className="h-8 w-8 bg-[#1a56ff] flex items-center justify-center" style={{ clipPath: 'polygon(0 0, 70% 0, 100% 30%, 100% 100%, 0 100%)' }}>
+              <div className="h-8 w-8 bg-[#ea580c] flex items-center justify-center" style={{ clipPath: 'polygon(0 0, 70% 0, 100% 30%, 100% 100%, 0 100%)' }}>
                 <div className="h-3 w-3 bg-white" />
               </div>
               <span className="text-2xl font-bold tracking-tighter text-white uppercase">
                 {BRAND.name}
               </span>
             </Link>
-            <p className="text-[#9ca3af] text-sm leading-relaxed font-medium">
-              We empower UK businesses with high-priority courier infrastructure. Reliable, responsive, and truly professional logistics.
+            <p className="text-white/50 text-sm leading-relaxed font-medium">
+              Built on reliability, responsiveness, and trust. We treat every delivery like it matters — because it does.
             </p>
             <div className="flex space-x-3">
               {[Globe, Share2, MessageSquare].map((Icon, i) => (
-                <Link key={i} href="#" className="h-10 w-10 border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#1a56ff] hover:border-[#1a56ff] transition-all">
+                <Link key={i} href="#" className="h-10 w-10 border border-white/10 rounded-full flex items-center justify-center text-white/50 hover:bg-[#ea580c] hover:border-[#ea580c] hover:text-white transition-all">
                   <Icon size={16} />
                 </Link>
               ))}
@@ -45,7 +45,7 @@ const Footer = () => {
                 <li key={item}>
                   <Link
                     href="#"
-                    className="text-[#9ca3af] text-sm hover:text-white transition-colors"
+                    className="text-white/50 text-sm hover:text-[#ea580c] transition-colors"
                   >
                     {item}
                   </Link>
@@ -59,16 +59,16 @@ const Footer = () => {
             <h3 className="text-white font-bold text-lg mb-8 tracking-tight">Working Hours</h3>
             <ul className="space-y-4">
               <li className="flex justify-between items-center border-b border-white/5 pb-4">
-                <span className="text-[#9ca3af] text-sm font-medium">Mon - Fri</span>
+                <span className="text-white/50 text-sm font-medium">Mon - Fri</span>
                 <span className="text-white text-sm font-bold">8:00 AM - 6:00 PM</span>
               </li>
               <li className="flex justify-between items-center border-b border-white/5 pb-4">
-                <span className="text-[#9ca3af] text-sm font-medium">Saturday</span>
+                <span className="text-white/50 text-sm font-medium">Saturday</span>
                 <span className="text-white text-sm font-bold">9:00 AM - 3:00 PM</span>
               </li>
               <li className="flex justify-between items-center pb-4">
-                <span className="text-[#9ca3af] text-sm font-medium">Sunday</span>
-                <span className="text-[#1a56ff] text-sm font-bold uppercase tracking-widest text-[10px]">On-Call Operations</span>
+                <span className="text-white/50 text-sm font-medium">Sunday</span>
+                <span className="text-[#ea580c] text-sm font-bold uppercase tracking-widest text-[10px]">On-Call Operations</span>
               </li>
             </ul>
           </div>
@@ -78,26 +78,26 @@ const Footer = () => {
             <h3 className="text-white font-bold text-lg mb-8 tracking-tight">Say Hello</h3>
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
-                <div className="mt-1 text-[#1a56ff]">
+                <div className="mt-1 text-[#ea580c]">
                   <MapPin size={20} />
                 </div>
-                <p className="text-[#9ca3af] text-sm leading-relaxed">
+                <p className="text-white/50 text-sm leading-relaxed">
                   {BRAND.address}
                 </p>
               </div>
               <div className="flex items-center space-x-4">
-                <div className="text-[#1a56ff]">
+                <div className="text-[#ea580c]">
                   <Mail size={20} />
                 </div>
-                <Link href={`mailto:${BRAND.email}`} className="text-white font-bold text-base hover:text-[#1a56ff] transition-colors decoration-white/30 underline underline-offset-4">
+                <Link href={`mailto:${BRAND.email}`} className="text-white font-bold text-base hover:text-[#ea580c] transition-colors">
                   {BRAND.email}
                 </Link>
               </div>
               <div className="flex items-center space-x-4">
-                <div className="text-[#1a56ff]">
+                <div className="text-[#ea580c]">
                   <Phone size={20} />
                 </div>
-                <Link href={`tel:${BRAND.phone}`} className="text-white font-bold text-base hover:text-[#1a56ff] transition-colors decoration-white/30 underline underline-offset-4">
+                <Link href={`tel:${BRAND.phone}`} className="text-white font-bold text-base hover:text-[#ea580c] transition-colors">
                   {BRAND.phone}
                 </Link>
               </div>
@@ -107,13 +107,13 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-[#9ca3af] font-medium">
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-white/40 font-medium">
           <p>
             &copy; {currentYear} {BRAND.name}. All rights reserved.
           </p>
           <div className="flex space-x-8">
-            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="#" className="hover:text-[#ea580c] transition-colors">Privacy Policy</Link>
+            <Link href="#" className="hover:text-[#ea580c] transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

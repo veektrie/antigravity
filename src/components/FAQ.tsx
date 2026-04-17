@@ -49,7 +49,7 @@ const FAQ = () => {
           </div>
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#1e2b4d] leading-[1.1]">
-            We <span className="text-[#ea580c]">Work Nationwide</span> for you since 1980
+            Your Questions, <span className="text-[#ea580c]">Answered.</span>
           </h2>
         </div>
 

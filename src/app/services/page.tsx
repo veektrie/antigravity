@@ -66,7 +66,7 @@ export default function ServicesPage() {
               >
                 <div className="space-y-8 relative z-10">
                   <div className="flex justify-between items-start">
-                    <div className="h-16 w-16 rounded-2xl bg-[#1a56ff]/5 flex items-center justify-center text-[#1a56ff] group-hover:bg-[#1a56ff] group-hover:text-white transition-all duration-500">
+                    <div className="h-16 w-16 rounded-2xl bg-[#ea580c]/5 flex items-center justify-center text-[#ea580c] group-hover:bg-[#ea580c] group-hover:text-white transition-all duration-500">
                       <service.icon className="h-7 w-7" />
                     </div>
                     <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 border border-zinc-100 px-4 py-1.5 rounded-full">{service.label}</span>
@@ -79,8 +79,8 @@ export default function ServicesPage() {
                 </div>
                 
                 <div className="relative z-10 mt-auto pt-8 flex items-center justify-between border-t border-zinc-50 transition-all duration-500 group-hover:border-zinc-100">
-                  <span className="text-[11px] uppercase tracking-[0.2em] text-[#1a56ff] font-bold">Inquiry Details</span>
-                  <div className="h-12 w-12 rounded-full border border-zinc-100 flex items-center justify-center group-hover:border-[#1a56ff] group-hover:bg-[#1a56ff] transition-all duration-500 -rotate-45 group-hover:rotate-0">
+                  <span className="text-[11px] uppercase tracking-[0.2em] text-[#ea580c] font-bold">Inquiry Details</span>
+                  <div className="h-12 w-12 rounded-full border border-zinc-100 flex items-center justify-center group-hover:border-[#ea580c] group-hover:bg-[#ea580c] transition-all duration-500 -rotate-45 group-hover:rotate-0">
                     <ArrowRight size={20} className="text-zinc-300 group-hover:text-white transition-colors" />
                   </div>
                 </div>
@@ -91,14 +91,14 @@ export default function ServicesPage() {
             
             {/* CTA Card */}
             <div 
-              className="group relative p-10 flex flex-col justify-center items-center text-center bg-[#0b0c10] rounded-[2.5rem] shadow-2xl transition-all duration-500 hover:-translate-y-2 h-[420px]"
+              className="group relative p-10 flex flex-col justify-center items-center text-center bg-[#1e2b4d] rounded-[2.5rem] shadow-2xl transition-all duration-500 hover:-translate-y-2 h-[420px]"
             >
-               <div className="absolute inset-0 bg-[#1a56ff]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+               <div className="absolute inset-0 bg-[#ea580c]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                <h3 className="text-3xl lg:text-4xl font-bold tracking-tighter text-white leading-tight mb-6">Need a <br/>Bespoke <br/>Plan?</h3>
                <p className="text-[10px] text-white/40 leading-relaxed font-bold uppercase tracking-[0.3em] px-4 mb-10">Custom infrastructure architecture available on request.</p>
                <Link 
                  href="/contact" 
-                 className="relative z-10 px-10 py-5 bg-[#1a56ff] text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-[#0b0c10] transition-all shadow-xl shadow-blue-500/20"
+                 className="relative z-10 px-10 py-5 bg-[#ea580c] text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-[#1e2b4d] transition-all shadow-xl shadow-[#ea580c]/20"
                >
                  Request Quote
                </Link>

@@ -21,22 +21,22 @@ export default function AboutPage() {
             }}
           >
             {/* Ambient Background Accents */}
-            <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#1a56ff]/20 rounded-full blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#1a56ff]/10 rounded-full blur-[150px] pointer-events-none" />
+            <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#ea580c]/10 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#1e2b4d]/20 rounded-full blur-[150px] pointer-events-none" />
             
             <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 relative z-10 w-full">
               
               {/* Massive Philosophy Statement */}
               <div className="w-full lg:w-3/5 space-y-12">
                 <div className="inline-flex items-center space-x-2">
-                  <span className="h-2 w-2 bg-[#1a56ff] rounded-full"></span>
+                  <span className="h-2 w-2 bg-[#ea580c] rounded-full"></span>
                   <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50">Our Philosophy</span>
                 </div>
                 
                 <h2 className="text-4xl md:text-6xl lg:text-[5.5rem] font-bold tracking-tighter leading-[1.05] text-white">
                   Traditional logistics is reactive. <br className="hidden md:block"/>
                   We built Eben to be <br/>
-                  <span className="text-[#1a56ff]">proactive.</span>
+                  <span className="text-[#ea580c]">proactive.</span>
                 </h2>
               </div>
               
@@ -50,14 +50,12 @@ export default function AboutPage() {
                   Operating out of Regent Street, London, our network operates 24/7, providing the backbone for businesses across the UK that require scale and speed.
                 </p>
 
-                <p className="text-white text-xl font-bold tracking-tight">
-                  We deliver more than just logistics; <span className="text-[#1a56ff]">we deliver peace of mind.</span>
-                </p>
+                <p className="text-white font-bold text-xl tracking-tight">We deliver more than just logistics; <span className="text-[#ea580c]">we deliver peace of mind.</span></p>
 
                 <div className="pt-6">
                   <Link 
                     href="/contact" 
-                    className="inline-flex items-center gap-3 px-8 py-4 bg-[#1a56ff] text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-[#0b0c10] transition-all shadow-xl shadow-blue-500/20"
+                    className="inline-flex items-center gap-3 px-8 py-4 bg-[#ea580c] text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-[#1e2b4d] transition-all shadow-xl shadow-[#ea580c]/20"
                   >
                     <span>Get quote</span>
                     <span className="text-lg leading-none -mt-0.5">↗</span>
@@ -70,19 +68,19 @@ export default function AboutPage() {
           {/* Metrics Footer below block */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 px-8">
              <div className="space-y-4">
-               <p className="text-[#1a56ff] text-5xl font-bold tracking-tighter">1980</p>
+               <p className="text-[#ea580c] text-5xl font-bold tracking-tighter">1980</p>
                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#0b0c10]/50">Year Established</p>
              </div>
              <div className="space-y-4">
-               <p className="text-[#1a56ff] text-5xl font-bold tracking-tighter">50K+</p>
+               <p className="text-[#ea580c] text-5xl font-bold tracking-tighter">50K+</p>
                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#0b0c10]/50">Deliveries Completed</p>
              </div>
              <div className="space-y-4">
-               <p className="text-[#1a56ff] text-5xl font-bold tracking-tighter">24/7</p>
+               <p className="text-[#ea580c] text-5xl font-bold tracking-tighter">24/7</p>
                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#0b0c10]/50">Operations Live</p>
              </div>
              <div className="space-y-4">
-               <p className="text-[#1a56ff] text-5xl font-bold tracking-tighter">99%</p>
+               <p className="text-[#ea580c] text-5xl font-bold tracking-tighter">99%</p>
                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#0b0c10]/50">Success Rate</p>
              </div>
           </div>
