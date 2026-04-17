@@ -5,16 +5,16 @@ import Link from "next/link";
 import Image from "next/image";
 import CitySelect from "@/components/CitySelect";
 import ServiceSelect from "@/components/ServiceSelect";
-import { 
-  ArrowRight, 
-  Check, 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Clock, 
-  ShieldCheck, 
-  Package, 
-  Truck, 
+import {
+  ArrowRight,
+  Check,
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  ShieldCheck,
+  Package,
+  Truck,
   Star
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -44,31 +44,31 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      
+
       <section
         className="relative w-full min-h-screen flex items-center overflow-hidden"
       >
-          {/* Background Image — full visibility, right-side dominant */}
-          <div className="absolute inset-0 z-0">
-             <Image 
-                src="/hero-truck.jpg"
-                fill
-                sizes="100vw"
-                className="object-cover object-center scale-105"
-                alt="Logistics background"
-                priority
-             />
-          </div>
-          {/* Navy overlay — strong on the left for text, fades right */}
-          <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(100deg, rgba(30,43,77,0.97) 0%, rgba(30,43,77,0.90) 35%, rgba(30,43,77,0.70) 60%, rgba(30,43,77,0.30) 100%)" }} />
-          {/* Bottom fade to white */}
-          <div className="absolute bottom-0 left-0 right-0 h-40 z-10" style={{ background: "linear-gradient(to top, rgba(248,250,252,0.95), transparent)" }} />
+        {/* Background Image — full visibility, right-side dominant */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/hero-truck.jpg"
+            fill
+            sizes="100vw"
+            className="object-cover object-center scale-105"
+            alt="Logistics background"
+            priority
+          />
+        </div>
+        {/* Navy overlay — strong on the left for text, fades right */}
+        <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(100deg, rgba(30,43,77,0.97) 0%, rgba(30,43,77,0.90) 35%, rgba(30,43,77,0.70) 60%, rgba(30,43,77,0.30) 100%)" }} />
+        {/* Bottom fade to white */}
+        <div className="absolute bottom-0 left-0 right-0 h-40 z-10" style={{ background: "linear-gradient(to top, rgba(248,250,252,0.95), transparent)" }} />
 
-          <div className="relative z-20 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 flex flex-col justify-center py-40 md:py-48">
+        <div className="relative z-20 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 flex flex-col justify-center py-40 md:py-48">
 
           {/* Main Hero Elements */}
           <div className="relative z-20 flex flex-col items-start justify-center gap-8 w-full max-w-3xl">
-            
+
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -97,10 +97,10 @@ export default function HomePage() {
               transition={{ delay: 0.2 }}
               className="text-white/75 text-xl md:text-2xl font-normal leading-relaxed max-w-xl border-l-2 border-[#ea580c]/60 pl-5"
             >
-              Reliability, responsiveness, trust — built into everything we do. No delays. No excuses. <strong className="font-semibold text-white/95">Just getting the job done, properly.</strong>
+              Reliability, responsiveness, trust all built into everything we do. No delays. No excuses. <strong className="font-semibold text-white/95">Just getting the job done, properly.</strong>
             </motion.p>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -121,10 +121,10 @@ export default function HomePage() {
       <section className="relative w-full py-16 md:py-24 bg-[#f8fafc] flex flex-col">
         {/* Full-width Background Image - Subtle Light Blend */}
         <div className="absolute inset-0 z-0">
-          <Image 
-            src="/twilight-logistics.png" 
-            alt="Logistics Network" 
-            fill 
+          <Image
+            src="/twilight-logistics.png"
+            alt="Logistics Network"
+            fill
             sizes="100vw"
             className="object-cover opacity-[0.03] grayscale"
           />
@@ -141,7 +141,7 @@ export default function HomePage() {
                 "{BRAND.philosophy}"
               </p>
             </div>
-            
+
             <div className="flex flex-col items-center lg:items-end gap-6">
               <div className="flex items-center gap-4 bg-white p-4 rounded-3xl border border-[#1e2b4d]/10 shadow-sm">
                 <div className="h-14 w-14 rounded-full bg-[#1e2b4d] text-white flex items-center justify-center shadow-lg shadow-[#1e2b4d]/20">
@@ -173,7 +173,7 @@ export default function HomePage() {
 
             {/* Stat 2: Reliability */}
             <div className="group flex flex-col md:border-l border-[#1e2b4d]/10 md:pl-8 hover:border-[#ea580c] transition-colors duration-500">
-              <div 
+              <div
                 className="text-6xl font-bold leading-none tracking-tighter text-[#1e2b4d] mb-4 group-hover:-translate-y-1 transition-transform duration-300"
               >
                 100%
@@ -200,16 +200,16 @@ export default function HomePage() {
         {/* Full-width Navigation Ribbon */}
         <div className="w-full bg-white border-y border-[#1e2b4d]/10 mt-12 py-6 flex whitespace-nowrap overflow-hidden relative z-10 shadow-sm">
           <div className="animate-marquee flex items-center shrink-0">
-             {[...Array(8)].map((_, i) => (
-                <React.Fragment key={i}>
-                  <span className="text-[#1e2b4d] font-bold uppercase tracking-[0.25em] text-sm mx-10">Regent Street, London</span>
-                  <span className="text-[#1e2b4d]/20 text-xl font-light">•</span>
-                  <span className="text-[#1e2b4d] font-bold uppercase tracking-[0.25em] text-sm mx-10">Nationwide Coverage</span>
-                  <span className="text-[#1e2b4d]/20 text-xl font-light">•</span>
-                  <span className="text-[#1e2b4d] font-bold uppercase tracking-[0.25em] text-sm mx-10">Same-Day Priority</span>
-                  <span className="text-[#1e2b4d]/20 text-xl font-light">•</span>
-                </React.Fragment>
-              ))}
+            {[...Array(8)].map((_, i) => (
+              <React.Fragment key={i}>
+                <span className="text-[#1e2b4d] font-bold uppercase tracking-[0.25em] text-sm mx-10">Regent Street, London</span>
+                <span className="text-[#1e2b4d]/20 text-xl font-light">•</span>
+                <span className="text-[#1e2b4d] font-bold uppercase tracking-[0.25em] text-sm mx-10">Nationwide Coverage</span>
+                <span className="text-[#1e2b4d]/20 text-xl font-light">•</span>
+                <span className="text-[#1e2b4d] font-bold uppercase tracking-[0.25em] text-sm mx-10">Same-Day Priority</span>
+                <span className="text-[#1e2b4d]/20 text-xl font-light">•</span>
+              </React.Fragment>
+            ))}
           </div>
         </div>
       </section>
@@ -219,7 +219,7 @@ export default function HomePage() {
         {/* Subtle decorative background element */}
         <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-[#ea580c]/[0.025] rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#1e2b4d]/[0.02] rounded-full blur-[100px] pointer-events-none" />
-        
+
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="flex flex-col md:flex-row justify-between md:items-end mb-12">
             <div className="max-w-2xl">
@@ -241,7 +241,7 @@ export default function HomePage() {
 
           {/* Two-column layout: image fixed left, list scrolls right */}
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start border-t border-[#1e2b4d]/10 pt-16">
-            
+
             {/* Left: Dynamic Image (Desktop only) — fixed height, not sticky grid */}
             <div className="hidden lg:flex lg:w-[45%] shrink-0">
               <div className="relative w-full" style={{ height: '640px' }}>
@@ -254,9 +254,9 @@ export default function HomePage() {
                       key={i}
                       className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${hoveredService === i ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"}`}
                     >
-                      <Image 
-                        src={service.image} 
-                        alt={service.title} 
+                      <Image
+                        src={service.image}
+                        alt={service.title}
                         fill
                         sizes="45vw"
                         className="object-cover"
@@ -282,24 +282,21 @@ export default function HomePage() {
                   key={i}
                   href={service.link}
                   onMouseEnter={() => setHoveredService(i)}
-                  className={`group flex items-center gap-6 py-7 border-b transition-all duration-300 cursor-pointer ${
-                    hoveredService === i
+                  className={`group flex items-center gap-6 py-7 border-b transition-all duration-300 cursor-pointer ${hoveredService === i
                       ? "border-[#ea580c]/40 bg-gradient-to-r from-[#ea580c]/[0.03] to-transparent"
                       : "border-[#1e2b4d]/5 hover:border-[#ea580c]/20"
-                  }`}
+                    }`}
                 >
                   {/* Number badge */}
-                  <div className={`shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-xs font-black tracking-widest transition-all duration-300 border ${
-                    hoveredService === i ? "bg-[#ea580c] border-[#ea580c] text-white shadow-lg shadow-[#ea580c]/30" : "bg-white border-[#1e2b4d]/10 text-[#1e2b4d]/40"
-                  }`}>
-                    0{i+1}
+                  <div className={`shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-xs font-black tracking-widest transition-all duration-300 border ${hoveredService === i ? "bg-[#ea580c] border-[#ea580c] text-white shadow-lg shadow-[#ea580c]/30" : "bg-white border-[#1e2b4d]/10 text-[#1e2b4d]/40"
+                    }`}>
+                    0{i + 1}
                   </div>
 
                   {/* Text */}
                   <div className="flex-1 min-w-0">
-                    <h3 className={`text-xl md:text-2xl font-bold tracking-tight transition-colors duration-300 ${
-                      hoveredService === i ? "text-[#ea580c]" : "text-[#1e2b4d] group-hover:text-[#ea580c]"
-                    }`}>
+                    <h3 className={`text-xl md:text-2xl font-bold tracking-tight transition-colors duration-300 ${hoveredService === i ? "text-[#ea580c]" : "text-[#1e2b4d] group-hover:text-[#ea580c]"
+                      }`}>
                       {service.title}
                     </h3>
                     <p className="text-sm font-medium text-[#1e2b4d]/50 leading-relaxed mt-1 line-clamp-2">
@@ -312,9 +309,8 @@ export default function HomePage() {
                   </div>
 
                   {/* Arrow */}
-                  <div className={`shrink-0 w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${
-                    hoveredService === i ? "bg-[#ea580c] border-[#ea580c] text-white translate-x-1" : "bg-white border-[#1e2b4d]/10 text-[#1e2b4d]/30"
-                  }`}>
+                  <div className={`shrink-0 w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${hoveredService === i ? "bg-[#ea580c] border-[#ea580c] text-white translate-x-1" : "bg-white border-[#1e2b4d]/10 text-[#1e2b4d]/30"
+                    }`}>
                     <ArrowRight size={16} />
                   </div>
                 </Link>
@@ -377,7 +373,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials section was here, moving FAQ below it */}
-      
+
       {/* Testimonials already exists above */}
 
       {/* 12. FAQ Section */}
