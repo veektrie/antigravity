@@ -31,15 +31,15 @@ const Navbar = () => {
         className={`w-full max-w-[1400px] mx-auto rounded-full transition-all duration-500 px-6 lg:px-10 border ${
           scrolled 
             ? "bg-white/95 backdrop-blur-xl border-zinc-200 shadow-xl py-3" 
-            : "bg-white/10 backdrop-blur-md border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.1)] py-4 lg:py-5"
+            : "bg-white/80 backdrop-blur-md border-[#1e2b4d]/10 shadow-sm py-4 lg:py-5"
         }`}
       >
         <div className="flex justify-between items-center h-12">
           {/* Logo - Left */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2 group">
-              <Rocket className={`h-6 w-6 transition-transform group-hover:rotate-12 ${scrolled ? 'text-accent' : 'text-white'}`} />
-              <span className={`text-xl font-bold tracking-tighter uppercase whitespace-nowrap ${scrolled ? 'text-foreground' : 'text-white'}`}>
+              <Rocket className={`h-6 w-6 transition-transform group-hover:rotate-12 text-[#ea580c]`} />
+              <span className={`text-xl font-bold tracking-tighter uppercase whitespace-nowrap text-[#1e2b4d]`}>
                 Eben Logistics
               </span>
             </Link>
@@ -52,9 +52,9 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 className={`text-[10.5px] font-bold uppercase tracking-[0.1em] transition-colors ${
-                  scrolled 
-                    ? (pathname === link.href ? "text-accent" : "text-zinc-500 hover:text-accent")
-                    : (pathname === link.href ? "text-white opacity-100" : "text-white/70 hover:text-white hover:opacity-100")
+                  pathname === link.href 
+                    ? "text-[#ea580c]" 
+                    : "text-[#1e2b4d]/60 hover:text-[#ea580c]"
                 }`}
               >
                 {link.name}
@@ -66,11 +66,7 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <Link
               href="/contact"
-              className={`px-5 py-2.5 font-bold text-[10.5px] uppercase flex items-center gap-2 rounded-full transition-all ${
-                scrolled 
-                  ? "bg-accent text-white hover:bg-blue-700 shadow-lg shadow-blue-500/20" 
-                  : "bg-white text-zinc-900 hover:bg-zinc-100"
-              }`}
+              className="px-5 py-2.5 font-bold text-[10.5px] uppercase flex items-center gap-2 rounded-full transition-all bg-[#ea580c] text-white hover:bg-[#1e2b4d] shadow-lg shadow-[#ea580c]/20"
             >
               <span>Get quote</span>
               <span className="text-lg leading-none -mt-0.5">↗</span>
@@ -81,7 +77,7 @@ const Navbar = () => {
           <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 transition-colors ${scrolled ? 'text-foreground' : 'text-white'}`}
+              className={`p-2 transition-colors text-[#1e2b4d]`}
               aria-label="Toggle Menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
