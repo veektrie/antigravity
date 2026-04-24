@@ -22,17 +22,17 @@ export default function HomePage() {
     <div className="flex flex-col min-h-screen">
 
       {/* 1. Hero Section */}
-      <section className="relative w-full bg-white pt-32 md:pt-48 pb-0 flex flex-col items-center overflow-hidden">
+      <section className="relative w-full bg-white pt-28 md:pt-36 pb-0 flex flex-col items-center overflow-hidden">
         {/* Cinematic Background Accents */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.08)_0%,transparent_60%)] pointer-events-none" />
         
-        <div className="text-center z-10 px-4 max-w-4xl mx-auto flex flex-col items-center">
+        <div className="text-center z-10 px-4 max-w-4xl mx-auto flex flex-col items-center relative z-20">
           
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-6xl md:text-9xl lg:text-[10rem] font-bold tracking-[-0.06em] text-blue-950 leading-[0.85]"
+            className="text-5xl md:text-7xl lg:text-[7rem] font-extrabold tracking-[-0.04em] text-blue-950 leading-[0.9]"
           >
             Every Delivery.<br />
             <span className="text-blue-600">Done Right.</span>
@@ -42,17 +42,12 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="mt-8 space-y-8"
+            className="mt-6 space-y-6 relative z-20"
           >
-            <p className="text-xl md:text-3xl text-blue-900/40 font-medium max-w-2xl mx-auto leading-tight tracking-tight">
+            <p className="text-lg md:text-2xl text-blue-900/60 font-medium max-w-2xl mx-auto leading-tight tracking-tight">
               Direct, dedicated transport across the UK. <br />
               Reliability built into every mile.
             </p>
-
-            <Link href="#quote-form" className="inline-flex px-12 py-6 bg-blue-600 text-white rounded-full font-bold text-sm uppercase tracking-widest items-center gap-4 hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20">
-              Get quote
-              <ArrowRight size={18} />
-            </Link>
           </motion.div>
 
         </div>
