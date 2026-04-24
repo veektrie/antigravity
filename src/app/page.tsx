@@ -183,7 +183,7 @@ export default function HomePage() {
       <FAQ />
 
       {/* 7. Contact / Quote Form - Reverted to Requested Template */}
-      <section id="quote-form" className="py-24 md:py-32 bg-white flex justify-center overflow-hidden">
+      <section id="quote-form" className="py-24 md:py-32 bg-blue-50/30 flex justify-center overflow-hidden border-t border-blue-100/50">
         <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
             
@@ -191,12 +191,11 @@ export default function HomePage() {
             <div className="lg:col-span-5 space-y-12">
               <div className="space-y-8">
                 <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-blue-950 leading-[1.05] uppercase">
-                  Connect with our <br />
-                  <span className="text-blue-600">Logistics</span> <br />
-                  experts.
+                  Ready to get <br />
+                  <span className="text-blue-600">moving?</span>
                 </h2>
-                <p className="text-blue-900/40 text-lg md:text-xl font-medium leading-relaxed max-w-lg">
-                  Our team is standing by to architect your mission-critical delivery strategy. Experience the next generation of logistics infrastructure.
+                <p className="text-blue-900/60 text-lg md:text-xl font-medium leading-relaxed max-w-lg">
+                  Get a fast, accurate quote today. Our team is ready to help you move your goods safely and on time.
                 </p>
               </div>
 

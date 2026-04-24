@@ -45,7 +45,7 @@ const QuoteForm = () => {
             </label>
             <input 
               type="email" 
-              placeholder="corporate@email.com"
+              placeholder="your@email.com"
               className="w-full bg-white border border-blue-900/5 rounded-2xl px-6 py-4 text-blue-950 placeholder:text-blue-900/20 focus:outline-none focus:border-blue-600/20 focus:ring-4 focus:ring-blue-600/5 transition-all font-medium text-sm"
               value={formData.email}
               onChange={(e) => setFormData({...formData, email: e.target.value})}
@@ -67,10 +67,10 @@ const QuoteForm = () => {
           />
         </div>
 
-        {/* Infrastructure Need (Service Select) */}
+        {/* Service Select */}
         <div className="space-y-3">
           <label className="text-[9px] font-bold text-blue-900/40 uppercase tracking-widest block ml-4">
-            Infrastructure Need
+            What do you need?
           </label>
           <div className="relative group">
             <select 
@@ -78,7 +78,7 @@ const QuoteForm = () => {
               value={formData.service}
               onChange={(e) => setFormData({...formData, service: e.target.value})}
             >
-              <option value="" disabled>Select required service...</option>
+              <option value="" disabled>Select a service...</option>
               {services.map(s => <option key={s} value={s}>{s}</option>)}
             </select>
             <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-blue-600">
@@ -87,13 +87,13 @@ const QuoteForm = () => {
           </div>
         </div>
 
-        {/* Project Particulars */}
+        {/* Details */}
         <div className="space-y-3">
           <label className="text-[9px] font-bold text-blue-900/40 uppercase tracking-widest block ml-4">
-            Project Particulars
+            Extra Details
           </label>
           <textarea 
-            placeholder="Describe your logistical requirements..."
+            placeholder="Tell us a bit more about what you're sending..."
             rows={4}
             className="w-full bg-white border border-blue-900/5 rounded-2xl px-6 py-4 text-blue-950 placeholder:text-blue-900/20 focus:outline-none focus:border-blue-600/20 focus:ring-4 focus:ring-blue-600/5 transition-all font-medium text-sm resize-none"
             value={formData.details}
