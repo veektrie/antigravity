@@ -22,11 +22,12 @@ export default function HomePage() {
     <div className="flex flex-col min-h-screen">
 
       {/* 1. Hero Section */}
-      <section className="relative w-full min-h-screen bg-white flex flex-col items-center justify-start pt-32 md:pt-48 overflow-hidden">
+      <section className="relative w-full bg-white pt-32 md:pt-48 pb-0 flex flex-col items-center overflow-hidden">
         {/* Cinematic Background Accents */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.08)_0%,transparent_60%)] pointer-events-none" />
         
-        <div className="relative z-20 max-w-7xl mx-auto px-6 text-center space-y-12">
+        <div className="text-center z-10 px-4 max-w-4xl mx-auto flex flex-col items-center">
+          
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -36,12 +37,12 @@ export default function HomePage() {
             Every Delivery.<br />
             <span className="text-blue-600">Done Right.</span>
           </motion.h1>
-          
+
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="space-y-10"
+            className="mt-8 space-y-8"
           >
             <p className="text-xl md:text-3xl text-blue-900/40 font-medium max-w-2xl mx-auto leading-tight tracking-tight">
               Direct, dedicated transport across the UK. <br />
@@ -53,35 +54,23 @@ export default function HomePage() {
               <ArrowRight size={18} />
             </Link>
           </motion.div>
+
         </div>
 
-        {/* Overlapping Grounded Image */}
         <motion.div 
-          initial={{ opacity: 0, scale: 1.05, y: 50 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-[1400px] mt-12 md:mt-20 px-6 h-[400px] md:h-[600px] lg:h-[700px]"
+          className="-mt-16 md:-mt-48 w-full max-w-[1600px] px-4 relative z-0 flex justify-center -mb-10 md:-mb-24"
         >
-          <div className="relative w-full h-full rounded-[3rem] overflow-hidden shadow-2xl border border-blue-100 group">
-            <Image 
-              src="/svc-same-day.jpg" 
-              alt="Professional Logistics Delivery Car" 
-              fill
-              quality={100}
-              priority
-              className="object-cover object-[15%_center] md:object-[10%_center] transition-transform duration-1000 group-hover:scale-105" 
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-blue-950/40 via-transparent to-transparent" />
-          </div>
-          
-          {/* Decorative indicator on image */}
-          <div className="absolute bottom-12 left-12 md:bottom-16 md:left-20">
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-white drop-shadow-md">Delivery in Progress</span>
-            </div>
-          </div>
+          <img
+            src="/hero-2.png"
+            alt="Eben Logistics Fleet"
+            className="w-full h-auto max-h-[600px] md:max-h-[850px] object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] lg:scale-110"
+            fetchPriority="high"
+          />
         </motion.div>
+
       </section>
 
       {/* 2. Trust Signals */}
