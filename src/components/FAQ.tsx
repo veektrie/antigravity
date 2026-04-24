@@ -42,12 +42,6 @@ const FAQ = () => {
         
         {/* Header */}
         <div className="w-full space-y-6 text-center lg:text-left">
-          <div className="inline-flex items-center space-x-2 px-4 py-2 border border-blue-100 rounded-full bg-blue-50 mx-auto lg:mx-0">
-            <div className="h-6 w-6 rounded-full bg-white shadow-sm flex items-center justify-center">
-              <Package size={12} className="text-blue-600" />
-            </div>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-blue-900">Questions & answers</span>
-          </div>
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-blue-950 leading-[1.1]">
             Common <span className="text-blue-600">Questions.</span>

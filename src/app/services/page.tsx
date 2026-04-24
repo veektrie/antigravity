@@ -12,7 +12,8 @@ import {
   Moon, 
   ArrowRight,
   Zap,
-  CheckCircle2
+  CheckCircle2,
+  Quote
 } from "lucide-react";
 import { motion } from "framer-motion";
 import HowItWorks from "@/components/HowItWorks";
@@ -29,7 +30,9 @@ const services = [
       "Dedicated vehicle for every consignment",
       "Real-time GPS tracking link",
       "Direct drive – no stops or consolidations"
-    ]
+    ],
+    stat: "10X",
+    statDesc: "Faster than standard couriers"
   },
   {
     title: "Business Accounts",
@@ -42,7 +45,9 @@ const services = [
       "Dedicated account management",
       "Priority vehicle availability",
       "API integration for order management"
-    ]
+    ],
+    stat: "100%",
+    statDesc: "Uptime for partners"
   },
   {
     title: "Legal & Documents",
@@ -105,15 +110,6 @@ export default function ServicesPage() {
       {/* Hero Section */}
       <section className="relative w-full pt-48 pb-32 md:pt-64 md:pb-48 bg-white flex justify-center border-b border-blue-50">
         <div className="max-w-[1400px] w-full px-6 md:px-12 lg:px-16 relative z-10 text-center space-y-12">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center space-x-2 px-4 py-2 bg-blue-50 border border-blue-100 rounded-full"
-          >
-            <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" />
-            <span className="text-[10px] font-bold uppercase tracking-widest text-blue-900">The Services Ecosystem</span>
-          </motion.div>
-          
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -136,93 +132,154 @@ export default function ServicesPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.05)_0%,transparent_70%)] pointer-events-none" />
       </section>
 
-      {/* Services Grid Section */}
+      {/* Services Bento Grid Section - NEW Testimonial-Style Template */}
       <section className="py-24 md:py-32 flex justify-center bg-zinc-50/50">
         <div className="max-w-[1400px] w-full px-6 md:px-12 lg:px-16 space-y-32">
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {services.map((service, i) => (
-              <div 
-                key={i}
-                className="group relative flex flex-col bg-white border border-blue-100 rounded-[3rem] overflow-hidden shadow-2xl shadow-blue-900/5 hover:-translate-y-2 transition-all duration-500 min-h-[600px]"
-              >
-                {/* Service Image */}
-                <div className="relative h-64 w-full overflow-hidden">
-                  <Image 
-                    src={service.image} 
-                    alt={service.title} 
-                    fill 
-                    className="object-cover transition-transform duration-700 group-hover:scale-110" 
-                  />
-                  <div className="absolute inset-0 bg-blue-950/20" />
-                  <div className="absolute top-6 left-6">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-white bg-blue-600 px-4 py-2 rounded-full shadow-lg">
-                      {service.label}
-                    </span>
-                  </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 auto-rows-auto">
+            
+            {/* 1. Main Large Service (Urgent Delivery) */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-7 bg-white rounded-[3rem] p-10 md:p-16 flex flex-col justify-between border border-blue-100 shadow-2xl shadow-blue-900/5 relative overflow-hidden group"
+            >
+              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/5 rounded-full blur-3xl -mr-32 -mt-32 transition-transform group-hover:scale-110" />
+              <div className="space-y-12 relative z-10">
+                <div className="space-y-4">
+                  <h3 className="text-8xl font-black text-blue-600 tracking-tighter leading-none">{services[0].stat}</h3>
+                  <p className="text-xl font-bold text-blue-950 uppercase tracking-widest">{services[0].statDesc}</p>
                 </div>
-
-                {/* Service Content */}
-                <div className="p-10 flex flex-col flex-1">
-                  <div className="space-y-8 flex-1">
-                    <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
-                        <service.icon size={20} />
-                      </div>
-                      <h3 className="text-2xl md:text-3xl font-bold text-blue-950 tracking-tight leading-none uppercase">
-                        {service.title}
-                      </h3>
+                
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center text-white">
+                      {React.createElement(services[0].icon, { size: 24 })}
                     </div>
-                    
-                    <div className="space-y-6">
-                      <p className="text-blue-900/60 text-base leading-relaxed font-medium">
-                        {service.desc}
-                      </p>
-                      <ul className="space-y-3">
-                        {service.details.map((detail, idx) => (
-                          <li key={idx} className="flex items-start gap-3 text-sm text-blue-900/50 font-semibold uppercase tracking-tight">
-                            <CheckCircle2 size={16} className="text-blue-600 shrink-0 mt-0.5" />
-                            {detail}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    <h2 className="text-4xl font-bold text-blue-950 uppercase tracking-tight">{services[0].title}</h2>
                   </div>
-
-                  <Link 
-                    href="/contact" 
-                    className="flex items-center justify-between pt-8 mt-10 border-t border-blue-50 group/btn"
-                  >
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-blue-600">Request Service details</span>
-                    <div className="w-12 h-12 rounded-full border border-blue-100 flex items-center justify-center group-hover/btn:bg-blue-600 group-hover/btn:text-white group-hover/btn:border-blue-600 transition-all -rotate-45 group-hover/btn:rotate-0">
-                      <ArrowRight size={20} />
-                    </div>
-                  </Link>
+                  <p className="text-blue-900/60 text-xl leading-relaxed font-medium max-w-xl">
+                    {services[0].desc}
+                  </p>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-6">
+                    {services[0].details.map((detail, idx) => (
+                      <li key={idx} className="flex items-center gap-3 text-sm text-blue-950 font-bold uppercase tracking-tight">
+                        <CheckCircle2 size={16} className="text-blue-600 shrink-0" />
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-            ))}
 
-            {/* Bespoke CTA Card */}
-            <div className="relative p-12 bg-blue-950 rounded-[3rem] flex flex-col justify-center items-center text-center space-y-8 overflow-hidden min-h-[600px]">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-[80px] -mr-32 -mt-32" />
-              <div className="w-20 h-20 rounded-[2rem] bg-blue-600 flex items-center justify-center text-white shadow-2xl shadow-blue-600/30">
-                <Layers size={40} />
+              <div className="mt-16 pt-10 border-t border-blue-50 flex items-center justify-between">
+                <Link href="/contact" className="px-10 py-5 bg-blue-600 text-white rounded-full font-bold text-xs uppercase tracking-widest hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20">
+                  Book Priority
+                </Link>
+                <div className="text-blue-900/5 font-black text-4xl tracking-tighter">URGENT</div>
               </div>
-              <h3 className="text-4xl font-bold text-white tracking-tight uppercase leading-none">
-                Need a <br />
-                <span className="text-blue-400">Bespoke</span> <br />
-                Plan?
-              </h3>
-              <p className="text-blue-200/40 text-sm font-medium leading-relaxed max-w-[200px] uppercase tracking-widest">
-                Custom infrastructure architecture available on request for complex logistical needs.
-              </p>
-              <Link 
-                href="/contact" 
-                className="px-10 py-5 bg-blue-600 text-white rounded-full font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-blue-950 transition-all shadow-xl shadow-blue-600/20"
-              >
-                Request Quote
+            </motion.div>
+
+            {/* 2. Top Right Service (Business Accounts) */}
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-5 bg-blue-950 rounded-[3rem] p-10 md:p-12 flex flex-col justify-between border border-white/5 relative overflow-hidden group"
+            >
+              <div className="absolute bottom-0 right-0 w-48 h-48 bg-blue-600/10 rounded-full blur-3xl -mb-24 -mr-24" />
+              <div className="space-y-10 relative z-10">
+                <div className="flex justify-between items-start">
+                   <h3 className="text-3xl font-bold text-white tracking-tight uppercase leading-none">{services[1].title}</h3>
+                   <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-blue-400">
+                     {React.createElement(services[1].icon, { size: 24 })}
+                   </div>
+                </div>
+                <p className="text-blue-200/60 text-lg leading-relaxed font-medium italic">
+                  "{services[1].desc}"
+                </p>
+                <div className="space-y-3">
+                  {services[1].details.slice(0, 3).map((detail, idx) => (
+                    <div key={idx} className="flex items-center gap-3 text-xs text-blue-300 font-bold uppercase tracking-widest">
+                      <div className="w-1.5 h-1.5 bg-blue-400 rounded-full" />
+                      {detail}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="mt-12 flex items-center justify-between">
+                 <div className="space-y-1">
+                   <p className="text-3xl font-bold text-white">{services[1].stat}</p>
+                   <p className="text-[10px] font-bold text-blue-400 uppercase tracking-widest">{services[1].statDesc}</p>
+                 </div>
+                 <Link href="/contact" className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-blue-950 transition-all">
+                   <ArrowRight size={20} />
+                 </Link>
+              </div>
+            </motion.div>
+
+            {/* 3. Legal & Documents (Small Card) */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-4 bg-white rounded-[2.5rem] p-10 border border-blue-100 shadow-xl shadow-blue-900/5 flex flex-col justify-between"
+            >
+              <div className="space-y-6">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
+                  {React.createElement(services[2].icon, { size: 20 })}
+                </div>
+                <h4 className="text-xl font-bold text-blue-950 uppercase tracking-tight">{services[2].title}</h4>
+                <p className="text-blue-900/50 text-sm font-medium leading-relaxed">{services[2].desc}</p>
+              </div>
+              <Link href="/contact" className="mt-8 flex items-center justify-between text-blue-600 font-bold text-[10px] uppercase tracking-widest hover:translate-x-2 transition-transform">
+                Secure Request <ArrowRight size={14} />
               </Link>
-            </div>
+            </motion.div>
+
+            {/* 4. Man with a Van (Small Card) */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-4 bg-white rounded-[2.5rem] p-10 border border-blue-100 shadow-xl shadow-blue-900/5 flex flex-col justify-between"
+            >
+              <div className="space-y-6">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
+                  {React.createElement(services[3].icon, { size: 20 })}
+                </div>
+                <h4 className="text-xl font-bold text-blue-950 uppercase tracking-tight">{services[3].title}</h4>
+                <p className="text-blue-900/50 text-sm font-medium leading-relaxed">{services[3].desc}</p>
+              </div>
+              <Link href="/contact" className="mt-8 flex items-center justify-between text-blue-600 font-bold text-[10px] uppercase tracking-widest hover:translate-x-2 transition-transform">
+                Book Removals <ArrowRight size={14} />
+              </Link>
+            </motion.div>
+
+            {/* 5. 24/7 Support (Dark Theme Contrast Card) */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-4 bg-blue-600 rounded-[2.5rem] p-10 flex flex-col justify-between text-white relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mt-16 -mr-16" />
+              <div className="space-y-6 relative z-10">
+                <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
+                  {React.createElement(services[5].icon, { size: 20 })}
+                </div>
+                <h4 className="text-xl font-bold uppercase tracking-tight">{services[5].title}</h4>
+                <p className="text-white/70 text-sm font-medium leading-relaxed">{services[5].desc}</p>
+              </div>
+              <div className="mt-8 flex items-center justify-between relative z-10">
+                 <span className="text-[10px] font-bold uppercase tracking-widest">Always Active</span>
+                 <div className="w-8 h-8 rounded-full bg-white text-blue-600 flex items-center justify-center">
+                   <ArrowRight size={16} />
+                 </div>
+              </div>
+            </motion.div>
+
           </div>
 
           {/* Process Section - Replaced with HowItWorks */}

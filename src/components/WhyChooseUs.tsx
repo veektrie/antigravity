@@ -35,14 +35,6 @@ const WhyChooseUs = () => {
           
           {/* Left Content */}
           <div className="lg:w-1/3 space-y-8">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="inline-flex px-5 py-2 border border-blue-100 rounded-full text-[11px] font-bold text-blue-600 uppercase tracking-widest bg-blue-50"
-            >
-              Why Eben Logistics
-            </motion.div>
             
             <motion.div
               initial={{ opacity: 0, y: 20 }}

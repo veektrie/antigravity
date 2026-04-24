@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useRef } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { Edit3, UserPlus, PackageCheck, ArrowRight, CheckCircle2, Zap } from "lucide-react";
 import Link from "next/link";
 
 const HowItWorks = () => {
-  // Default to the first card (index 0)
   const [activeIndex, setActiveIndex] = useState<number>(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const steps = [
     {
@@ -50,19 +50,10 @@ const HowItWorks = () => {
 
   return (
     <section className="py-24 md:py-32 bg-white flex justify-center overflow-hidden">
-      <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 space-y-20">
+      <div className="w-full max-w-[1400px] mx-auto space-y-16 md:space-y-20">
         
         {/* Header */}
-        <div className="text-center space-y-6 max-w-3xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center space-x-2 px-3 py-1 bg-blue-50 border border-blue-100 rounded-full"
-          >
-            <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" />
-            <span className="text-[10px] font-bold uppercase tracking-widest text-blue-900">Simple Process</span>
-          </motion.div>
+        <div className="text-center space-y-6 max-w-3xl mx-auto px-6">
           <h2 className="text-4xl md:text-6xl font-bold text-blue-950 tracking-tighter uppercase leading-none">
             How it works
           </h2>
@@ -71,20 +62,45 @@ const HowItWorks = () => {
           </p>
         </div>
 
-        {/* Dynamic Expansion Flex Container */}
-        <div className="flex flex-col lg:flex-row gap-6 items-stretch min-h-[650px]">
+        {/* Scroll Indicator (Mobile only) */}
+        <div className="lg:hidden flex items-center justify-center gap-2 px-6">
+           {steps.map((_, i) => (
+             <div 
+               key={i}
+               className={`h-1.5 rounded-full transition-all duration-300 ${activeIndex === i ? "w-8 bg-blue-600" : "w-2 bg-blue-100"}`}
+             />
+           ))}
+        </div>
+
+        {/* Dynamic Expansion / Horizontal Scroll Container */}
+        <div 
+          ref={scrollContainerRef}
+          onScroll={(e) => {
+            if (window.innerWidth < 1024) {
+              const scrollLeft = e.currentTarget.scrollLeft;
+              const width = e.currentTarget.offsetWidth;
+              const newIndex = Math.round(scrollLeft / (width * 0.85));
+              if (newIndex !== activeIndex) setActiveIndex(newIndex);
+            }
+          }}
+          className="flex flex-row overflow-x-auto lg:overflow-visible gap-6 px-6 lg:px-16 items-stretch lg:min-h-[650px] no-scrollbar snap-x snap-mandatory lg:snap-none"
+        >
           {steps.map((step, i) => (
             <motion.div
               key={i}
-              onMouseEnter={() => setActiveIndex(i)}
+              onMouseEnter={() => {
+                if (window.innerWidth >= 1024) setActiveIndex(i);
+              }}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className={`relative rounded-[3rem] p-10 flex flex-col justify-between overflow-hidden border-2 transition-all duration-700 ease-[0.16, 1, 0.3, 1] cursor-pointer ${
+              className={`relative rounded-[3rem] p-10 flex flex-col justify-between overflow-hidden border-2 transition-all duration-700 ease-[0.16, 1, 0.3, 1] cursor-pointer snap-center shrink-0 
+                w-[85vw] sm:w-[500px] lg:w-auto
+                ${
                 activeIndex === i 
-                  ? "lg:flex-[3] border-blue-600 bg-white shadow-2xl shadow-blue-900/15 scale-[1.02] z-10" 
-                  : "lg:flex-[1] border-blue-100/20 bg-blue-50/50 opacity-60 grayscale-[0.8] scale-[0.98] z-0"
+                  ? "lg:flex-[3] border-blue-600 bg-white shadow-2xl shadow-blue-900/15 lg:scale-[1.02] z-10" 
+                  : "lg:flex-[1] border-blue-100/20 bg-blue-50/50 opacity-60 grayscale-[0.8] lg:scale-[0.98] z-0"
               }`}
             >
               {/* Active Highlight Bar */}
@@ -95,7 +111,7 @@ const HowItWorks = () => {
                 />
               )}
 
-              <div className="space-y-8 relative z-10 min-w-[320px]">
+              <div className="space-y-8 relative z-10 w-full">
                 <div className="flex items-center gap-6">
                   <div className={`w-14 h-14 rounded-[1.5rem] flex items-center justify-center transition-all duration-500 ${
                     activeIndex === i ? "bg-blue-600 text-white shadow-xl shadow-blue-600/30 rotate-6" : "bg-white text-blue-950 shadow-sm"
@@ -139,66 +155,55 @@ const HowItWorks = () => {
               </div>
 
               {/* UI Mockup Placeholder */}
-              <div className={`mt-12 relative h-80 w-full bg-white rounded-[2rem] border-2 shadow-2xl transition-all duration-700 ${
+              <div className={`mt-12 relative h-64 sm:h-80 w-full bg-white rounded-[2rem] border-2 shadow-2xl transition-all duration-700 ${
                 activeIndex === i 
                   ? "border-blue-600/10 shadow-blue-900/10 scale-100 opacity-100" 
                   : "border-transparent scale-95 opacity-20"
               }`}>
                 {/* Simulated UI elements for "Define your needs" */}
                 {i === 0 && (
-                  <div className="p-10 space-y-6">
+                  <div className="p-6 sm:p-10 space-y-6">
                     <div className="flex justify-between items-center bg-blue-50/50 p-5 rounded-2xl border border-blue-100">
-                       <span className="text-xs font-bold text-blue-900/30 uppercase tracking-[0.2em]">Service Type</span>
-                       <span className="text-sm font-bold text-blue-950 bg-white px-4 py-2 rounded-full shadow-sm">Urgent Delivery</span>
+                       <span className="text-[10px] font-bold text-blue-900/30 uppercase tracking-[0.2em]">Service</span>
+                       <span className="text-xs font-bold text-blue-950 bg-white px-4 py-2 rounded-full shadow-sm">Urgent</span>
                     </div>
-                    <div className="grid grid-cols-2 gap-6">
-                      <div className="bg-blue-50/50 p-5 rounded-2xl border border-blue-100">
-                         <span className="block text-[10px] font-bold text-blue-900/30 uppercase mb-2">Speed</span>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="bg-blue-50/50 p-4 rounded-2xl border border-blue-100">
                          <span className="text-xs font-bold text-blue-600">Right Now</span>
                       </div>
-                      <div className="bg-blue-50/50 p-5 rounded-2xl border border-blue-100">
-                         <span className="block text-[10px] font-bold text-blue-900/30 uppercase mb-2">Safety</span>
+                      <div className="bg-blue-50/50 p-4 rounded-2xl border border-blue-100">
                          <span className="text-xs font-bold text-blue-950">Secure</span>
                       </div>
                     </div>
                     <div className="bg-blue-950 p-5 rounded-2xl shadow-xl shadow-blue-950/20 flex justify-between items-center">
-                       <span className="text-[10px] font-bold text-white/40 uppercase tracking-[0.2em]">Your Price</span>
                        <span className="text-white font-bold tracking-tighter text-lg">£45.00</span>
                     </div>
                   </div>
                 )}
                 {/* Simulated UI elements for "Connect" */}
                 {i === 1 && (
-                  <div className="p-10 space-y-8">
-                    <div className="flex items-center gap-6">
-                      <div className="w-16 h-16 rounded-full bg-blue-100 border-4 border-white shadow-lg flex items-center justify-center">
-                         <UserPlus size={24} className="text-blue-600" />
+                  <div className="p-6 sm:p-10 space-y-6 sm:space-y-8">
+                    <div className="flex items-center gap-4 sm:gap-6">
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-blue-100 border-4 border-white shadow-lg flex items-center justify-center">
+                         <UserPlus size={20} className="text-blue-600" />
                       </div>
                       <div className="space-y-2 flex-1">
                         <div className="h-4 w-1/2 bg-blue-100 rounded-full" />
                         <div className="h-3 w-1/3 bg-blue-50 rounded-full" />
                       </div>
-                      <div className="px-4 py-2 bg-blue-600 text-white rounded-full text-[10px] font-bold uppercase">Moving</div>
                     </div>
-                    <div className="h-[1px] w-full bg-blue-100" />
-                    <div className="space-y-4">
-                      <div className="flex justify-between items-center">
-                        <div className="h-3 w-32 bg-blue-50 rounded-full" />
-                        <div className="h-3 w-12 bg-blue-50 rounded-full" />
-                      </div>
-                      <div className="w-full h-3 bg-blue-50 rounded-full overflow-hidden">
-                        <motion.div 
-                          animate={{ x: ["-100%", "100%"] }}
-                          transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
-                          className="w-1/2 h-full bg-blue-600"
-                        />
-                      </div>
+                    <div className="w-full h-3 bg-blue-50 rounded-full overflow-hidden">
+                      <motion.div 
+                        animate={{ x: ["-100%", "100%"] }}
+                        transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+                        className="w-1/2 h-full bg-blue-600"
+                      />
                     </div>
-                    <div className="flex justify-center pt-4">
+                    <div className="flex justify-center">
                        <div className="relative">
                           <div className="absolute inset-0 bg-blue-600/20 blur-xl rounded-full scale-150 animate-pulse" />
-                          <div className="w-12 h-12 rounded-full bg-blue-600 shadow-2xl shadow-blue-600/50 flex items-center justify-center text-white">
-                             <Zap size={20} className="fill-current" />
+                          <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white">
+                             <Zap size={18} className="fill-current" />
                           </div>
                        </div>
                     </div>
@@ -206,34 +211,23 @@ const HowItWorks = () => {
                 )}
                 {/* Simulated UI elements for "Complete" */}
                 {i === 2 && (
-                  <div className="p-10 flex flex-col md:flex-row gap-10">
-                    <div className="w-full md:w-1/3 h-48 md:h-full bg-blue-50 rounded-[2rem] relative overflow-hidden border border-blue-100 group-hover:bg-blue-100 transition-colors">
-                       <div className="absolute inset-0 flex items-center justify-center">
-                         <PackageCheck size={80} className="text-blue-200" />
-                       </div>
+                  <div className="p-6 sm:p-10 flex flex-col gap-6">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-2xl bg-green-500 flex items-center justify-center text-white shadow-xl shadow-green-500/20">
+                        <PackageCheck size={24} />
+                      </div>
+                      <div>
+                        <span className="text-lg font-bold text-blue-950">Delivered Safely</span>
+                      </div>
                     </div>
-                    <div className="flex-1 space-y-8">
-                       <div className="flex items-center gap-4">
-                         <div className="w-12 h-12 rounded-2xl bg-green-500 flex items-center justify-center text-white shadow-xl shadow-green-500/20">
-                           <PackageCheck size={24} />
-                         </div>
-                         <div>
-                            <span className="block text-[10px] font-bold text-blue-900/30 uppercase tracking-[0.2em]">All Done</span>
-                            <span className="text-lg font-bold text-blue-950">Delivered Safely</span>
-                         </div>
-                       </div>
-                       <div className="space-y-4">
-                          <div className="h-14 w-full bg-blue-50 rounded-2xl border border-blue-100 flex items-center px-6 justify-between">
-                             <div className="h-3 w-40 bg-blue-200 rounded-full" />
-                             <ArrowRight size={18} className="text-blue-400" />
-                          </div>
-                          <motion.div 
-                            whileHover={{ scale: 1.02 }}
-                            className="h-16 w-full bg-blue-950 rounded-2xl shadow-2xl shadow-blue-950/20 flex items-center justify-center cursor-pointer group/pod"
-                          >
-                             <span className="text-xs font-bold text-white uppercase tracking-[0.4em] group-hover/pod:tracking-[0.5em] transition-all">Get Receipt</span>
-                          </motion.div>
-                       </div>
+                    <div className="space-y-4">
+                      <div className="h-12 w-full bg-blue-50 rounded-2xl border border-blue-100 flex items-center px-6 justify-between">
+                         <div className="h-3 w-24 bg-blue-200 rounded-full" />
+                         <ArrowRight size={18} className="text-blue-400" />
+                      </div>
+                      <div className="h-14 w-full bg-blue-950 rounded-2xl flex items-center justify-center">
+                         <span className="text-[10px] font-bold text-white uppercase tracking-[0.4em]">Get Receipt</span>
+                      </div>
                     </div>
                   </div>
                 )}
@@ -243,13 +237,23 @@ const HowItWorks = () => {
         </div>
 
         {/* CTA */}
-        <div className="flex justify-center pt-8">
-          <Link href="/contact" className="px-12 py-6 bg-blue-600 text-white rounded-full font-bold text-sm uppercase tracking-widest flex items-center gap-4 hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20">
+        <div className="flex justify-center pt-8 px-6">
+          <Link href="/contact" className="w-full sm:w-auto px-12 py-6 bg-blue-600 text-white rounded-full font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-4 hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20">
             Book now <ArrowRight size={18} />
           </Link>
         </div>
 
       </div>
+      
+      <style jsx global>{`
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </section>
   );
 };

@@ -61,14 +61,6 @@ export default function AboutPage() {
       <section className="relative w-full pt-48 pb-32 md:pt-64 md:pb-48 bg-white flex justify-center border-b border-blue-50">
         <div className="max-w-[1400px] w-full px-6 md:px-12 lg:px-16 relative z-10">
           <div className="max-w-4xl space-y-12">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center space-x-2 px-4 py-2 bg-blue-50 border border-blue-100 rounded-full"
-            >
-              <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-blue-900">Our Story</span>
-            </motion.div>
             
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}

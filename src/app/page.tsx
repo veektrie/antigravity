@@ -74,11 +74,11 @@ export default function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-t from-blue-950/40 via-transparent to-transparent" />
           </div>
           
-          {/* Decorative tag on image */}
+          {/* Decorative indicator on image */}
           <div className="absolute bottom-12 left-12 md:bottom-16 md:left-20">
-            <div className="px-6 py-3 bg-white/90 backdrop-blur-md rounded-full shadow-xl flex items-center gap-3">
+            <div className="flex items-center gap-3">
               <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-blue-900">Delivery in Progress</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-white drop-shadow-md">Delivery in Progress</span>
             </div>
           </div>
         </motion.div>
@@ -94,10 +94,6 @@ export default function HomePage() {
           {/* Header Block */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
             <div className="space-y-6 max-w-3xl">
-              <div className="inline-flex items-center space-x-2 px-3 py-1 bg-blue-50 border border-blue-100 rounded-full">
-                <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" />
-                <span className="text-[10px] font-bold uppercase tracking-widest text-blue-900">The Services Ecosystem</span>
-              </div>
               <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-blue-950 leading-[1.05] uppercase">
                 Professional Logistics <br />
                 <span className="text-blue-600">Powering Your Growth</span>
@@ -210,12 +206,6 @@ export default function HomePage() {
             {/* Left Content Column */}
             <div className="lg:col-span-5 space-y-12">
               <div className="space-y-8">
-                <div className="inline-flex items-center space-x-2 px-4 py-2 border border-blue-900/10 rounded-full">
-                  <div className="w-2 h-2 rounded-full border border-blue-600 flex items-center justify-center">
-                    <div className="w-1 h-1 bg-blue-600 rounded-full" />
-                  </div>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-blue-900">Request a quote</span>
-                </div>
                 <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-blue-950 leading-[1.05] uppercase">
                   Connect with our <br />
                   <span className="text-blue-600">Logistics</span> <br />
