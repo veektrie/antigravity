@@ -1,125 +1,127 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown, Package, Truck, Clock, ShieldCheck } from "lucide-react";
+import { ChevronDown, Package, ShieldCheck, Clock, Award } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
+
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const stats = [
-    { metric: "14k", label: "Deliveries", sub: "Monthly" },
-    { metric: "45min", label: "Collection", sub: "Average" },
-    { metric: "99.9%", label: "Success", sub: "Rate" }
-  ];
-
   const faqs = [
     {
-      question: "How fast can you collect a same-day shipment?",
-      answer: "Our network allows us to dispatch a vehicle to most UK mainland locations within 45 to 60 minutes of your booking confirmation. Collection times may vary slightly based on remote locations or severe traffic conditions."
+      question: "How fast is collection?",
+      answer: "We usually collect within 45 to 60 minutes of your booking. This depends on your location and traffic."
     },
     {
-      question: "Do you offer dedicated vehicles for sensitive goods?",
-      answer: "Yes. We provide dedicated A-to-B courier services meaning your goods are the only items on board. This is highly recommended for medical supplies, legal documents, and fragile or high-value items."
+      question: "Do you offer dedicated vehicles?",
+      answer: "Yes. Your goods will be the only items on the vehicle. This is the safest way to transport sensitive or valuable items."
     },
     {
-      question: "What is the maximum weight you can transport?",
-      answer: "We operate a diverse fleet ranging from small vans (up to 400kg) to articulated lorries (up to 28,000kg). Regardless of your shipment size, we have the appropriate vehicle for the job."
+      question: "What is the maximum weight?",
+      answer: "We have vehicles for every size, from small vans (400kg) to large trucks (28,000kg)."
     },
     {
-      question: "Is cross-border shipping available to the EU?",
-      answer: "Absolutely. We manage European freight and direct dedicated transport into the EU. We also assist with all necessary customs documentation to ensure smooth border transitions."
+      question: "Do you deliver to Europe?",
+      answer: "Yes. We provide direct transport into the EU and handle all the customs paperwork for you."
     }
+  ];
+
+  const stats = [
+    { label: "Collection Speed", value: "45-60m", icon: Clock },
+    { label: "Fleet Vehicles", value: "5,000+", icon: Package },
+    { label: "On-time rate", value: "99.9%", icon: ShieldCheck },
+    { label: "Years experience", value: "15+", icon: Award }
   ];
 
   return (
     <section className="bg-white py-24 md:py-32 w-full max-w-[1920px] mx-auto relative overflow-hidden" id="faq">
-      {/* Decorative lighting - simplified for white theme */}
-      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-[#ea580c]/5 rounded-full blur-[160px] pointer-events-none" />
+      {/* Decorative lighting */}
+      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-[160px] pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 space-y-16 relative z-10">
         
-        {/* Extracted Header to give it room to breathe */}
-        <div className="w-full space-y-6">
-          <div className="inline-flex items-center space-x-2 px-4 py-2 border border-[#1e2b4d]/10 rounded-full bg-[#f8fafc]">
+        {/* Header */}
+        <div className="w-full space-y-6 text-center lg:text-left">
+          <div className="inline-flex items-center space-x-2 px-4 py-2 border border-blue-100 rounded-full bg-blue-50 mx-auto lg:mx-0">
             <div className="h-6 w-6 rounded-full bg-white shadow-sm flex items-center justify-center">
-              <Package size={12} className="text-[#ea580c]" />
+              <Package size={12} className="text-blue-600" />
             </div>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#1e2b4d]">Questions & answers</span>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-blue-900">Questions & answers</span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#1e2b4d] leading-[1.1]">
-            Your Questions, <span className="text-[#ea580c]">Answered.</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-blue-950 leading-[1.1]">
+            Common <span className="text-blue-600">Questions.</span>
           </h2>
         </div>
 
-        <div className="bg-[#f8fafc] border border-[#1e2b4d]/5 p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-16 lg:gap-24 shadow-xl" style={{ borderRadius: '40px' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* Left Column: Brand Stats + Image */}
-          <div className="w-full lg:w-1/2 flex flex-col gap-8">
-            {/* Stats grid */}
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { icon: Truck, value: "14k+", label: "Monthly Deliveries", color: "bg-[#ea580c]" },
-                { icon: Clock, value: "45min", label: "Avg. Collection Time", color: "bg-[#1e2b4d]" },
-                { icon: ShieldCheck, value: "99.9%", label: "On-Time Success Rate", color: "bg-[#ea580c]" },
-                { icon: Package, value: "24/7", label: "Live Operations", color: "bg-[#1e2b4d]" },
-              ].map((stat, i) => (
-                <div key={i} className="bg-white rounded-2xl border border-[#1e2b4d]/5 p-6 flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
-                  <div className={`w-10 h-10 ${stat.color} rounded-xl flex items-center justify-center`}>
-                    <stat.icon size={18} className="text-white" />
-                  </div>
-                  <div>
-                    <p className="text-3xl font-black tracking-tight text-[#1e2b4d]">{stat.value}</p>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#1e2b4d]/40 mt-1">{stat.label}</p>
-                  </div>
+          {/* Stats Section - Restored */}
+          <div className="lg:col-span-4 grid grid-cols-2 gap-4">
+            {stats.map((stat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-blue-50/50 border border-blue-100 p-8 rounded-[2rem] space-y-4 hover:bg-blue-50 transition-all group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-blue-600 shadow-sm group-hover:scale-110 transition-transform">
+                  <stat.icon size={20} />
                 </div>
-              ))}
-            </div>
-            {/* Brand image */}
-            <div className="relative w-full h-52 rounded-2xl overflow-hidden shadow-lg">
-              <Image src="/svc-specialist.jpg" alt="Eben Logistics Operations" fill sizes="50vw" className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1e2b4d]/80 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 p-6">
-                <p className="text-white font-bold text-lg tracking-tight">Operating Nationwide</p>
-                <p className="text-white/60 text-xs font-medium mt-1">From Regent Street, London — and everywhere that matters.</p>
-              </div>
+                <div>
+                  <p className="text-2xl font-black text-blue-950 tracking-tighter">{stat.value}</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-blue-900/40">{stat.label}</p>
+                </div>
+              </motion.div>
+            ))}
+            
+            {/* CTA Box */}
+            <div className="col-span-2 bg-blue-950 rounded-[2rem] p-8 mt-4 space-y-4">
+              <p className="text-white font-bold tracking-tight">Still have questions?</p>
+              <p className="text-blue-200/40 text-sm">Our support team is available 24/7 to assist with your logistical needs.</p>
+              <button className="w-full py-4 bg-blue-600 text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-blue-500 transition-all">
+                Contact Support
+              </button>
             </div>
           </div>
 
-          {/* Right Column: FAQ Accordion */}
-          <div className="w-full lg:w-1/2 flex flex-col justify-center">
-            <div className="space-y-0 w-full border-t border-[#1e2b4d]/10">
-              {faqs.map((faq, i) => (
-                <div key={i} className="border-b border-[#1e2b4d]/10 overflow-hidden">
-                  <button
-                    onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                    className="w-full flex items-center justify-between py-8 text-left group"
-                  >
-                    <div className="flex items-start space-x-6 text-[#1e2b4d] font-bold max-w-[90%]">
-                      <span className="text-base tracking-widest text-[#ea580c] mt-1 lg:mt-0">0{i+1}.</span>
-                      <span className="text-lg md:text-xl tracking-tight leading-snug group-hover:text-[#ea580c] transition-colors">{faq.question}</span>
-                    </div>
-                    <div className={`shrink-0 h-8 w-8 rounded-full flex items-center justify-center transition-colors ${openIndex === i ? "bg-[#ea580c]" : "bg-white border border-[#1e2b4d]/10 group-hover:border-[#ea580c]"}`}>
-                      <ChevronDown size={14} className={`transition-transform duration-300 ${openIndex === i ? "text-white rotate-180" : "text-[#1e2b4d]"}`} />
-                    </div>
-                  </button>
-                  <AnimatePresence>
-                    {openIndex === i && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                      >
-                        <div className="pb-10 pl-14 text-[15px] text-[#1e2b4d]/70 font-medium leading-[1.8] max-w-lg">
-                          {faq.answer}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ))}
+          {/* FAQ Accordion - Column 8 */}
+          <div className="lg:col-span-8 bg-white border border-blue-100 p-8 md:p-12 lg:p-16 flex flex-col items-center shadow-xl" style={{ borderRadius: '40px' }}>
+            <div className="w-full max-w-4xl flex flex-col justify-center">
+              <div className="space-y-0 w-full border-t border-blue-900/10">
+                {faqs.map((faq, i) => (
+                  <div key={i} className="border-b border-blue-900/10 overflow-hidden">
+                    <button
+                      onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                      className="w-full flex items-center justify-between py-8 text-left group"
+                    >
+                      <div className="flex items-start space-x-6 text-blue-950 font-bold max-w-[90%]">
+                        <span className="text-base tracking-widest text-blue-600 mt-1 lg:mt-0">0{i+1}.</span>
+                        <span className="text-lg md:text-xl tracking-tight leading-snug group-hover:text-blue-600 transition-colors">{faq.question}</span>
+                      </div>
+                      <div className={`shrink-0 h-8 w-8 rounded-full flex items-center justify-center transition-colors ${openIndex === i ? "bg-blue-600" : "bg-white border border-blue-900/10 group-hover:border-blue-600"}`}>
+                        <ChevronDown size={14} className={`transition-transform duration-300 ${openIndex === i ? "text-white rotate-180" : "text-blue-950"}`} />
+                      </div>
+                    </button>
+                    <AnimatePresence>
+                      {openIndex === i && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                        >
+                          <div className="pb-10 pl-14 text-[15px] text-blue-900/70 font-medium leading-[1.8] max-w-2xl">
+                            {faq.answer}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

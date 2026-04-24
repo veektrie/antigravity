@@ -32,17 +32,19 @@ const Navbar = () => {
       <nav
         className={`w-full max-w-[1400px] mx-auto transition-all duration-500 px-6 lg:px-10 ${
           scrolled 
-            ? "bg-white/95 backdrop-blur-xl border-b border-[#1e2b4d]/10 md:border md:rounded-full shadow-md md:shadow-xl py-3" 
-            : "bg-white/90 md:bg-white/80 backdrop-blur-md border-b border-[#1e2b4d]/10 md:border md:rounded-full py-4 lg:py-5"
+            ? "bg-white/95 backdrop-blur-xl border-b border-blue-900/10 md:border md:rounded-full shadow-md md:shadow-xl py-4" 
+            : "bg-white/90 md:bg-white/80 backdrop-blur-md border-b border-blue-900/10 md:border md:rounded-full py-6 lg:py-8"
         }`}
       >
         <div className="flex justify-between items-center h-12">
           {/* Logo - Left */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2 group">
-              <Rocket className={`h-6 w-6 transition-transform group-hover:rotate-12 text-[#ea580c]`} />
-              <span className={`text-xl font-bold tracking-tighter uppercase whitespace-nowrap text-[#1e2b4d]`}>
-                Eben Logistics
+            <Link href="/" className="flex items-center space-x-3 group">
+              <div className="w-8 h-8 bg-blue-600 rotate-45 flex items-center justify-center">
+                <div className="w-3 h-3 bg-white -rotate-45" />
+              </div>
+              <span className={`text-xl font-bold tracking-tighter uppercase whitespace-nowrap text-blue-900`}>
+                {BRAND.name}
               </span>
             </Link>
           </div>
@@ -55,8 +57,8 @@ const Navbar = () => {
                 href={link.href}
                 className={`text-[10.5px] font-bold uppercase tracking-[0.1em] transition-colors ${
                   pathname === link.href 
-                    ? "text-[#ea580c]" 
-                    : "text-[#1e2b4d]/60 hover:text-[#ea580c]"
+                    ? "text-blue-600" 
+                    : "text-blue-900/60 hover:text-blue-600"
                 }`}
               >
                 {link.name}
@@ -67,8 +69,8 @@ const Navbar = () => {
           {/* Action - Right */}
           <div className="hidden lg:flex items-center space-x-4">
             <Link
-              href="/contact"
-              className="px-5 py-2.5 font-bold text-[10.5px] uppercase flex items-center gap-2 rounded-full transition-all bg-[#ea580c] text-white hover:bg-[#1e2b4d] shadow-lg shadow-[#ea580c]/20"
+              href="#quote-form"
+              className="px-6 py-2.5 font-bold text-[10.5px] uppercase flex items-center gap-2 rounded-full transition-all bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-600/20"
             >
               <span>Get quote</span>
               <span className="text-lg leading-none -mt-0.5">↗</span>
@@ -79,7 +81,7 @@ const Navbar = () => {
           <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 transition-colors text-[#1e2b4d]`}
+              className={`p-2 transition-colors text-blue-900`}
               aria-label="Toggle Menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -90,7 +92,7 @@ const Navbar = () => {
     </div>
 
       {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 bg-[#1e2b4d] z-50 transition-transform duration-500 lg:hidden ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div className={`fixed inset-0 bg-blue-950 z-50 transition-transform duration-500 lg:hidden ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="flex flex-col h-full p-8 md:p-12 relative overflow-y-auto">
           <div className="flex justify-between items-center mb-16">
             <span className="text-white font-bold tracking-tighter uppercase text-lg">
@@ -127,17 +129,17 @@ const Navbar = () => {
             
             <div className="flex flex-col gap-6">
               <div className="space-y-1">
-                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#ea580c]">24/7 Dispatch</p>
+                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400">24/7 Dispatch</p>
                  <p className="text-2xl font-bold text-white tracking-tight">{BRAND.phone}</p>
               </div>
               
               <Link
-                href="/contact"
+                href="#quote-form"
                 onClick={() => setIsOpen(false)}
-                className="inline-flex items-center justify-between px-6 py-5 bg-white text-[#1e2b4d] font-bold text-xs uppercase tracking-widest rounded-2xl active:scale-95 transition-transform"
+                className="inline-flex items-center justify-between px-6 py-5 bg-blue-600 text-white font-bold text-xs uppercase tracking-widest rounded-2xl active:scale-95 transition-transform"
               >
-                <span>Request Quote</span>
-                <div className="h-8 w-8 rounded-full bg-[#1e2b4d]/5 flex items-center justify-center">
+                <span>Get Quote</span>
+                <div className="h-8 w-8 rounded-full bg-white/10 flex items-center justify-center">
                   <span className="text-lg leading-none -mt-0.5">↗</span>
                 </div>
               </Link>

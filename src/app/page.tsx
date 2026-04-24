@@ -1,387 +1,256 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import CitySelect from "@/components/CitySelect";
-import ServiceSelect from "@/components/ServiceSelect";
-import {
-  ArrowRight,
-  Check,
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-  ShieldCheck,
-  Package,
-  Truck,
-  Star
-} from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Components
-import TrustBar from "@/components/TrustBar";
-
-import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
-import UKMap from "@/components/UKMap";
 import QuoteForm from "@/components/QuoteForm";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import Testimonials from "@/components/Testimonials";
+import TrustBar from "@/components/TrustBar";
+import HowItWorks from "@/components/HowItWorks";
 import { BRAND, SERVICES } from "@/lib/constants";
 
 export default function HomePage() {
-  const [fromCity, setFromCity] = useState("");
-  const [toCity, setToCity] = useState("");
-  const [serviceType, setServiceType] = useState("Same Day");
-  const [hoveredService, setHoveredService] = useState(0);
-
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollRef.current) {
-      const scrollAmount = direction === 'left' ? -400 : 400;
-      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  };
+  const [activeService, setActiveService] = useState(0);
 
   return (
     <div className="flex flex-col min-h-screen">
 
-      <section
-        className="relative w-full min-h-screen flex items-center overflow-hidden"
-      >
-        {/* Background Image — full visibility, right-side dominant */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/hero-truck.jpg"
-            fill
-            sizes="100vw"
-            className="object-cover object-center scale-105"
-            alt="Logistics background"
-            priority
-          />
+      {/* 1. Hero Section */}
+      <section className="relative w-full min-h-screen bg-white flex flex-col items-center justify-start pt-32 md:pt-48 overflow-hidden">
+        {/* Cinematic Background Accents */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.08)_0%,transparent_60%)] pointer-events-none" />
+        
+        <div className="relative z-20 max-w-7xl mx-auto px-6 text-center space-y-12">
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="text-6xl md:text-9xl lg:text-[10rem] font-bold tracking-[-0.06em] text-blue-950 leading-[0.85]"
+          >
+            Every Delivery.<br />
+            <span className="text-blue-600">Done Right.</span>
+          </motion.h1>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="space-y-10"
+          >
+            <p className="text-xl md:text-3xl text-blue-900/40 font-medium max-w-2xl mx-auto leading-tight tracking-tight">
+              Direct, dedicated transport across the UK. <br />
+              Reliability built into every mile.
+            </p>
+
+            <Link href="#quote-form" className="inline-flex px-12 py-6 bg-blue-600 text-white rounded-full font-bold text-sm uppercase tracking-widest items-center gap-4 hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20">
+              Get quote
+              <ArrowRight size={18} />
+            </Link>
+          </motion.div>
         </div>
-        {/* Navy overlay — strong on the left for text, fades right */}
-        <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(100deg, rgba(30,43,77,0.97) 0%, rgba(30,43,77,0.90) 35%, rgba(30,43,77,0.70) 60%, rgba(30,43,77,0.30) 100%)" }} />
-        {/* Bottom fade to white */}
-        <div className="absolute bottom-0 left-0 right-0 h-40 z-10" style={{ background: "linear-gradient(to top, rgba(248,250,252,0.95), transparent)" }} />
 
-        <div className="relative z-20 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 flex flex-col justify-center py-40 md:py-48">
-
-          {/* Main Hero Elements */}
-          <div className="relative z-20 flex flex-col items-start justify-center gap-8 w-full max-w-3xl">
-
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.05 }}
-            >
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/10 text-[10px] font-bold text-white/90 uppercase tracking-[0.2em]">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#ea580c] animate-pulse" />
-                UK Logistics — Built on Trust
-              </span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-6xl md:text-[5.5rem] lg:text-[7rem] font-black tracking-tighter leading-[0.92] text-white"
-            >
-              Every Delivery.
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ea580c] to-amber-400">Done Right.</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-white/75 text-xl md:text-2xl font-normal leading-relaxed max-w-xl border-l-2 border-[#ea580c]/60 pl-5"
-            >
-              Reliability, responsiveness, trust all built into everything we do. No delays. No excuses. <strong className="font-semibold text-white/95">Just getting the job done, properly.</strong>
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="flex flex-wrap justify-start gap-4 mt-4"
-            >
-              <Link href="#quote-form" className="px-10 py-5 bg-[#ea580c] text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-[#1e2b4d] transition-all duration-300 shadow-xl shadow-[#ea580c]/40 flex items-center gap-3">
-                Get a Quote <ArrowRight size={16} />
-              </Link>
-              <Link href="/contact" className="px-10 py-5 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-[#1e2b4d] transition-all duration-300 shadow-sm">
-                Track Your Delivery
-              </Link>
-            </motion.div>
+        {/* Overlapping Grounded Image */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 1.05, y: 50 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          className="relative w-full max-w-[1400px] mt-12 md:mt-20 px-6 h-[400px] md:h-[600px] lg:h-[700px]"
+        >
+          <div className="relative w-full h-full rounded-[3rem] overflow-hidden shadow-2xl border border-blue-100 group">
+            <Image 
+              src="/svc-same-day.jpg" 
+              alt="Professional Logistics Delivery Car" 
+              fill
+              quality={100}
+              priority
+              className="object-cover object-[15%_center] md:object-[10%_center] transition-transform duration-1000 group-hover:scale-105" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-950/40 via-transparent to-transparent" />
           </div>
-        </div>
+          
+          {/* Decorative tag on image */}
+          <div className="absolute bottom-12 left-12 md:bottom-16 md:left-20">
+            <div className="px-6 py-3 bg-white/90 backdrop-blur-md rounded-full shadow-xl flex items-center gap-3">
+              <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" />
+              <span className="text-[10px] font-bold uppercase tracking-widest text-blue-900">Delivery in Progress</span>
+            </div>
+          </div>
+        </motion.div>
       </section>
 
-      {/* 2. Trust Module */}
-      <section className="relative w-full py-16 md:py-24 bg-[#f8fafc] flex flex-col">
-        {/* Full-width Background Image - Subtle Light Blend */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/twilight-logistics.png"
-            alt="Logistics Network"
-            fill
-            sizes="100vw"
-            className="object-cover opacity-[0.03] grayscale"
-          />
-        </div>
+      {/* 2. Trust Signals */}
+      <TrustBar />
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 w-full">
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-12 text-center lg:text-left">
-            <div className="space-y-8 max-w-3xl">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#1e2b4d] leading-[1.1]">
-                Why Businesses <br className="hidden md:block" />
-                <span className="text-[#ea580c]">Trust Us</span>
-              </h2>
-              <p className="text-[#1e2b4d]/70 text-lg md:text-xl font-medium leading-relaxed italic border-l-4 border-[#ea580c] pl-6 py-2">
-                "{BRAND.philosophy}"
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center lg:items-end gap-6">
-              <div className="flex items-center gap-4 bg-white p-4 rounded-3xl border border-[#1e2b4d]/10 shadow-sm">
-                <div className="h-14 w-14 rounded-full bg-[#1e2b4d] text-white flex items-center justify-center shadow-lg shadow-[#1e2b4d]/20">
-                  <Phone size={24} />
-                </div>
-                <div className="text-left pr-4">
-                  <p className="text-[10px] font-bold text-[#1e2b4d]/50 uppercase tracking-widest mb-1">Call Us Anytime</p>
-                  <p className="text-lg font-bold text-[#1e2b4d]">{BRAND.phone}</p>
-                </div>
+      {/* 3. Services Ecosystem */}
+      <section id="services" className="py-24 md:py-32 bg-white flex justify-center overflow-hidden">
+        <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 space-y-20">
+          
+          {/* Header Block */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
+            <div className="space-y-6 max-w-3xl">
+              <div className="inline-flex items-center space-x-2 px-3 py-1 bg-blue-50 border border-blue-100 rounded-full">
+                <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" />
+                <span className="text-[10px] font-bold uppercase tracking-widest text-blue-900">The Services Ecosystem</span>
               </div>
-              <Link href="/about" className="px-10 py-5 bg-[#ea580c] text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-[#1e2b4d] transition-all flex items-center gap-2 shadow-xl shadow-orange-500/20">
-                <span>Our Story</span>
-                <span className="text-lg leading-none -mt-0.5">↗</span>
-              </Link>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mt-12">
-            {/* Stat 1: Fully Insured */}
-            <div className="group flex flex-col md:border-l border-[#1e2b4d]/10 md:pl-8 hover:border-[#ea580c] transition-colors duration-500">
-              <div className="text-[#ea580c] mb-6 group-hover:-translate-y-1 transition-transform duration-300">
-                <ShieldCheck size={40} />
-              </div>
-              <h3 className="text-2xl font-bold text-[#1e2b4d] mb-4">Fully Assured</h3>
-              <p className="text-[#1e2b4d]/70 text-sm leading-relaxed">
-                Your assets are protected by our comprehensive transit and liability insurance. We provide absolute security for high-value consignments, legal documents, and mission-critical inventory with zero-gap coverage.
-              </p>
-            </div>
-
-            {/* Stat 2: Reliability */}
-            <div className="group flex flex-col md:border-l border-[#1e2b4d]/10 md:pl-8 hover:border-[#ea580c] transition-colors duration-500">
-              <div
-                className="text-6xl font-bold leading-none tracking-tighter text-[#1e2b4d] mb-4 group-hover:-translate-y-1 transition-transform duration-300"
-              >
-                100%
-              </div>
-              <h3 className="text-2xl font-bold text-[#1e2b4d] mb-4">Precision Execution</h3>
-              <p className="text-[#1e2b4d]/70 text-sm leading-relaxed">
-                Reliability is our baseline. We operate with a "no excuses" protocol, ensuring your deliveries arrive precisely as scheduled. Our infrastructure is engineered to absorb delays and maintain perfect punctuality.
-              </p>
-            </div>
-
-            {/* Stat 3: 24/7 Operations */}
-            <div className="group flex flex-col md:border-l border-[#1e2b4d]/10 md:pl-8 hover:border-[#ea580c] transition-colors duration-500">
-              <div className="text-[#ea580c] mb-6 group-hover:-translate-y-1 transition-transform duration-300">
-                <Clock size={40} />
-              </div>
-              <h3 className="text-2xl font-bold text-[#1e2b4d] mb-4">Always Live</h3>
-              <p className="text-[#1e2b4d]/70 text-sm leading-relaxed">
-                Our logistics network never sleeps. From mid-day urgent dispatches to out-of-hours weekend support, we provide continuous operational live-tracking and response times that set the industry standard.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Full-width Navigation Ribbon */}
-        <div className="w-full bg-white border-y border-[#1e2b4d]/10 mt-12 py-6 flex whitespace-nowrap overflow-hidden relative z-10 shadow-sm">
-          <div className="animate-marquee flex items-center shrink-0">
-            {[...Array(8)].map((_, i) => (
-              <React.Fragment key={i}>
-                <span className="text-[#1e2b4d] font-bold uppercase tracking-[0.25em] text-sm mx-10">Regent Street, London</span>
-                <span className="text-[#1e2b4d]/20 text-xl font-light">•</span>
-                <span className="text-[#1e2b4d] font-bold uppercase tracking-[0.25em] text-sm mx-10">Nationwide Coverage</span>
-                <span className="text-[#1e2b4d]/20 text-xl font-light">•</span>
-                <span className="text-[#1e2b4d] font-bold uppercase tracking-[0.25em] text-sm mx-10">Same-Day Priority</span>
-                <span className="text-[#1e2b4d]/20 text-xl font-light">•</span>
-              </React.Fragment>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Services Ecosystem (Hover Image Split) */}
-      <section className="py-16 md:py-24 bg-white border-b border-[#1e2b4d]/5 relative overflow-hidden">
-        {/* Subtle decorative background element */}
-        <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-[#ea580c]/[0.025] rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#1e2b4d]/[0.02] rounded-full blur-[100px] pointer-events-none" />
-
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-          <div className="flex flex-col md:flex-row justify-between md:items-end mb-12">
-            <div className="max-w-2xl">
-              <div className="inline-flex items-center space-x-2 px-4 py-1.5 bg-[#f8fafc] border border-[#1e2b4d]/10 shadow-sm rounded-full mb-6">
-                <Package size={14} className="text-[#ea580c]" />
-                <span className="text-[10px] font-bold uppercase tracking-widest text-[#1e2b4d]">The Services Ecosystem</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#1e2b4d]">
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-blue-950 leading-[1.05] uppercase">
                 Professional Logistics <br />
-                <span className="text-[#ea580c]">Powering Your Growth</span>
+                <span className="text-blue-600">Powering Your Growth</span>
               </h2>
             </div>
-            <div className="hidden md:block">
-              <Link href="/services" className="inline-flex items-center gap-2 text-[#ea580c] font-bold hover:text-[#1e2b4d] transition-colors uppercase tracking-widest text-sm">
-                View All Services <ArrowRight className="w-4 h-4 ml-2" />
-              </Link>
-            </div>
+            <Link href="/services" className="flex items-center gap-3 text-blue-600 font-bold text-xs uppercase tracking-widest pb-2 border-b-2 border-blue-600 hover:text-blue-800 hover:border-blue-800 transition-all">
+              View All Services <ArrowRight size={16} />
+            </Link>
           </div>
 
-          {/* Two-column layout: image fixed left, list scrolls right */}
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start border-t border-[#1e2b4d]/10 pt-16">
-
-            {/* Left: Dynamic Image (Desktop only) — fixed height, not sticky grid */}
-            <div className="hidden lg:flex lg:w-[45%] shrink-0">
-              <div className="relative w-full" style={{ height: '640px' }}>
-                {/* Outer frame border detail */}
-                <div className="absolute -top-3 -left-3 w-16 h-16 border-t-2 border-l-2 border-[#ea580c]/40 z-20 pointer-events-none" />
-                <div className="absolute -bottom-3 -right-3 w-16 h-16 border-b-2 border-r-2 border-[#ea580c]/40 z-20 pointer-events-none" />
-                <div className="overflow-hidden rounded-2xl h-full shadow-2xl shadow-[#1e2b4d]/10 relative">
-                  {SERVICES.map((service, i) => (
-                    <div
-                      key={i}
-                      className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${hoveredService === i ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"}`}
-                    >
-                      <Image
-                        src={service.image}
-                        alt={service.title}
-                        fill
-                        sizes="45vw"
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#1e2b4d]/95 via-[#1e2b4d]/30 to-transparent" />
-                      <div className="absolute bottom-0 left-0 right-0 p-10">
-                        <div className="inline-flex items-center gap-2 bg-[#ea580c] px-4 py-1.5 rounded-full text-white text-[10px] font-bold uppercase tracking-widest mb-4">
-                          0{i + 1} — Service
-                        </div>
-                        <h4 className="text-3xl font-bold text-white">{service.title}</h4>
-                        <p className="text-white/70 text-sm font-medium mt-2 leading-relaxed">{service.desc}</p>
+          {/* Grid Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start pt-10">
+            
+            {/* Left Column: Visual Card */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative h-[600px] rounded-[3rem] overflow-hidden bg-blue-50 border border-blue-100 shadow-2xl">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeService}
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.5 }}
+                    className="absolute inset-0"
+                  >
+                    <Image 
+                      src={SERVICES[activeService].image} 
+                      alt={SERVICES[activeService].title} 
+                      fill 
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-950/20 to-transparent" />
+                    
+                    <div className="absolute bottom-0 left-0 p-12 space-y-6">
+                      <div className="inline-block px-4 py-1.5 bg-blue-600 text-white rounded-full text-[10px] font-bold uppercase tracking-widest">
+                        0{activeService + 1} — Service
                       </div>
+                      <h3 className="text-4xl font-bold text-white tracking-tight uppercase leading-none">
+                        {SERVICES[activeService].title}
+                      </h3>
+                      <p className="text-white/60 text-lg leading-relaxed max-w-sm">
+                        {SERVICES[activeService].desc}
+                      </p>
                     </div>
-                  ))}
-                </div>
+                  </motion.div>
+                </AnimatePresence>
               </div>
+              
+              {/* Decorative accent lines */}
+              <div className="absolute -bottom-4 -right-4 w-64 h-64 border-b-2 border-r-2 border-blue-600/20 rounded-[3rem] -z-10" />
             </div>
 
-            {/* Right: Service List — elevated style */}
-            <div className="flex flex-col flex-1 min-w-0">
+            {/* Right Column: Interactive List */}
+            <div className="lg:col-span-7 flex flex-col divide-y divide-blue-900/10">
               {SERVICES.map((service, i) => (
-                <Link
+                <button
                   key={i}
-                  href={service.link}
-                  onMouseEnter={() => setHoveredService(i)}
-                  className={`group flex items-center gap-6 py-7 border-b transition-all duration-300 cursor-pointer ${hoveredService === i
-                      ? "border-[#ea580c]/40 bg-gradient-to-r from-[#ea580c]/[0.03] to-transparent"
-                      : "border-[#1e2b4d]/5 hover:border-[#ea580c]/20"
-                    }`}
+                  onClick={() => setActiveService(i)}
+                  className="group py-10 flex items-center justify-between text-left transition-all relative overflow-hidden"
                 >
-                  {/* Number badge */}
-                  <div className={`shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-xs font-black tracking-widest transition-all duration-300 border ${hoveredService === i ? "bg-[#ea580c] border-[#ea580c] text-white shadow-lg shadow-[#ea580c]/30" : "bg-white border-[#1e2b4d]/10 text-[#1e2b4d]/40"
+                  <div className="flex items-center gap-8 relative z-10">
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center border text-sm font-bold transition-all ${
+                      activeService === i ? "bg-blue-600 border-blue-600 text-white shadow-lg shadow-blue-600/30" : "bg-white border-blue-900/10 text-blue-900/40 group-hover:border-blue-600 group-hover:text-blue-600"
                     }`}>
-                    0{i + 1}
-                  </div>
-
-                  {/* Text */}
-                  <div className="flex-1 min-w-0">
-                    <h3 className={`text-xl md:text-2xl font-bold tracking-tight transition-colors duration-300 ${hoveredService === i ? "text-[#ea580c]" : "text-[#1e2b4d] group-hover:text-[#ea580c]"
+                      0{i + 1}
+                    </div>
+                    <div className="space-y-1">
+                      <h4 className={`text-xl md:text-2xl font-bold uppercase tracking-tight transition-all ${
+                        activeService === i ? "text-blue-600" : "text-blue-950 group-hover:text-blue-600"
                       }`}>
-                      {service.title}
-                    </h3>
-                    <p className="text-sm font-medium text-[#1e2b4d]/50 leading-relaxed mt-1 line-clamp-2">
-                      {service.desc}
-                    </p>
-                    {/* Mobile image */}
-                    <div className="mt-4 lg:hidden w-full h-40 relative overflow-hidden rounded-xl border border-[#1e2b4d]/10">
-                      <Image src={service.image} alt={service.title} fill sizes="100vw" className="object-cover" />
+                        {service.title}
+                      </h4>
+                      <p className={`text-sm max-w-md transition-all ${
+                        activeService === i ? "text-blue-900/60" : "text-blue-900/30 group-hover:text-blue-900/60"
+                      }`}>
+                        {service.desc}
+                      </p>
                     </div>
                   </div>
-
-                  {/* Arrow */}
-                  <div className={`shrink-0 w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${hoveredService === i ? "bg-[#ea580c] border-[#ea580c] text-white translate-x-1" : "bg-white border-[#1e2b4d]/10 text-[#1e2b4d]/30"
-                    }`}>
-                    <ArrowRight size={16} />
+                  <div className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all relative z-10 ${
+                    activeService === i ? "bg-blue-600 border-blue-600 text-white" : "bg-white border-blue-900/10 text-blue-900/20 group-hover:border-blue-600 group-hover:text-blue-600"
+                  }`}>
+                    <ArrowRight size={18} />
                   </div>
-                </Link>
+                </button>
               ))}
-
-              {/* Mobile View All */}
-              <div className="lg:hidden mt-10">
-                <Link href="/services" className="inline-flex w-full items-center justify-center gap-2 text-[#ea580c] font-bold uppercase tracking-widest text-xs bg-[#ea580c]/5 px-6 py-4 border border-[#ea580c]/20 rounded-full hover:bg-[#ea580c] hover:text-white transition-all">
-                  View All Services <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
             </div>
+
           </div>
         </div>
       </section>
+      
+      {/* 4. How It Works - Billo Template */}
+      <HowItWorks />
 
-      {/* Old HowItWorks Location - Relocated to position 3 */}
+      {/* 4. Value Prop ("Why Us") */}
+      <WhyChooseUs />
 
-      {/* Old Experience Block Location - Relocated to position 2 */}
+      {/* 5. Social Proof */}
+      <Testimonials />
 
-
-      {/* Section divider */}
-      {/* 9. Testimonials (Minimalist) */}
-      <section className="py-16 md:py-20 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 mb-4 relative">
-        <div className="flex flex-col items-center text-center space-y-4 mb-12">
-          <div className="inline-flex items-center space-x-2 px-4 py-1.5 bg-[#f8fafc] border border-[#1e2b4d]/10 shadow-sm rounded-full">
-            <Star size={14} className="text-[#ea580c]" />
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#1e2b4d]">Client Testimonials</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#1e2b4d]">
-            Excellence in <span className="text-[#ea580c]">Motion</span>
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
-          {[
-            { name: "Robert Jhonson", role: "MD, Retail Focus", text: "Delivered 200 units to our Manchester store in under 4 hours. Absolute game changer." },
-            { name: "Marko Daniel", role: "Ops, HealthConnect", text: "Finally found a courier that understands urgency and medical sensitivity. Flawless execution." },
-            { name: "Jake Nicholson", role: "Chef, Green Table", text: "The same-day ingredient delivery is flawless. Never missed a dinner service because of them." },
-          ].map((quote, i) => (
-            <div key={i} className="flex flex-col space-y-8 group">
-              <div className="text-[#ea580c] opacity-30 group-hover:opacity-100 transition-opacity duration-300" style={{ fontSize: "5rem", lineHeight: "0" }}>
-                "
-              </div>
-              <p className="text-xl md:text-2xl font-medium tracking-tight leading-relaxed text-[#111827] mt-8">
-                {quote.text}
-              </p>
-              <div className="pt-8 mt-auto flex items-center space-x-4 border-t border-black/5">
-                <div className="h-12 w-12 rounded-full overflow-hidden relative shadow-sm border border-black/5">
-                  <Image src={i % 2 === 0 ? "/hero-truck.jpg" : "/svc-contract.jpg"} alt={quote.name} fill sizes="48px" className="object-cover" />
-                </div>
-                <div>
-                  <p className="font-bold text-[#111827]">{quote.name}</p>
-                  <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">{quote.role}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Testimonials section was here, moving FAQ below it */}
-
-      {/* Testimonials already exists above */}
-
-      {/* 12. FAQ Section */}
+      {/* 6. FAQ */}
       <FAQ />
 
-      {/* 13. Contact / Quote Form Section */}
-      <section id="quote-form" className="bg-white">
-        <QuoteForm />
+      {/* 7. Contact / Quote Form - Reverted to Requested Template */}
+      <section id="quote-form" className="py-24 md:py-32 bg-white flex justify-center overflow-hidden">
+        <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+            
+            {/* Left Content Column */}
+            <div className="lg:col-span-5 space-y-12">
+              <div className="space-y-8">
+                <div className="inline-flex items-center space-x-2 px-4 py-2 border border-blue-900/10 rounded-full">
+                  <div className="w-2 h-2 rounded-full border border-blue-600 flex items-center justify-center">
+                    <div className="w-1 h-1 bg-blue-600 rounded-full" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-blue-900">Request a quote</span>
+                </div>
+                <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-blue-950 leading-[1.05] uppercase">
+                  Connect with our <br />
+                  <span className="text-blue-600">Logistics</span> <br />
+                  experts.
+                </h2>
+                <p className="text-blue-900/40 text-lg md:text-xl font-medium leading-relaxed max-w-lg">
+                  Our team is standing by to architect your mission-critical delivery strategy. Experience the next generation of logistics infrastructure.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+                <div className="space-y-3">
+                  <h4 className="text-[10px] font-bold text-blue-900/30 uppercase tracking-[0.2em]">Global HQ</h4>
+                  <p className="text-blue-950 font-bold leading-relaxed text-sm">
+                    {BRAND.address}
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  <h4 className="text-[10px] font-bold text-blue-900/30 uppercase tracking-[0.2em]">Direct Line</h4>
+                  <p className="text-blue-950 font-bold text-xl">{BRAND.phone}</p>
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-blue-600 rounded-full animate-pulse" />
+                    <span className="text-[9px] font-bold text-blue-600 uppercase tracking-widest">24/7 Priority Support</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Form Column */}
+            <div className="lg:col-span-7">
+              <QuoteForm />
+            </div>
+
+          </div>
+        </div>
       </section>
 
     </div>

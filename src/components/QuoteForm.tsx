@@ -1,143 +1,125 @@
 "use client";
 
-import React from "react";
-import { ArrowRight, ShieldCheck, ChevronDown, MessageSquare } from "lucide-react";
-import { BRAND } from "@/lib/constants";
+import React, { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 const QuoteForm = () => {
-  return (
-    <section className="py-24 md:py-32 bg-white relative overflow-hidden" id="quote-form">
-      {/* Subtle decorative glow */}
-      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[#ea580c]/5 rounded-full blur-[100px] pointer-events-none" />
-      
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
-          
-          {/* Left Column: Contact & Information */}
-          <div className="lg:col-span-5 space-y-12">
-            <div className="space-y-8">
-              <div className="inline-flex items-center space-x-2 px-4 py-2 border border-[#1e2b4d]/10 rounded-full bg-[#f8fafc]">
-                <div className="h-6 w-6 rounded-full bg-white shadow-sm flex items-center justify-center">
-                  <MessageSquare size={12} className="text-[#ea580c]" />
-                </div>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-[#1e2b4d]">Request a Quote</span>
-              </div>
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-[0.9] text-[#1e2b4d]">
-                CONNECT <br/>
-                WITH OUR <br/>
-                <span className="text-[#ea580c]">LOGISTICS</span> <br/>
-                EXPERTS.
-              </h2>
-              <p className="text-[#1e2b4d]/60 text-lg leading-relaxed max-w-md font-medium">
-                Our team is standing by to architect your mission-critical delivery strategy. Experience the next generation of logistics infrastructure.
-              </p>
-            </div>
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    details: ""
+  });
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 pt-4">
-              <div className="space-y-3">
-                <h4 className="text-[10px] font-bold text-[#1e2b4d]/40 uppercase tracking-widest">Global HQ</h4>
-                <p className="text-sm font-bold text-[#1e2b4d] leading-relaxed uppercase tracking-tight">
-                  {BRAND.address}
-                </p>
-              </div>
-              <div className="space-y-3">
-                <h4 className="text-[10px] font-bold text-[#1e2b4d]/40 uppercase tracking-widest">Direct Line</h4>
-                <p className="text-sm font-bold text-[#1e2b4d] tracking-tight">
-                  {BRAND.phone}
-                </p>
-                <div className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#ea580c] animate-pulse" />
-                  <p className="text-[10px] text-[#ea580c] font-bold uppercase tracking-widest">24/7 Priority Support</p>
-                </div>
-              </div>
-            </div>
+  const services = [
+    "Urgent and priority delivery",
+    "Business courier accounts",
+    "Document and legal delivery",
+    "Man with a van / Removals",
+    "Collection-only service"
+  ];
+
+  return (
+    <div className="w-full bg-[#F8F9FA] p-8 md:p-12 rounded-[3rem] border border-blue-900/5 shadow-inner">
+      <form className="space-y-8">
+        
+        {/* Name & Email Row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-3">
+            <label className="text-[9px] font-bold text-blue-900/40 uppercase tracking-widest block ml-4">
+              Full Name
+            </label>
+            <input 
+              type="text" 
+              placeholder="Enter full name"
+              className="w-full bg-white border border-blue-900/5 rounded-2xl px-6 py-4 text-blue-950 placeholder:text-blue-900/20 focus:outline-none focus:border-blue-600/20 focus:ring-4 focus:ring-blue-600/5 transition-all font-medium text-sm"
+              value={formData.name}
+              onChange={(e) => setFormData({...formData, name: e.target.value})}
+            />
           </div>
 
-          {/* Spacer */}
-          <div className="hidden lg:block lg:col-span-1" />
-
-          {/* Right Column: Minimalist Refined Form */}
-          <div className="lg:col-span-6 bg-[#f8fafc] border border-[#1e2b4d]/5 rounded-[2.5rem] p-8 md:p-12 lg:p-16 shadow-xl shadow-black/[0.02]">
-             <form className="space-y-12">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-                  <div className="group relative">
-                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#1e2b4d]/40 mb-2 block transition-colors group-focus-within:text-[#ea580c]">Full Name</label>
-                    <input 
-                      type="text" 
-                      placeholder="Enter full name" 
-                      className="w-full bg-white border border-[#1e2b4d]/5 rounded-xl px-5 py-4 focus:outline-none focus:border-[#ea580c] focus:ring-4 focus:ring-[#ea580c]/5 transition-all text-base font-bold text-[#1e2b4d] shadow-sm" 
-                    />
-                  </div>
-                  <div className="group relative">
-                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#1e2b4d]/40 mb-2 block transition-colors group-focus-within:text-[#ea580c]">Email Address</label>
-                    <input 
-                      type="email" 
-                      placeholder="corporate@email.com" 
-                      className="w-full bg-white border border-[#1e2b4d]/5 rounded-xl px-5 py-4 focus:outline-none focus:border-[#ea580c] focus:ring-4 focus:ring-[#ea580c]/5 transition-all text-base font-bold text-[#1e2b4d] shadow-sm" 
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 gap-y-10">
-                  <div className="group relative">
-                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#1e2b4d]/40 mb-2 block transition-colors group-focus-within:text-[#ea580c]">Mobile Number</label>
-                    <input 
-                      type="tel" 
-                      placeholder="+44 000 000 0000" 
-                      className="w-full bg-white border border-[#1e2b4d]/5 rounded-xl px-5 py-4 focus:outline-none focus:border-[#ea580c] focus:ring-4 focus:ring-[#ea580c]/5 transition-all text-base font-bold text-[#1e2b4d] shadow-sm" 
-                    />
-                  </div>
-                  <div className="group relative">
-                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#1e2b4d]/40 mb-2 block transition-colors group-focus-within:text-[#ea580c]">Infrastructure Need</label>
-                    <div className="relative">
-                      <select className="w-full bg-white border border-[#1e2b4d]/5 rounded-xl pl-5 pr-12 py-4 focus:outline-none focus:border-[#ea580c] transition-all text-base font-bold text-[#1e2b4d] appearance-none cursor-pointer shadow-sm">
-                        <option>Select required service...</option>
-                        <option>Urgent Priority</option>
-                        <option>Business Accounts</option>
-                        <option>Document & Legal</option>
-                        <option>Van & Removals</option>
-                        <option>Collection Only</option>
-                        <option>Out-of-Hours Delivery</option>
-                      </select>
-                      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-[#ea580c]">
-                        <ChevronDown size={18} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="group relative">
-                   <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#1e2b4d]/40 mb-2 block transition-colors group-focus-within:text-[#ea580c]">Project Particulars</label>
-                   <textarea 
-                     rows={3} 
-                     placeholder="Describe your logistical requirements..." 
-                     className="w-full bg-white border border-[#1e2b4d]/5 rounded-xl px-5 py-4 focus:outline-none focus:border-[#ea580c] focus:ring-4 focus:ring-[#ea580c]/5 transition-all text-base font-bold text-[#1e2b4d] resize-none shadow-sm" 
-                   />
-                </div>
-
-                <div className="pt-4">
-                  <button type="submit" className="group relative w-full bg-[#1e2b4d] text-white font-bold py-6 rounded-xl overflow-hidden transition-all hover:shadow-2xl hover:shadow-[#1e2b4d]/20 active:scale-[0.98]">
-                    <div className="absolute inset-0 w-0 bg-[#ea580c] transition-all duration-500 ease-in-out group-hover:w-full" />
-                    <span className="relative z-10 text-xs uppercase tracking-[0.3em] flex items-center justify-center gap-4">
-                      Get instant quote
-                      <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform duration-500" />
-                    </span>
-                  </button>
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mt-10 opacity-40">
-                    <p className="text-[8px] font-bold uppercase tracking-[0.25em] flex items-center gap-2 text-[#1e2b4d]">
-                      <ShieldCheck size={12} className="text-[#ea580c]" />
-                      ENCRYPTED SSL SECURE PORTAL
-                    </p>
-                    <p className="text-[8px] font-bold uppercase tracking-[0.25em] text-[#1e2b4d]">
-                      PRIORITY RESPONSE ENABLED
-                    </p>
-                  </div>
-                </div>
-             </form>
+          <div className="space-y-3">
+            <label className="text-[9px] font-bold text-blue-900/40 uppercase tracking-widest block ml-4">
+              Email Address
+            </label>
+            <input 
+              type="email" 
+              placeholder="corporate@email.com"
+              className="w-full bg-white border border-blue-900/5 rounded-2xl px-6 py-4 text-blue-950 placeholder:text-blue-900/20 focus:outline-none focus:border-blue-600/20 focus:ring-4 focus:ring-blue-600/5 transition-all font-medium text-sm"
+              value={formData.email}
+              onChange={(e) => setFormData({...formData, email: e.target.value})}
+            />
           </div>
         </div>
-      </div>
-    </section>
+
+        {/* Mobile Number */}
+        <div className="space-y-3">
+          <label className="text-[9px] font-bold text-blue-900/40 uppercase tracking-widest block ml-4">
+            Mobile Number
+          </label>
+          <input 
+            type="tel" 
+            placeholder="+44 000 000 0000"
+            className="w-full bg-white border border-blue-900/5 rounded-2xl px-6 py-4 text-blue-950 placeholder:text-blue-900/20 focus:outline-none focus:border-blue-600/20 focus:ring-4 focus:ring-blue-600/5 transition-all font-medium text-sm"
+            value={formData.phone}
+            onChange={(e) => setFormData({...formData, phone: e.target.value})}
+          />
+        </div>
+
+        {/* Infrastructure Need (Service Select) */}
+        <div className="space-y-3">
+          <label className="text-[9px] font-bold text-blue-900/40 uppercase tracking-widest block ml-4">
+            Infrastructure Need
+          </label>
+          <div className="relative group">
+            <select 
+              className="w-full bg-white border border-blue-900/5 rounded-2xl px-6 py-4 text-blue-950 focus:outline-none focus:border-blue-600/20 focus:ring-4 focus:ring-blue-600/5 transition-all font-medium text-sm appearance-none cursor-pointer"
+              value={formData.service}
+              onChange={(e) => setFormData({...formData, service: e.target.value})}
+            >
+              <option value="" disabled>Select required service...</option>
+              {services.map(s => <option key={s} value={s}>{s}</option>)}
+            </select>
+            <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-blue-600">
+              <ChevronDown size={16} />
+            </div>
+          </div>
+        </div>
+
+        {/* Project Particulars */}
+        <div className="space-y-3">
+          <label className="text-[9px] font-bold text-blue-900/40 uppercase tracking-widest block ml-4">
+            Project Particulars
+          </label>
+          <textarea 
+            placeholder="Describe your logistical requirements..."
+            rows={4}
+            className="w-full bg-white border border-blue-900/5 rounded-2xl px-6 py-4 text-blue-950 placeholder:text-blue-900/20 focus:outline-none focus:border-blue-600/20 focus:ring-4 focus:ring-blue-600/5 transition-all font-medium text-sm resize-none"
+            value={formData.details}
+            onChange={(e) => setFormData({...formData, details: e.target.value})}
+          />
+        </div>
+
+        {/* Submit Button */}
+        <button 
+          className="w-full py-6 bg-blue-950 text-white rounded-2xl font-bold text-[10px] uppercase tracking-[0.2em] flex items-center justify-center gap-3 hover:bg-blue-900 transition-all shadow-xl shadow-blue-950/20"
+        >
+          Get Instant Quote <span>→</span>
+        </button>
+
+        {/* Form Footer */}
+        <div className="flex justify-between items-center px-4 pt-2">
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full border border-blue-600/30 flex items-center justify-center">
+              <div className="w-1 h-1 bg-blue-600 rounded-full" />
+            </div>
+            <span className="text-[8px] font-bold text-blue-900/30 uppercase tracking-widest">Encrypted SSL Secure Portal</span>
+          </div>
+          <span className="text-[8px] font-bold text-blue-900/30 uppercase tracking-widest">Priority Response Enabled</span>
+        </div>
+      </form>
+    </div>
   );
 };
 

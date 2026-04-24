@@ -13,21 +13,17 @@ const trustItems = [
 
 const TrustBar = () => {
   return (
-    <section className="bg-zinc-50 border-b border-border py-4 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-wrap justify-center md:justify-between items-center gap-8 md:gap-4">
+    <section className="bg-white border-y border-blue-50 py-8 overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className="flex flex-wrap justify-center md:justify-between items-center gap-12">
           {trustItems.map((item, i) => (
-            <motion.div 
+            <div 
               key={i} 
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className="flex items-center space-x-2 text-muted whitespace-nowrap"
+              className="flex items-center space-x-3 text-blue-950/40 whitespace-nowrap"
             >
-              <item.icon size={16} className="text-accent" />
-              <span className="text-[10px] font-bold uppercase tracking-widest">{item.text}</span>
-            </motion.div>
+              <item.icon size={18} className="text-blue-600" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em]">{item.text}</span>
+            </div>
           ))}
         </div>
       </div>
